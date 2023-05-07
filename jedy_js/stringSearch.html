@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAVASCRIPT PRACTICE</title>
+  </head>
+  <body>
+    <h1> Javascript String Search Methods</h1>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    <p id="demo9"></p>   
+    <p id="demo10"></p> 
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+    <p id="demo13"></p>
+    <p id="demo14"></p>
+    <p id="demo15"></p>
+    <p id="demo16"></p>
+    <p id="demo17"></p>
+    <p id="demo18"></p>
+    <p id="demo19"></p>
+    <p id="demo20"></p>
+    <p id="demo21"></p>
+    <p id="demo22"></p>
+    <p id="demo23"></p>
+    <p id="demo24"></p>
+    <p id="demo25"></p>
+    <p id="demo26"></p>
+    
+
+    
+
+
+    <script type="text/javascript">
+      let text = "Please locate where 'locate' occurs!";
+      document.getElementById("demo").innerHTML = text.indexOf("locate");  //ans: 7
+
+
+      let text2 = "Please locate where 'locate' occurs!";
+      document.getElementById("demo2").innerHTML = text2.lastIndexOf("locate");//ans: 21
+
+      let text3 = "Please locate where 'locate' occurs!";
+      document.getElementById("demo3").innerHTML = text3.indexOf("locate", 15);//ans: 21
+
+      let text4 = "Please locate where 'locate' occurs!";
+      document.getElementById("demo4").innerHTML = text4.lastIndexOf("locate", 15);//ans: 7
+
+      let text5 = "Please locate where 'locate' occurs!";
+      document.getElementById("demo5").innerHTML = text5.search("locate"); //ans: 7
+
+      let text6 = "Please locate where 'locate' occurs!";
+      document.getElementById("demo6").innerHTML = text6.search(/locate/); //ans: 7
+
+      let text7 = "The rain in SPAIN stays mainly in the plain";
+      const myArr = text7.match("ain");
+      document.getElementById("demo7").innerHTML = myArr.length + " " + myArr;//the length is 1 and the array is ain
+
+      let text8 = "The rain in SPAIN stays mainly in the plain"; 
+      const myArr2 = text8.match(/ain/);
+      document.getElementById("demo8").innerHTML = myArr2.length + " " + myArr2; //the length is 1 and the array is ain
+
+      let text9 = "The rain in SPAIN stays mainly in the plain"; //Perform a global search for "ain"
+      const myArr3 = text9.match(/ain/g);
+      document.getElementById("demo9").innerHTML = myArr3.length + " " + myArr3; //the length is 3 and the array is ain ain ain
+
+      let text10 = "The rain in SPAIN stays mainly in the plain"; //global,case-insensitive search for "ain"
+      const myArr4 = text10.match(/ain/gi);
+      document.getElementById("demo10").innerHTML = myArr4.length + " " + myArr4; //the length is 4 and the array is ain AIN ain ain
+
+      let text11 = "I love cats. Cats are very easy to love. Cats are very popular."
+      const iterator = text11.matchAll("Cats");
+      document.getElementById("demo11").innerHTML = Array.from(iterator);//ans: Cats Cats
+
+      let text12 = "I love cats. Cats are very easy to love. Cats are very popular."
+      const iterator2 = text12.matchAll(/Cats/g);
+      document.getElementById("demo12").innerHTML = Array.from(iterator2);//ans: Cats Cats
+
+      let text13 = "I love cats. Cats are very easy to love. Cats are very popular."
+      const iterator3 = text13.matchAll(/Cats/gi);
+      document.getElementById("demo13").innerHTML = Array.from(iterator3);//ans: cats Cats Cats
+
+      let text14 = "I love cats. Cats are very easy to love. Cats are very popular."
+      const iterator4 = text14.matchAll(/Cats/gi);
+      document.getElementById("demo14").innerHTML = Array.from(iterator4) + " " + iterator4.length; //ans: cats Cats Cats.
+      //Note: The ans for the iterator4.lenght is: undefine.
+      //Because of as shown in console.log(): RegExpStringIterator {}[[Prototype]]: RegExp String Iterator
+
+      let text15 = "Hello world, welcome to the universe.";
+      document.getElementById("demo15").innerHTML = text15.includes("world");//ans: true
+      /* Check if a string includes "world". Start at position 12:
+
+        let text15 = "Hello world, welcome to the universe.";
+        document.getElementById("demo15").innerHTML = text15.includes("world", 12);//ans: false;
+        includes() is case sensitive.
+
+        includes() is an ES6 feature.
+      */
+
+      let text16 = "Hello world, welcome to the universe.";
+      document.getElementById("demo16").innerHTML = text16.startsWith("Hello");//ans: true
+      /*A start position for the search can be specified:
+
+        Returns false:
+        let text = "Hello world, welcome to the universe.";
+        text.startsWith("world", 5)
+
+        Returns true:
+        let text = "Hello world, welcome to the universe.";
+        text.startsWith("world", 6)
+      */
+
+      let text17 = "John Doe";
+      document.getElementById("demo17").innerHTML = text17.endsWith("Doe");//ans: true
+      /*Check if the 11 first characters of a string ends with "world":
+
+      let text = "Hello world, welcome to the universe.";
+      text.endsWith("world", 11);
+      */
+
+
+
+
+
+    </script>
+  </body>
+</html>
+
+

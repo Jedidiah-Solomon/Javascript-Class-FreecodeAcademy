@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleDev JS Class</title>
+</head>
+<body>
+    <a href="https://supersimple.dev/courses/javascript-beginner-course-20201" target="_blank">Link to Course</a>
+    <p id="demo"></p>
+    <script>
+       document.body.innerHTML = 'Hello i have changed this page&#39;s body to be this text';
+       document.getElementById('demo').innerHTML = "This is a p-tag, " + " and type of Hello is " +
+        typeof "Hello" + " and for 12 is " + typeof 12;
+    </script>
+
+<script>
+    let todo1 = 'Get groceries';
+    let todo2 = 'Wash car';
+    let todo3 = 'Make dinner';
+
+    let element = document.createElement('div');
+    element.innerText = todo1;
+    document.body.appendChild(element);
+
+    element = document.createElement('div');     //re-using the variable again but dont use let
+    element.innerText = todo2;
+    document.body.appendChild(element);
+
+    element = document.createElement('div');     //re-using the variable again but dont use let
+    element.innerText = todo3;
+    document.body.appendChild(element);
+    
+ </script>
+
+<script>
+    let myButtonText = 'Sign Up';
+    let myButtonText2 = 'Login';
+
+
+
+   let myButton = document.createElement('button');
+   myButton.innerText = myButtonText ;
+   document.body.appendChild(myButton);
+
+   myButton = document.createElement('button');
+   myButton.innerText = myButtonText2;
+   document.body.appendChild(myButton);
+
+   
+</script>
+</body>
+</html>
+
+let month = 'March';
+let dayOfMonth = '3rd';
+let year = '2023';
+console.log('Today is' + month + dayOfMonth + 'in year' + '2023';
+
+
+
+
+CHANGE THE TITLE OF A WEB PAGE
+<!DOCTYPE html>
+<html>
+<title> Jedybrown's Todo App</title>
+
+<body>
+<h1>The Document Object</h1>
+<h2>The title Property</h2>
+
+<p>The title of this document is:</p>
+<p id="demo1"></p>
+
+<script>
+document.getElementById("demo1").innerHTML = document.title; //Get the webpage title
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<title>My title</title>
+
+<body>
+<h1>The Document Object</h1>
+<h2>Tod App</h2>
+
+<p>The title of this document is:</p>
+<p id="demo2"></p>
+
+<script>
+document.title = "Jedybrown's Todo App";
+document.getElementById("demo2").innerHTML = document.title;
+</script>
+
+</body>
+</html>
+
+
+Definition and Usage
+The title property sets or returns the title of the document.
+
+Syntax
+Return the title property:
+
+document.title
+Set the title property:
+
+document.title = newTitle
+
+
+Method 1: Using JavaScript document.title property.
+
+This property is used to set or return the current title of the document.
+ The title of the page can be changed by assigning the new title as a string to this property. 
+This will change the title of the website to the preferred title. 
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		How to dynamically change a web
+		page’s title using JavaScript ?
+	</title>
+</head>
+
+<body>
+	
+	<b>
+		How to dynamically change a web
+		page’s title using JavaScript ?
+	</b>
+	
+	<p>
+		Click on the button to change the page
+		title to: "The title has changed!"
+	</p>
+	
+	<button onclick="changePageTitle()">
+		Change Page Title
+	</button>
+	
+	<script type="text/javascript">
+		function changePageTitle() {
+			newPageTitle = 'The title has changed!';
+			document.title = newPageTitle;
+		}
+	</script>
+</body>
+
+</html>
+
+OR
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		How to dynamically change a web
+		page’s title using JavaScript ?
+	</title>
+</head>
+
+<body>
+	
+	<b>
+		How to dynamically change a web
+		page’s title using JavaScript ?
+	</b>
+	
+	<p>
+		Click on the button to change the page
+		title to: "The title has changed!"
+	</p>
+	
+	<button onclick="changePageTitle()">
+		Change Page Title
+	</button>
+	
+	<script type="text/javascript">
+		function changePageTitle() {
+			document.title = 'The title has changed!';
+        }
+	</script>
+</body>
+
+</html>
+
+
+OR
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		How to dynamically change a web
+		page’s title using JavaScript ?
+	</title>
+</head>
+
+<body>
+	
+	
+	<b>
+		How to dynamically change a web
+		page’s title using JavaScript ?
+	</b>
+	
+	<p>
+		Click on the button to change the page
+		title to: "The title has changed!"
+	</p>
+	
+	<button onclick="changePageTitle()">
+		Change Page Title
+	</button>
+	
+	<script type="text/javascript">
+		function changePageTitle() {
+			let newPageTitle = 'The title has changed!';
+			document.querySelector('title').textContent
+					= newPageTitle;
+		}
+	</script>
+</body>
+
+</html>
+
+Method 2: Using DOM querySelector() Method.
+
+This method is used to select elements in the document. The title element can be selected by
+ specifying the title element in the selector as a parameter. This will return the current title
+  element of the page. The textContent property of an element returns the text content of a specific node.
+   The title of the page can be changed by assigning the required new title as a string to the
+    textContent
+    property. 
+This will change the title of the webpage.
+
+======================
+ <script>
+    let todo1 = 'Get groceries';
+    let todo2 = 'Wash car';
+    let todo3 = 'Make dinner';
+
+    
+     function addTodo() {
+        let element = document.createElement('div');
+        element.innerText = todo1;
+        document.body.appendChild(element);
+
+     }
+       
+       addTodo();
+    </script>
+
+     <script>
+   
+
+
+     function addTodo(todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+
+     }
+       
+       addTodo('Rice');
+    </script>
+<script>
+    let todo1 = 'Get groceries';
+    let todo2 = 'Wash car';
+    let todo3 = 'Make dinner';
+
+
+
+     function addTodo(todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+
+     }
+       
+       addTodo(todo1);
+    </script>
+
+
+    <script>
+    let todo1 = 'Get groceries';
+    let todo2 = 'Wash car';
+    let todo3 = 'Make dinner';
+
+
+
+     function addTodo(todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+
+     }
+       
+       addTodo(todo1);
+       addTodo(todo2);
+       addTodo(todo3);
+    </script>
+
+    <script>
+       let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+       todos.push('Clean the house')  //push() adds element at the end
+       todos.forEach(function(todoTitle) {
+            let element = document.createElement('div');
+            element.innerText = todoTitle;
+            document.body.appendChild(element);
+
+       });
+    </script>
+
+    =====
+      <script>
+        function greeting(firstName) {
+            console.log('Hello ' + firstName);
+        }
+        greeting('Jedy');
+    </script>
+
+     <script>
+        function toUpper(str) {
+            stringResult = str.toUpperCase();
+            console.log('Your name in uppercase is  ' + stringResult);
+        }
+        toUpper('jedidiah');
+    </script>
+
+    or
+
+
+    <script>
+       function toUpper(str) {
+         console.log(str.toUpperCase());
+       }
+
+      toUpper('Simon');
+    </script>
+
+    Definition and Usage
+The toUpperCase() method converts a string to uppercase letters.
+
+The toUpperCase() method does not change the original string.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>To toUpperCase() Method</h2>
+
+<p>toUpperCase() converts a string to uppercase letters:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "Hello World!";
+let result = text.toUpperCase();
+
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
+
+Definition and Usage
+The toLowerCase() method converts a string to lowercase letters.
+
+The toLowerCase() method does not change the original string.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The toLowerCase() Method</h2>
+
+<p>toLowerCase() converts a string to lowercase letters:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "Hello World!";
+let result = text.toLowerCase();
+
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
+============
+<body>
+    <h1>Convert Inches to Centimetre</h1>
+    <p id="demo"></p>
+
+   
+    
+    <script>
+       function inchesToMetre(inches) {
+        let centiMetre = inches * 2.54;
+        document.getElementById('demo').innerHTML = inches + 'inches is equal to ' + centiMetre + 'cm' ;
+       }
+
+       inchesToMetre(2);
+
+       //OR USE THIS BELOW
+
+       /*function inchToCm(length) {
+  	      console.log(length * 2.54);
+		}
+	     inchToCm(10);*/
+
+    </script>
+
+</body>
+
+=========<!DOCTYPE html>
+<html>
+<body>
+<h1>JavScript Bigint</h1>
+<p>A BigInt can not have decimals.</p>
+
+<p id="demo"></p>
+
+<p>You cannot perform math between a BigInt type and a Number type.</p>
+
+<script>
+let x = 123456789012345678901234567890n;
+//let x = BigInt("123456789012345678901234567890");	or use this
+//let x = 123456789012345678901234567890;  this  Will give ans with exponential
+//let x = 1.0e6; means 1000000
+document.getElementById("demo").innerHTML = x;
+
+
+</script>
+
+</body>
+</html>
+==================
+JavaScript Arrays
+An array is a special variable, which can hold more than one value:
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+cars.push("Jeep");
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+cars[1] = "Jeep";
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+Using the JavaScript Keyword new
+The two examples above do exactly the same.
+
+There is no need to use new Array().
+
+For simplicity, readability and execution speed, use the array literal method.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = new Array("Saab", "Volvo", "BMW");
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+Accessing Array Elements
+You access an array element by referring to the index number
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>JavaScript array elements are accessed using numeric indexes (starting from 0).</p>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars[0];
+</script>
+
+</body>
+</html>
+
+Access the Full Array
+With JavaScript, the full array can be accessed by referring to the array name:
+
+Example
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+=================
+<script>
+       let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+       todos.push('Clean the house')  //push() adds element at the end
+       todos.pop();                     //pop() deletes the last element
+    </script>
+
+    ============
+     <script>
+       let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+       todos.push('Clean the house')  //push() adds element at the end
+       todos.forEach(function(todoTitle) {                      //this loops the array until end
+            let element = document.createElement('div');
+            element.innerText = todoTitle;
+            document.body.appendChild(element);
+
+       });
+    </script>
+    ========
+     <script>
+        let pollingUnits = ['abia1', 'umante32', '98Mpushi'];
+        pollingUnits.push('Niger39');
+
+        pollingUnits.forEach(function(pollingUnitName) {
+            console.log(pollingUnitName.toUpperCase());
+        })
+    </script>
+
+    <script>
+        function toUpper(pollingUnits) {
+          let result = [];
+
+          pollingUnits.forEach(function (pollingUnitName) {
+            result.push(pollingUnitName.toUpperCase());
+          });
+
+          console.log(result);
+        }
+        toUpper(['abia1', 'umante32', '98Mpushi']);
+    </script>
+
+     <script>
+        function arrayDouble(pollingUnits) {
+          let result = [];
+
+          pollingUnits.forEach(function (pollingUnitName) {
+            result.push(pollingUnitName);
+            result.push(pollingUnitName);
+          });
+
+          console.log(result);
+        }
+        arrayDouble(['abia1', 'umante32', '98Mpushi']);
+    </script>
+
+    ========
+    <script>
+        function arraySum(numArray) {
+          let total = 0;
+
+          numArray.forEach(function (num) {
+            total = total + num;
+          });
+
+          console.log(total);
+        }
+        arraySum([1, 2, 3]);
+        arraySum([5, -2, 7, 0]);
+    </script>
+    =
+    <button onclick="todos.push('new todos');" disabled>Disabled Button 1</button>
+    <button onclick="todos.push('new todos');" disabled="true">Disabled Button 2</button>
+    ===============
+    
+    <body>
+      <button onclick="addTODO()" >Press me</button>
+      <script>
+        let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+        todos.push('another todo');
+  
+        todos.forEach(function (todoTitle) {
+          let element = document.createElement('div');
+          element.innerText = todoTitle;
+          document.body.appendChild(element);
+        });
+  
+        function addTODO() {
+          todos.push('new todos');
+        }
+      </script>
+    </body>
+    ============
+    <html>
+  <head>
+    <title>My Todo App</title>
+  </head>
+  <body>
+    <input id="todo-title" type="text">
+    <button onclick="addTodo()">Add Todo</button>
+    <script>
+      let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+
+      todos.forEach(function (todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+      });
+
+      function addTodo() {
+        let textbox = document.getElementById('todo-title');
+        let title = textbox.value;
+        todos.push(title);
+      }
+    </script>
+  </body>
+</html>
+
+===
+<html>
+  <head>
+    <title>My Todo App</title>
+  </head>
+  <body>
+    
+    <button id="to-button" onclick="clicker()">Click me</button>
+    <script>
+       function clicker() {
+        document.getElementById('to-button').innerHTML = 'Done';
+       }
+    </script>
+  </body>
+</html>
+or
+
+<html>
+  <head>
+    <title>My Todo App</title>
+  </head>
+  <body>
+    
+    <button id="todo-button" onclick="changeToDone()">To do</button>
+    <script>
+    function changeToDone() {
+    let mybutton = document.getElementById('todo-button');
+    mybutton.innerText = 'Done';
+  }
+</script>
+  </body>
+</html>
+===
+innerText returns all text contained by an element and all its child elements.
+<!DOCTYPE html>   
+<html>   
+    
+<head>   
+    <title>   
+        JavaTpoint InnerText Code using Javascript  
+    </title>   
+</head>   
+      
+<body style="text-align:center;">   
+      
+  <h1 style="color:red">JavaTpoint InnerText Code using Javascript</h1>   
+<!-- JavaTpoint innerText code start from here, Here from you can take any element according to your choice. -->  
+    <div id="tpoint">   
+        The following element contains some   
+        <codes>codes like welcome to javatpoint</codes> and   
+        <italic>some text like my javascript code</italic>.   
+    </div>   
+    <p></p>   
+    <button onClick="innerTextFunction()">innerText </button>   
+    <p id="op"></p>   
+    <script>   
+        function innerTextFunction() {   
+            var x = document.getElementById('tpoint');   
+            alert(x.innerText);   
+        }   
+    
+          
+    </script>   
+      
+</body>   
+    
+</html>  
+innerHtml returns all text, including html tags, that is contained by an element.
+<!DOCTYPE html>   
+<html>   
+    
+<head>   
+    <title>   
+        JavaTpoint InnerHTML Code using Javascript  
+    </title>   
+</head>   
+      
+<body style="text-align:center;">   
+      
+  <h1 style="color:red">JavaTpoint InnerHTML Code using Javascript</h1>   
+<!-- JavaTpoint innerHTML code start from here, Here from you can take any element according to your choice. -->  
+    
+    <div id="tpoint">   
+        The following element contains some   
+        <codes>codes like welcome to javatpoint</codes> and   
+        <italic>some text like my javascript code</italic>.   
+    </div>   
+    <p></p>   
+    <button onClick="innerHTMLFunction()">innerHTML   </button>   
+<!--  innerHTML code end from here -->      
+    <p id="op"></p>   
+   
+    <script>   
+        function innerHTMLFunction() {   
+            var x = document.getElementById('tpoint');   
+            alert(x.innerHTML);   
+        }   
+    
+          
+    </script>   
+</body>   
+    
+</html>  
+=====
+Create a counter
+<html>
+<body>
+   <h3>Increment one or more counters with JavaScript using<i>Events</i></h3>
+   <button onclick = "increment1()"> Increment Counter 1 </button>
+   <button onclick = "increment2()"> Increment Counter 2 </button>
+   <div id = "root1" style="margin-top: 10px;"> Counter 1 value: 0
+   </div>
+   <div id = "root2" style="margin-top: 10px;"> Counter 2 value: 0
+   </div>
+   <script>
+      const root1 = document.getElementById('root1')
+      const root2 = document.getElementById('root2')
+      //counter variables
+      let counter1 = 0
+      let counter2 = 0
+      //The functions
+      function increment1(){
+         counter1 = counter1 + 1
+         root1.innerHTML = "Counter 1 value: " + counter1
+      }
+      function increment2(){
+         counter2 = counter2 + 1
+         root2.innerHTML = "Counter 2 value: " + counter2
+      }
+   </script>
+</body>
+</html>
+
+<html>
+<body>
+   <h3>Decrement one or more counters with JavaScript using<i>Events</i></h3>
+   <button onclick = "decrement1()"> decrement Counter 1 </button>
+   <button onclick = "decrement2()"> decrement Counter 2 </button>
+   <div id = "root1" style="margin-top: 10px;"> Counter 1 value: 0
+   </div>
+   <div id = "root2" style="margin-top: 10px;"> Counter 2 value: 0
+   </div>
+   <script>
+      const root1 = document.getElementById('root1')
+      const root2 = document.getElementById('root2')
+      //counter variables
+      let counter1 = 0
+      let counter2 = 0
+      function decrement1(){
+         counter1 = counter1 - 1
+         root1.innerHTML = "Counter 1 value: " + counter1
+      }
+      function decrement2(){
+         counter2 = counter2 - 1
+         root2.innerHTML = "Counter 2 value: " + counter2
+      }
+   </script>
+</body>
+</html>
+
+=========
+<html>
+<body>
+   <h3>Decrement one or more counters with JavaScript using<i>Events</i></h3>
+   <button onclick = "countUP()"> CountUp </button>
+   <button onclick = "countDown()"> CountDown </button>
+   <div id = "counter"> Counter value: 0</div>
+   <script>
+      //counter variable
+      let count = 0
+      
+    //The functionS
+      function countUP(){
+         count = count + 1;
+         updateCount();
+         
+      }
+      function countDown(){
+         count = count - 1;
+         updateCount();
+         
+      }
+
+        // Not necessary, but BONUS POINTS if you separated this
+        // repeated code into a function!
+       function updateCount() {
+            let myCounter = document.getElementById('counter');
+            myCounter.innerText = 'Counter value: ' + count;
+        }     
+   </script>
+</body>
+</html>
+=====
+<html>
+    <head>
+        <style>
+            #jed4 {
+                width: 200px;
+                background-color: hsl(56, 38%, 58%);
+            }
+
+            .jed3 {
+                width: 300px;
+                background-color: hsl(55, 6%, 43%);    
+            }
+        </style>
+
+    </head>
+    <body>
+        <input type="text" id="todo-title" />
+        <button onclick="displayTitle()">Display Title</button>
+        <script>
+        function displayTitle() {
+            let textbox = document.getElementById('todo-title');
+            let title = textbox.value;
+        
+            let myDiv = document.createElement('div');
+            myDiv.className = 'jed1 jed2'; //This will give this div 2 classes, if you want one use jed1
+
+            /* If an element has a single class, checking for it is simple:
+
+                // Checking an element with a single class
+                myDiv.className == "aClassName" ;
+                if ( myDiv.className == "aClassName" )
+                    // true
+
+                Removing all classes or changing them is very easy
+
+                // Changing all classes
+                myDiv.className = 'jed3';
+
+                // Removing all classes
+                myDiv.className = '';
+            */
+            myDiv.id = 'jed4';
+            myDiv.innerText = title;
+            document.body.appendChild(myDiv);
+        }
+        </script>
+    </body>
+</html>
+======
+<html>
+  <head>
+    <title>My Todo App</title>
+  </head>
+  <body>
+    <input id="todo-title" type="text" />
+    <button onclick="addTodo()">Add Todo</button>
+    <script>
+      let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+
+      todos.forEach(function (todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+      });
+
+      function addTodo() {
+        let textbox = document.getElementById('todo-title');
+        let title = textbox.value;
+        todos.push(title);
+      }
+    </script>
+  </body>
+</html>
+====
+<body>
+  <input type="text" id="todo-title" />
+  <button onclick="displayTitle()">Display Title</button>
+  <script>
+     //Task: Create a button that takes what's inside the textbox, puts it in a div and adds the div to the page.
+    function displayTitle() {
+      let textbox = document.getElementById('todo-title');
+      let title = textbox.value;
+  
+      let myDiv = document.createElement('div');
+      myDiv.innerText = title;
+      document.body.appendChild(myDiv);
+    }
+  </script>
+ </body>
+ ===
+ <html>
+  <head>
+    <title>My Todo App</title>
+  </head>
+  <body>
+    <input id="todo-title" type="text" />
+    <button onclick="addTodo()">Add Todo</button>
+
+    <div id="todo-list"></div>
+
+    <script>
+      const todos = ['Get groceries', 'Wash car', 'Make dinner'];
+
+      render();
+
+      function addTodo() {
+        const textbox = document.getElementById('todo-title');
+        const title = textbox.value;
+        todos.push(title);
+
+        render();
+      }
+
+      function render() {
+        // reset our list
+        document.getElementById('todo-list').innerHTML = '';
+
+        todos.forEach(function (todoTitle) {
+          const element = document.createElement('div');
+          element.innerText = todoTitle;
+          const todoList = document.getElementById('todo-list');
+          todoList.appendChild(element);
+        });
+      }
+    </script>
+  </body>
+</html>
+===========
+function sayHello(name) {
+  console.log("Hello, " + name + "!");
+}
+
+sayHello("John"); // output: Hello, John!
+=====
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+===========================
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+===
+function addNumbers(num1, num2) {
+  return num1 + num2;
+}
+let result = addNumbers(5, 10);
+console.log(result); // Output: 15
+  
+=====
+//Define 2 functions for sum and minus
+function addNumbers(num1, num2) {
+    return num1 + num2;
+  }
+
+  function subtractNumbers(num1, num2) {
+    return num1 - num2;
+  }
+
+//Define a bigger/higher order function that will use the functions above
+  function doMath(num1, num2, operation) {
+    return operation(num1, num2);
+  }
+
+
+  //Use the function
+  let result1 = doMath(5, 10, addNumbers);
+  console.log(result1); // Output: 15
+  
+  let result2 = doMath(10, 5, subtractNumbers);
+  console.log(result2); // Output: 5
+  
+    =========
+    JavaScript parseInt()
+    Definition and Usage
+The parseInt method parses a value as a string and returns the first integer.
+
+A radix parameter specifies the number system to use:
+
+2 = binary, 8 = octal, 10 = decimal, 16 = hexadecimal.
+
+If radix is omitted, JavaScript assumes radix 10. If the value begins with "0x", JavaScript assumes radix 16.
+
+Notes
+If the first character cannot be converted, NaN is returned.
+
+Leading and trailing spaces are ignored.
+
+Only the first integer found is returned.
+
+Older browsers will return 8 for parseInt("010"). Older versions of ECMAScript used octal (radix 8) for values beginning with "0". From ECMAScript 5 (2009) default is decimal (radix 10).
+
+Syntax
+parseInt(string, radix)
+Parameters
+Parameter	Description
+value	Required.
+The value to be parsed.
+radix	Optional. Default is 10.
+A number (2 to 36) specifying the number system.
+Return Value
+Type	Description
+A number.	NaN if no integer is found.
+
+<body>
+
+  <h1>JavaScript Global Methods</h1>
+  <h2>The parseInt() Method</h2>
+  <p>parseInt() parses a string and returns the first integer:</p>
+  
+  <p id="demo"></p>
+  
+  <script>
+  document.getElementById("demo").innerHTML =
+  parseInt("10") + "<br>" +
+  parseInt("10.00") + "<br>" +
+  parseInt("10.33") + "<br>" +
+  parseInt("34 45 66") + "<br>" +
+  parseInt("   60   ") + "<br>" +
+  parseInt("40 years") + "<br>" +
+  parseInt("He was 40");
+  </script>
+  
+  </body>
+
+  the result for the above is
+10
+10
+10
+34
+60
+40
+NaN
+    using a radix<body>
+
+<h1>JavaScript Global Methods</h1>
+<h2>The parseInt() Method</h2>
+<p>parseInt() parses a string and returns the first integer:</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+parseInt("10", 10)+ "<br>" +
+parseInt("010")+ "<br>" +
+parseInt("10", 8)+ "<br>" +
+parseInt("0x10")+ "<br>" +
+parseInt("10", 16);
+</script>
+
+</body>
+
+ans:
+10
+10
+8
+16
+16
+=====
+function convertStoI() {
+		var a = "100";
+		var b = parseInt(a);
+		console.log('Integer value is ' + b + ' and the type is' + typeof b);
+		var d = parseInt("3 11 43");
+	
+		console.log('Integer value is ' + d + ' and the type is' + typeof d);
+	
+	}
+	convertStoI();
+
+
+======
+//task to conert to cm from inches and vice versa
+<body>
+    <h1>Centimeter and Inches Converter</h1>
+    <p>1inch = 2.54cm</p>
+    <input id="measurement" />
+    <button onclick="convertToCm()">Convert to cm</button>
+    <button onclick="convertToInch()">Convert to inch</button>
+
+    
+    <script>
+      const measurement = document.getElementById('measurement');
+
+      function convertToCm() {
+        const value = measurement.value;
+
+        // value is a string and strings can't be multiplied. We need
+        // to convert it into a number before we can multiply it. Thus add the plus sign.
+        const convertedValue = +value * 2.54;
+
+        const result = document.createElement('div');
+        result.innerText = convertedValue + 'cm';
+        document.body.appendChild(result);
+      }
+
+      function convertToInch() {
+        const value = measurement.value;
+        const convertedValue = +value / 2.54;
+
+        const result = document.createElement('div');
+        result.innerText = convertedValue + 'inches';
+        document.body.appendChild(result);
+      }
+    </script>
+</body>
+==============
+<body>
+    <h1>SHOPPING CART</h1>
+    <button onclick="addToCart('Apple')">Apple</button>
+    <button onclick="addToCart('Tomato')">Tomato</button>
+    <button onclick="addToCart('Eggs')">Eggs</button>
+    <button onclick="clearCart()">Clear</button>
+    <div id="cart"></div>
+    <script>
+      // BONUS POINTS if you saved this variable outside the
+      // function so you can reuse it and not have to run
+      // document.getElementById() every time.
+      const cart =  document.getElementById('cart');
+    
+      // BONUS POINTS if you wrote this function with 1 parameter.
+      // Writing separate functions like addApple(), addTomato(),
+      // is fine too, but this make the function more reusable.
+      function addToCart(food) {
+        const cartItem = document.createElement('div');
+        cartItem.innerText = food;
+        cart.appendChild(cartItem);
+      }
+    
+      function clearCart() {
+        cart.innerHTML = '';
+      }
+    </script>
+</body>
+==========
+
+<body>
+  <input id="todo-title" type="text" class="">
+  <button onclick="addTodo()">Add Todo</button>
+  <br><br>
+  <input id="date-picker" type="date" class="">
+  
+
+  <div id="todo-list"></div>
+
+  <script>
+    const todos = [
+      {
+      title: 'Get groceries',
+      dueDate: '11-03-2023'
+      },
+
+      {
+        title:   'Wash car',
+        dueDate: '12-03-2023'
+      },
+
+      {
+        title:   'Make dinner',
+        dueDate: '13-03-2023'
+      }
+    ];
+
+    render();
+
+    function addTodo() {
+      const textbox = document.getElementById('todo-title');
+      const title = textbox.value;
+
+      const datePicker = document.getElementById('date-picker');
+      const dueDate = datePicker.value;
+      todos.push({title: title, dueDate: dueDate});
+
+      render();
+    }
+
+    function render() {
+      // reset our list
+      document.getElementById('todo-list').innerHTML = '';
+
+      todos.forEach(function (todo) {
+        const element = document.createElement('div');
+        element.innerText = todo.title + ' ' + todo.dueDate;
+        const todoList = document.getElementById('todo-list');
+        todoList.appendChild(element);
+      });
+    }
+  </script>
+  ==============
+  function cartTotal(cartArray) {
+    let total = 0;
+  
+    cartArray.forEach(function (item) {
+      total = total + item.price * item.quantity;
+    });
+  
+    console.log(total);
+  }
+  cartTotal([                       //Am calling the function here
+    { name: 'Apple', price: 4, quantity: 2 },
+    { name: 'Orange', price: 3, quantity: 3 }
+  ]);
+
+
+  /*
+  Write a function cartTotal that takes an array of objects cartArray where each object 
+  contains a name, price, and quantity. console.log the total price of the items in the cart. 
+  For example:
+
+    cartTotal([
+    { name: 'Apple', price: 4, quantity: 2 },
+    { name: 'Orange', price: 3, quantity: 3 }
+    ]);
+
+
+    Will console.log(17);
+*/
+	
+===========================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Todo App 2</title>
+  </head>
+  <body>
+    <div id="receipt"></div>
+    <script>
+      const receipt = document.getElementById('receipt');
+
+      function displayReceipt(cartArray) {
+        receipt.innerHTML = '';
+
+        cartArray.forEach(function (item) {
+          const receiptLine = document.createElement('div');
+          receiptLine.innerText = item.name + ' $' + item.price + ' * ' + item.quantity;
+          receipt.appendChild(receiptLine);
+        });
+
+        // You can also calculate the total using just the loop above, but I like
+        // to separate them out so each loop does one thing.
+        let cartTotal = 0;
+        cartArray.forEach(function (item) {
+          cartTotal = cartTotal + item.price * item.quantity;
+        });
+
+        const totalLine = document.createElement('div');
+        totalLine.innerText = 'Cart total = $' + cartTotal;
+        receipt.appendChild(totalLine);
+      }
+
+      displayReceipt([
+        { name: 'Apple', price: 4, quantity: 2 },
+        { name: 'Orange', price: 3, quantity: 3 },
+        { name: 'Mango', price: 5, quantity: 4 }
+      ]);
+
+      /*
+      Create a <div id="receipt"></div>. Write a function displayReceipt that takes the 
+      same array of objects as exercise 1 and display a receipt using these steps:
+
+      Reset <div id="receipt"> to be empty using .innerHTML
+      For each object in the array, add a line to the receipt 
+      in this format: <div>Apple $4 * 2 = $8</div>
+      At the bottom, display the total: <div>Cart total = $17</div>
+      */
+    </script>
+
+</body>
+</html>
+
+
+===========================================================================
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript Practice</title>
+</head>
+<body>
+  <p id="demo">My Main demo paragraph</p>
+<script type="text/javascript"> 
+  let myDiv = document.createElement('div');
+  myDiv.classList.add('parent');
+
+  let myParagraph = document.createElement('p');
+  myParagraph.classList.add('child');
+  myParagraph.style.marginTop = '12px';
+  myParagraph.style.fontSize = '30px';
+  myParagraph.style.color = 'red';
+
+  myDiv.appendChild(myParagraph);
+
+  let message = "I love you dear Solomon.";
+  
+  myParagraph.textContent = message;
+  myParagraph.innerHTML = "<span>This is some text</span>";
+
+  document.body.appendChild(myDiv);
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript Practice</title>
+</head>
+<body>
+  <p id="demo">My Main demo paragraph</p>
+<script type="text/javascript"> 
+  let myDiv = document.createElement('div');
+  myDiv.classList.add('parent');
+
+  let myParagraph = document.createElement('p');
+  myParagraph.classList.add('child');
+  myParagraph.style.marginTop = '12px';
+  myParagraph.style.fontSize = '30px';
+  myParagraph.style.color = 'red';
+
+  myDiv.appendChild(myParagraph);
+
+  let message = "I love you dear Solomon.";
+  
+  
+  myParagraph.innerHTML = "<span>This is some text</span>";
+
+  document.body.insertBefore(myDiv, demo);
+  document.getElementById('demo').insertAdjacentElement('afterend', myDiv);
+
+
+  /*In the modified code, I've replaced document.body.insertBefore(myDiv, demo) with document.getElementById('demo').insertAdjacentElement('afterend', myDiv). This uses the getElementById method to select the demo element, and then calls the insertAdjacentElement method on it with the afterend position to insert the myDiv element after the demo element.
+
+
+  The insertAdjacentElement method allows you to insert an element into the DOM tree relative to another element, using one of four possible positions:
+
+1. 'beforebegin': Inserts the element immediately before the target element.
+
+2. 'afterbegin': Inserts the element as the first child of the target element.
+
+3. 'beforeend': Inserts the element as the last child of the target element.
+
+4. 'afterend': Inserts the element immediately after the target element.
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Insert Element Demo</title>
+</head>
+<body>
+  <p id="target">Target Element</p>
+  
+  <script>
+    // Create a new element to insert
+    const newElement = document.createElement('div');
+    newElement.textContent = 'New Element';
+
+    // Insert the new element using each possible position
+    document.getElementById('target').insertAdjacentElement('beforebegin', newElement);
+    document.getElementById('target').insertAdjacentElement('afterbegin', newElement.cloneNode(true));
+    document.getElementById('target').insertAdjacentElement('beforeend', newElement.cloneNode(true));
+    document.getElementById('target').insertAdjacentElement('afterend', newElement.cloneNode(true));
+
+
+
+
+
+
+
+cloneNode() is a method in JavaScript that creates a copy of a DOM node. The method is available on all DOM nodes, including elements, text nodes, comments, and document nodes.
+
+When called on an element node, cloneNode() creates a new element with the same tag name, attributes, and child nodes as the original element. The new element is not connected to the document and has no parent node by default. If you pass true as an argument to cloneNode(), it will also clone all child nodes and their descendants recursively.
+
+The reason why cloneNode(true) is used instead of simply inserting the newElement element multiple times is that inserting an element that already exists in the DOM will move it from its current position to the new position, rather than creating a new element. This can have unintended consequences if the element has event listeners, data bindings, or other properties that are specific to its current position or state.
+
+By cloning the element before each insertion, you ensure that each inserted element is a fresh copy with no shared state or references to other elements in the DOM. This can help avoid bugs and make your code more predictable and maintainable.
+
+Here's an example that demonstrates the basic usage of cloneNode():
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cloneNode Example</title>
+</head>
+<body>
+    <div id="original">
+        <p>Hello World!</p>
+    </div>
+    
+    <script>
+        const original = document.getElementById('original');
+        const clone = original.cloneNode();
+        console.log(clone); // logs <div id="original"></div>
+    </scriptt>
+</body>
+</html>
+
+
+In this example, the original element is a div with a child p element containing the text "Hello World!". The clone variable is created by calling cloneNode() on original, and it produces a new div element that is identical to the original element, but without any child nodes.
+
+You can pass true as an argument to cloneNode() to also clone all child nodes and their descendants recursively, like this:
+
+const clone = original.cloneNode(true);
+
+This would produce a new div element that is identical to the original element, including all of its child nodes and their descendants.
+
+
+
+
+
+
+Yes, the insertBefore() method also has positions where you can insert the new element relative to an existing element. The positions are defined by the second parameter of the insertBefore() method, which is the reference node. The new element will be inserted before the reference node.
+
+Here are the possible values for the reference node parameter and their corresponding insertion positions:
+
+parentNode.insertBefore(newNode, referenceNode) - Insert the newNode as the previous sibling of the referenceNode.
+parentNode.insertBefore(newNode, referenceNode.nextSibling) - Insert the newNode as the next sibling of the referenceNode.
+parentNode.insertBefore(newNode, parentNode.firstChild) - Insert the newNode as the first child of the parentNode.
+parentNode.insertBefore(newNode, null) or parentNode.appendChild(newNode) - Insert the newNode as the last child of the parentNode.
+
+
+
+In JavaScript, the .children property of an element is an array-like object that contains all of the direct child elements of the given element. It includes only the elements, not other types of nodes like text nodes or comments.
+
+The .children property is zero-based, which means that the first child element has an index of 0, the second child has an index of 1, and so on.
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>insertBefore Example</title>
+</head>
+<body>
+  <ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  
+  <script>
+    const list = document.getElementById('list');
+    const newItem = document.createElement('li');
+    newItem.textContent = 'New Item';
+
+    // Insert the new item as the first child of the list
+    list.insertBefore(newItem, list.firstChild);
+
+    // Insert the new item as the last child of the list
+    list.insertBefore(newItem.cloneNode(true), null);
+
+    // Insert the new item as the second child of the list
+    list.insertBefore(newItem.cloneNode(true), list.children[1]);
+
+
+
+
+
+Sure, let me explain the .nextSibling property in JavaScript.
+
+In JavaScript, the .nextSibling property of an element represents the next sibling node of the element in the DOM tree. It can be any type of node, such as an element node, a text node, or a comment node.
+
+For example, consider the following HTML code:
+
+<div id="parent">
+  <p>First child</p>
+  <p>Second child</p>
+  <p>Third child</p>
+</div>
+
+
+If we want to access the next sibling of the first p element, we could use the following code:
+
+
+const firstChild = document.querySelector('#parent > p');
+const nextSibling = firstChild.nextSibling;
+In this code, firstChild.nextSibling returns the next sibling node of the firstChild element, which is a text node representing the whitespace between the p elements i.e the text in between or its empty.
+
+if i do this:
+
+<div id="parent">
+  <p>First child</p>
+  Jedidiah
+  <p>Second child</p>
+  <p>Third child</p>
+</div>
+
+    const firstChild = document.querySelector('#parent > p');
+    const nextSibling = firstChild.nextElementSibling;
+    console.log(nextSibling);
+
+To get the next sibling element node, we could modify the code as follows using firstChild.nextElementSiblinginstead of firstChild.nextwSibling:
+
+
+const firstChild = document.querySelector('#parent > p');
+const nextSibling = firstChild.nextElementSibling;
+In this code, firstChild.nextElementSibling returns the next sibling element node of the firstChild element, which is the p element containing the text "Second child".
+
+
+
+
+  </script>
+</body>
+</html>
+
+  
+*/
+</script>
+</body>
+</html>

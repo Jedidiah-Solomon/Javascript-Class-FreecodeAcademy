@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript switch</h2>
+
+<p id="demo"></p>
+<p class="demo2"></p>
+<p class="demo2"></p>
+<p>First Name: <input name="fname" type="text" value="Michael"></p>
+<p id="demo3"></p>
+
+<p class="example">I am a paragraph.</p>
+<h2 class="example2">A heading</h2>
+<p class="example2">I am a paragraph.</p>
+<div></div>
+
+<script>
+let myBirthDay = new Date();
+let formattedDate = myBirthDay.toLocaleDateString(); // format the date as a string
+document.getElementsByClassName('demo2')[0].innerHTML = myBirthDay;
+document.getElementsByClassName('demo2')[1].innerHTML = formattedDate;
+document.getElementsByTagName('div')[0].innerHTML = myBirthDay.toLocaleTimeString();
+
+let elements = document.getElementsByName("fname");
+document.getElementById("demo3").innerHTML = elements[0].tagName; //Tells the element name i.e INPUT
+
+document.querySelector(".example").style.backgroundColor = "red"; //Picks css 
+
+
+
+let elementsjed = document.querySelectorAll(".example2");
+let i;
+for(i = 0; i < elementsjed.length; i++) {
+  elementsjed[i].style.backgroundColor = "yellow";
+}
+
+
+
+
+
+
+let day;
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+document.getElementById("demo").innerHTML = "Today is " + day;
+
+
+
+
+
+/*
+There are several methods you can use to get an HTML element in JavaScript:
+
+document.getElementById(id) - returns the element with the specified ID.
+document.getElementsByClassName(className) - returns an array-like object of all elements with the specified class name.
+document.getElementsByTagName(tagName) - returns an array-like object of all elements with the specified tag name.
+document.getElementsByName(name) - returns an array-like object of all elements with the specified name attribute.
+document.querySelector(selector) - returns the first element that matches the specified CSS selector.
+document.querySelectorAll(selector) - returns a list of all elements that match the specified CSS selector.
+You can use these methods to get references to HTML elements in your JavaScript code, and then manipulate their properties, styles, and contents.
+
+
+
+
+document.querySelectorAll(".example2") returns a NodeList (a collection of elements), not a single element. Therefore, you cannot set the style directly on the NodeList.
+*/
+</script>
+
+</body>
+</html>

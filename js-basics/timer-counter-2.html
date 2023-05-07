@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    h1 {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+<h1>Timer till December 2023, 11:59pm before New Year</h1>
+
+<!--Timer Counter Begins-->
+<p id="newYearTimer"></p>
+
+
+
+
+
+  <script type="text/javascript">
+    // Get the Time I want to Count Down 
+    const countDownDate = new Date("Dec 31, 2023 11:59:00").getTime();
+    
+
+    // Update the count down every 1 second
+    const updateTimer = setInterval(updateTimerFunction, 1000);
+
+
+    //Create the Update Timer Function
+    function updateTimerFunction() {
+      // Get today's date and time
+      const now = new Date().getTime();
+      // Find the time difference between now and the count down date
+      const timeDifference = countDownDate - now;
+
+
+      // Time calculations for days, hours, minutes and seconds
+      // 1day = 86400000milliseconds, thus the calculations
+      // 1hour = 3,600,000milliseconds
+      // 1minute = 60,000milliseconds
+      // 1second = 1000milliseconds
+
+      //Calculates no. of days remaining
+      const days = Math.floor(timeDifference / (86400000)); 
+      //calculates the remaining milliseconds after the days have been subtracted, which is then divided by the number of milliseconds in an hour to get the remaining hours. thus use of modulus. The same for minutes and seconds
+      const hours = Math.floor(timeDifference % (86400000) / (3600000)); 
+      const minutes = Math.floor(timeDifference % (3600000) / (60000));
+      const seconds = Math.floor(timeDifference % (60000) / (1000)); 
+
+      // Output the result in an element with id="newYearTimer" 
+      document.getElementById('newYearTimer').innerHTML = days + "days " + hours + "hrs " + minutes + "mins " + seconds + "secs "; 
+
+      // Text to display when Timer countdown is over
+      if(timeDifference < 0) {
+        clearInterval(updateTimer);
+        document.getElementById("newYearTimer").innerHTML = "PROMO HAS EXPIRED";
+      }
+
+    }
+
+  </script>
+</body>
+</html>

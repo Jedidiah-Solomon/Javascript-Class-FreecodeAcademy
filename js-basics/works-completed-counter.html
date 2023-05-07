@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<style>
+.counterContainer {
+  text-align: center;
+  font-size: 2.5rem;
+  background-color: #f2f2f2;
+  padding: 2rem;
+}
+.counter-box-class {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+</style>
+<body>
+
+<div class="counterContainer">
+  <div id="counter-box" class="counter-box-class">0</div>
+  <p class="counter-text">Works Completed</p>
+</div>
+
+
+<script>
+let worksCompleted = 0;
+let counterBox = document.getElementById('counter-box');
+
+function updateCounter() {
+  worksCompleted++;
+  counterBox.textContent = worksCompleted;
+}
+
+updateCounter();
+updateCounter();
+updateCounter();
+// Call updateCounter() as many times as necessary to increment the counter
+
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<style>
+.counterContainer {
+  text-align: center;
+  font-size: 2.5rem;
+  background-color: #f2f2f2;
+  padding: 2rem;
+}
+.counter-box-class {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+</style>
+<body>
+
+<div class="counterContainer">
+  <div id="counter-box" class="counter-box-class">0</div>
+  <p class="counter-text">Works Completed</p>
+</div>
+
+
+<script>
+let worksCompleted = 0;
+let counterBox = document.getElementById('counter-box');
+
+function updateCounter() {
+  worksCompleted++;
+  counterBox.textContent = worksCompleted;
+}
+
+setInterval(updateCounter, 1000);
+// Call the updateCounter() function every second
+
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<style>
+.counterContainer {
+  text-align: center;
+  font-size: 2.5rem;
+  background-color: #f2f2f2;
+  padding: 2rem;
+}
+.counter-box-class {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+</style>
+<body>
+
+<div class="counterContainer">
+  <div id="counter-box" class="counter-box-class">0</div>
+  <p class="counter-text">Works Completed</p>
+</div>
+
+
+<script>
+let worksCompleted = 0;
+let counterBox = document.getElementById('counter-box');
+
+function updateCounter() {
+  if (worksCompleted < 200) {
+    worksCompleted++;
+    counterBox.textContent = worksCompleted;
+    setTimeout(updateCounter, 10);
+  }
+}
+
+updateCounter();
+// Call updateCounter() to start the counter
+
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAVASCRIPT PRACTICE</title>
+  </head>
+  <body>
+    <h1>Javascript Practice</h1>
+
+    <div class="counterContainer">
+      <div id="counter-box" class="counter-box-class">0</div>
+      <p class="counter-text">Works Completed</p>
+    </div>
+
+    <p id="demo"></p>
+    
+
+
+    <script type="text/javascript">
+      let myNum = 1;
+      let counterText = document.getElementById('counter-box');
+
+    
+      
+// The counter reads in odd number because of myNum+=2; instaed of myNum++; which increments by 1. This wll end at 2000
+      function updateCounter() {
+        if(myNum < 1999) {
+          myNum+=2;
+          counterText.textContent = myNum ;
+          setTimeout(updateCounter, 1000);
+        }
+
+      }
+
+      updateCounter();
+
+   
+    </script>
+  </body>
+</html>

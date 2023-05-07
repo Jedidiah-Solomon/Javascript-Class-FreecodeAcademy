@@ -1,0 +1,38 @@
+.pass{
+  display: inline-block;
+}
+.password{
+  display: block;
+  width: 240px;
+  margin: 0 5px 0 10px;
+}
+label{
+  position: relative;
+  font-family:roboto;
+  color: #555;
+  font-size: 15px;
+  pointer-events: none;
+  left: 20px;
+  top: -38px;
+  transition: 0.2s all;
+}
+input:focus ~label,
+input:valid ~ label{
+  top: -49px;
+  left: 15px;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 10px;
+  color: #1f52f9;
+}
+
+.iconeye{
+  display: inline-block;
+}
+#eye{
+  display: block;
+  position: relative;
+  top: -15px;
+  width:27px;
+  cursor: pointer;
+}

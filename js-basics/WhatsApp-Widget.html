@@ -1,0 +1,330 @@
+First, you will need to add the WhatsApp API to your website. 
+Here's how you can do it:
+Open your HTML file and add the following code to the head section:
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+Next, create a div element where you want to display the WhatsApp widget. You can add this code anywhere within the body section of your HTML file:
+<div id="whatsapp-chat"></div>
+Finally, add the following JavaScript code just before the closing body tag:
+<script>
+    window.addEventListener("DOMContentLoaded", function() {
+        var el = document.createElement("div");
+        el.setAttribute("class", "elfsight-app-xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
+        document.getElementById("whatsapp-chat").appendChild(el);
+    });
+</script>
+
+Replace the "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" in the JavaScript code with the actual API key that you obtain from the WhatsApp widget provider. You can obtain the API key by registering and creating a widget from an appropriate vendor, like elfsight or similar providers.
+
+That's it! Now, your WhatsApp widget should be visible on your website.
+
+
+So elfsihht has api key?
+Yes, elfsight is a third-party service that provides a widget builder tool for WhatsApp, among other things. To use their WhatsApp widget on your website, you will need to create an account on their website and generate an API key. Then you can use that API key to add the widget to your website following the steps and code examples I provided earlier.
+
+This is what I got from elfsight website
+
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-c44c9bfd-696a-4ca8-bea1-cf1433ff09cc"></div>
+
+Your src has apps. While theirs is static. Hope it's same?
+
+Yes, that's correct. The src link I provided earlier is for the latest version of the platform.js script, while the link you used is for the static version. Both versions will work the same way and provide the necessary functionalities to embed the WhatsApp widget to your website.
+
+So, you can use the script tag and div element you already have, and add the CSS code I provided earlier to make the widget round and fixed to the bottom right corner. Just remember to replace "c44c9bfd-696a-4ca8-bea1-cf1433ff09cc" with your actual API key in the CSS code.
+
+Sure, let me explain the difference between the "latest" and "static" versions of the platform.js script.
+
+The "latest" version of the platform.js script is the most up-to-date version of the script provided by elfsight. When you use this version of the script, the script file will be downloaded and executed each time a user visits your website. This ensures that your widget will always be running on the most up-to-date version of the script.
+
+The "static" version of the platform.js script, on the other hand, is a version of the script that is downloaded and saved locally on your server. This means that the script file will not be downloaded and executed every time a user visits your website, but instead it will be served from your own server. This can result in faster load times and improved website performance.
+
+Both versions of the platform.js script will provide the same functionality, and the choice between the two depends on your preference and specific use case.
+
+
+data-use-service-core is an attribute that can be added to a script tag in HTML to indicate that the script being loaded should use the ElfSight service core. This attribute is used in conjunction with the defer attribute, which tells the browser to load the script asynchronously, allowing the rest of the page to load without waiting for the script to finish loading and executing.
+
+The ElfSight service core is a set of tools and technologies that ElfSight uses to provide their widgets and services to website owners. When you add the data-use-service-core attribute to the script tag, the platform.js script will use the service core to optimize the loading and execution of the widget, as well as to provide additional features and functionalities.
+
+Overall, using the data-use-service-core attribute is not mandatory, but it can help improve the performance and reliability of the ElfSight WhatsApp widget on your website.
+
+
+
+Yes, you can use the data-use-service-core attribute in your script tag along with the defer attribute to ensure optimal loading and execution of the ElfSight WhatsApp widget on your website. This attribute is recommended by ElfSight to ensure the best performance and functionality of their widgets.
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Widget Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <script src="https://apps.elfsight.com/p/platform.js" data-use-service-core defer></script>
+  <style type="text/css">
+    .elfsight-app-c44c9bfd-696a-4ca8-bea1-cf1433ff09cc {
+      border-radius: 50%;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    
+  </style>
+</head>
+<body>
+    <div id="whatsapp-chat" ></div>
+
+    <h1 style="text-align: center;">WhatsApp Widget Practice</h1>
+
+    <form id="myForm" action="config.php" method="post" onsubmit="return submitForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message"></textarea><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        let el = document.createElement("div");
+        el.setAttribute("class", "elfsight-app-c44c9bfd-696a-4ca8-bea1-cf1433ff09cc");
+        document.getElementById("whatsapp-chat").appendChild(el);
+    });
+</script>
+
+</body>
+</html>
+
+
+ =============================================================================================================
+ LOOK AT TAWK_TO SCRIPT WITH EXPLANATION
+
+  <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/631d2a0037898912e96865ec/1gckuo58t';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+
+This is a script that loads the Tawk.to chat widget on a web page.
+
+The script first declares two variables: Tawk_API and Tawk_LoadStart. Tawk_API is an object that provides methods for interacting with the Tawk.to chat widget, and Tawk_LoadStart is a timestamp representing the time when the script starts loading.
+
+The script then creates a new script element using the document.createElement method. This script element will load the Tawk.to widget script. The async attribute is set to true, which tells the browser to continue parsing the HTML document while the script loads in the background. The src attribute specifies the URL of the Tawk.to widget script, and the charset attribute sets the character encoding of the script to UTF-8.
+
+Finally, the script uses the parentNode.insertBefore method to insert the new script element into the HTML document before the first script element in the document. This ensures that the Tawk.to widget script is loaded and executed before any other scripts on the page.
+
+Overall, this script enables website visitors to chat with the website owner or support team through the Tawk.to chat widget.
+
+
+
+In JavaScript, the async attribute is used to indicate that a script should be executed asynchronously with the rest of the document. When a script is marked as async, the browser does not wait for the script to be downloaded and executed before continuing to parse and render the rest of the HTML document. Instead, the script is executed as soon as it is downloaded, regardless of whether the rest of the page has finished loading.
+
+In the context of the Tawk.to script you provided, setting s1.async=true means that the Tawk.to widget script will be loaded asynchronously, allowing the rest of the HTML document to continue loading and rendering while the script loads in the background. This can improve page loading times and user experience, especially on slower internet connections or on pages with a lot of content.
+
+However, it's important to note that scripts marked as async may not execute in the order in which they appear in the HTML document, since they are executed as soon as they are downloaded, regardless of their position in the document. This can sometimes cause issues if the scripts depend on each other or on certain page elements that haven't loaded yet.
+
+
+
+
+
+
+s1.charset='UTF-8 why this?
+
+In HTML, the charset attribute is used to specify the character encoding of a resource, such as a script or a stylesheet. The charset attribute is important because it tells the browser how to interpret the characters in the resource.
+
+In the case of the Tawk.to script you provided, setting s1.charset='UTF-8' ensures that the Tawk.to widget script is interpreted using the UTF-8 character encoding. UTF-8 is a widely-used character encoding that can represent all possible characters in the Unicode standard, including characters from different languages and scripts.
+
+Setting the charset attribute to UTF-8 is important for ensuring that special characters and non-Latin alphabets are displayed correctly in the Tawk.to chat widget. If the charset attribute is not set or is set incorrectly, the browser may not be able to properly interpret some characters, leading to display issues or errors in the chat widget.
+
+
+So is this correct <script charset=utf-8></script>
+Yes, that is correct. The charset attribute can be included in a script tag to specify the character encoding of the script. In your example, the charset attribute is set to utf-8, which is a valid value for the attribute.
+
+Here is an example of how you can use the charset attribute in a script tag:
+
+html
+
+<script src="path/to/script.js" charset="utf-8"></script>
+In this example, the src attribute specifies the URL of the JavaScript file, and the charset attribute sets the character encoding to UTF-8.
+
+It's worth noting that for HTML5 documents, specifying the charset attribute on the script tag is usually not necessary if the document itself specifies the charset in its meta tag. For example:
+
+html
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML Document</title>
+  </head>
+  <body>
+    <script src="path/to/script.js"></script>
+  </body>
+</html>
+In this example, the meta tag in the head section specifies the document's character encoding as UTF-8, which will be used by default for all resources, including the script.js file loaded in the body section.
+
+
+
+
+
+
+Explain s0.parentNode.insertBefore(s1,s0)
+s0.parentNode.insertBefore(s1, s0) is a JavaScript method call that inserts the script s1 before the script s0.
+
+Here's how it works:
+
+s0 is a reference to the first script element in the document. This is typically the script that loads the JavaScript file that contains this code.
+
+s0.parentNode is the parent node of s0, which is the head element in most cases. The parentNode property returns the parent element of the specified node.
+
+insertBefore() is a method that belongs to the parent node of the element to be inserted. In this case, s0.parentNode.insertBefore() inserts s1 before s0.
+
+The first argument of insertBefore() is the element to be inserted (s1), and the second argument is the element before which it should be inserted (s0).
+
+So, in summary, s0.parentNode.insertBefore(s1, s0) inserts the script s1 into the document just before the script s0. This is a common pattern used for loading scripts asynchronously and non-blocking in the HTML document.
+
+
+
+
+
+
+s1.setAttribute('crossorigin','*')
+s1.setAttribute('crossorigin', '*') sets the crossorigin attribute of the s1 script element to *.
+
+The crossorigin attribute is used to indicate whether the resource to be fetched (in this case, the Tawk.to script) is being requested from a different domain or subdomain. When a script is requested from a different domain or subdomain, the browser may block it from being loaded due to security reasons, unless the server hosting the script includes the appropriate CORS headers.
+
+By setting s1.setAttribute('crossorigin', '*'), the script element is indicating to the browser that the resource it is fetching can be accessed from any origin (i.e., any domain or subdomain). This allows the script to be loaded and executed by the browser, even if it is being requested from a different domain or subdomain than the one hosting the page.
+
+The value of the crossorigin attribute can also be set to other values besides *, such as anonymous or use-credentials. These values determine whether the browser should send authentication information (such as cookies or HTTP authentication) along with the request for the script. In this case, setting crossorigin to * indicates that no authentication information should be sent.
+
+
+
+
+
+
+Explain crosssorigin with the 3 values with example codes
+
+The crossorigin attribute specifies the CORS (Cross-Origin Resource Sharing) setting for the associated resource. CORS is a security feature built into modern browsers that restricts web pages from making requests to a different domain or subdomain from the one that served the page. The crossorigin attribute can take one of three values: anonymous, use-credentials, or null.
+
+Here's an explanation of each value with example codes:
+
+anonymous: The anonymous value specifies that the resource is accessible from any origin and the request should not include any credentials such as cookies, authorization headers, or TLS client certificates.
+Example:
+
+html
+<img src="https://example.com/image.png" crossorigin="anonymous">
+
+use-credentials: The use-credentials value specifies that the request should include credentials such as cookies, authorization headers, or TLS client certificates.
+Example:
+
+html
+
+<img src="https://example.com/image.png" crossorigin="use-credentials">
+
+null: The null value specifies that the resource is not CORS-enabled and should be treated as a same-origin resource.
+Example:
+
+html
+
+<img src="/image.png" crossorigin="null">
+
+Note that the crossorigin attribute is typically used with external resources such as 
+1.scripts, 
+2.stylesheets, and 
+3.images, 
+
+rather than with elements that are part of the same page. When you load an external resource using a <script>, <link>, or <img> tag, the crossorigin attribute can be used to control the CORS settings for that resource.
+
+
+
+
+
+
+What of * value
+
+The * value is also a valid option for the crossorigin attribute, and it has the same effect as the anonymous value. When you set crossorigin to *, you are indicating to the browser that the resource can be accessed from any origin and that the request should not include any credentials such as cookies, authorization headers, or TLS client certificates.
+
+Here's an example of using * as the value of crossorigin for an image:
+
+html
+Copy code
+<img src="https://example.com/image.png" crossorigin="*">
+In this example, the image at https://example.com/image.png can be accessed from any origin and the browser should not include any credentials in the request.
+
+It's worth noting that using * as the value of crossorigin can be a security risk in some cases. For example, if you have sensitive information in cookies or authentication headers that are sent with the request, you should use the use-credentials value instead.
+
+
+
+
+
+
+Let's assume a simple html file that has an image from Facebook, should I use crossorigin 
+If you are using an <img> tag to display an image from Facebook, you may not need to use the crossorigin attribute.
+
+The crossorigin attribute is typically used when you are loading an external resource (such as a script, stylesheet, or image) from a different domain or subdomain than the one that served the page. In this case, you may need to specify the crossorigin attribute to control the CORS (Cross-Origin Resource Sharing) settings for the resource.
+
+However, if you are simply displaying an image from Facebook using an <img> tag and the image is hosted on the same domain or subdomain as the page that is displaying it, you do not need to use the crossorigin attribute. The browser will automatically treat the image as a same-origin resource, and you should not run into any CORS-related issues.
+
+If you are unsure whether you need to use the crossorigin attribute or not, you can test your page and see if you run into any issues. If you do encounter CORS-related errors, you may need to specify the crossorigin attribute with an appropriate value (such as anonymous or use-credentials) depending on the CORS settings of the resource you are loading.
+
+
+
+
+
+
+Give me code for the Facebook image
+Sure, here's an example of using an <img> tag to display an image from Facebook:
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facebook Image Example</title>
+</head>
+<body>
+  <h1>My Facebook Profile Picture</h1>
+  <img src="https://graph.facebook.com/myusername/picture?type=large">
+</body>
+</html>
+In this example, the <img> tag uses the URL https://graph.facebook.com/myusername/picture?type=large as the src attribute to display the user's Facebook profile picture. Note that you will need to replace myusername with your actual Facebook username in the URL.
+
+Since the image is hosted on Facebook's domain, you should not need to use the crossorigin attribute for this example.
+
+
+
+
+
+
+What is type in img
+The type attribute is not a valid attribute for the <img> tag in HTML.
+
+The type attribute is typically used with other elements such as <script>, <link>, and <input> to specify the MIME type of the resource being loaded or submitted. However, for the <img> tag, the browser determines the MIME type of the image based on the content of the image itself, so there is no need to specify a type attribute.
+
+When using the <img> tag, the most important attribute is the src attribute, which specifies the URL of the image to be displayed. Other common attributes for the <img> tag include alt (to provide alternative text for the image) and width/height (to specify the dimensions of the image in pixels).
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
+  <style type="text/css">
+    #piechart {
+      border: 3px solid red;
+      width:50%;
+      margin: 20px auto ;
+    }
+
+    #piechart:hover {
+      opacity: 0.3;
+    }
+  </style>
+
+<h1>My Web Page</h1>
+
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  let data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Work', 8],
+  ['Eat', 6],
+  ['TV', 4],
+  ['Gym', 2],
+  ['Sleep', 8],
+  ['Code' , 10],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  let options = {'title':'My Average Day', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  let chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+
+
+
+
+/*
+This JavaScript code creates a pie chart using the Google Charts library. Here's a detailed explanation:
+
+The first line declares a JavaScript block using the <script> tag with a type attribute of "text/javascript".
+The second line calls the google.charts.load() function to load the Google Charts library. The function is passed two arguments: 'current' specifies the current version of the library, and {'packages':['corechart']} specifies that the 'corechart' package should be loaded.
+The third line calls the google.charts.setOnLoadCallback() function to set a callback function to be called when the library has finished loading. The drawChart() function is passed as the callback function.
+The drawChart() function is defined, which creates a new pie chart with the PieChart() constructor provided by the Google Charts library.
+The google.visualization.arrayToDataTable() function is used to create a new DataTable object. This function is passed a two-dimensional array that represents the data for the pie chart. The first element of each row is a string representing the name of the activity, and the second element is a number representing the number of hours spent on that activity per day.
+The options object is created to specify the title and dimensions of the chart.
+A new PieChart object is created and passed the div element with the id of "piechart" where the chart will be displayed.
+The chart.draw() method is called to display the chart in the <div> element with the specified data and options.
+Overall, this code loads the Google Charts library and creates a pie chart that displays the distribution of different activities over an average day, including work, eating, TV, gym, and sleep.
+
+
+
+
+Regenerate response
+
+*/
+</script>
+
+</body>
+</html>

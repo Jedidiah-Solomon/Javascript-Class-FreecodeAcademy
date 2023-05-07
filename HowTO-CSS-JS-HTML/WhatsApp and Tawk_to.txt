@@ -1,0 +1,117 @@
+FOR TAWK.TO
+1. CREATE ACCOUNT WITH THEM
+2. COPY THE SCRIPT LINK AND PASTE IT IN BETWEEN THE </head> and <body> as for instance as shown above:
+
+</head>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/631d2a0037898912e96865ec/1gckuo58t';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+  <body>
+
+3. You can receive messages in web (pc) tawk.to or use the andriod  app to to that.
+4. Modify the view in tawk.to
+5. Ensure you create a new PROPERRY for any new website you craete if you are using the same tawk.to account.
+Add the code to every page in your website.
+
+
+FOR WHATSAPP
+A
+1. Go to https://elfsight.com and go to whatsapp widget
+2. choose a template and do the settings
+3. Add the script between </head> and <body>
+
+
+B
+1. Go to Github.com site which is https://github.com/rafaelbotazini/floating-whatsapp
+2. Download the ip file and extract it unto the zip file name into your website project folder
+3. paste this code after title in the <head>.....
+<!--Whatsapp widget links start-->
+      <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="floating-wpp.min.js"></script>
+      <link rel="stylesheet" href="floating-wpp.min.css">
+      <!--Whatsapp widget links end-->
+4. Create a <div> tag with an id called myButton i.e <div id="myButton"></div>
+5.Then paste this one after the closing body tag
+.....
+    </body>
+    <!--The whatsapp widget-->
+    <script type="text/javascript">
+      $(function () {
+        $('#myDiv').floatingWhatsApp({
+          phone: '+2347062957194'
+        });
+      });
+    </script>
+</html>
+6. A sample is shown now:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Floating WhatsApp Button Demo</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="floating-wpp.css">
+    <script type="text/javascript" src="floating-wpp.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif
+        }
+    </style>
+</head>
+
+<body>
+    
+</body>
+<div id="myButton"></div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#myButton').floatingWhatsApp({
+            phone: '5491133359850',
+            popupMessage: 'Hello, how can we help you?',
+            message: "I'd like to order a pizza",
+            showPopup: true,
+            showOnIE: false,
+            headerTitle: 'Welcome!',
+            headerColor: 'crimson',
+            backgroundColor: 'crimson',
+            buttonImage: '<img src="burger.svg" />'
+        });
+    });
+</script>
+
+</html>
+
+
+
+OTHER CUSTOMIZATION
+OptioNS
+
+#. option	value	default	description
+
+1. phone	string	''	WhatsApp intenational number which will receive the message.
+2. message	string	''	Message to be sent. If showPopup is true, the input will be populated with this message.
+3. position	'left' | 'right'	'left'	Position of the button the screen.
+4. popupMessage	string	''	Message to be shown as a received message in the fake chat.
+5. showPopup	bool	false	Show a fake chat popup when the user hovers (on desktop) or clicks the button (on mobile).
+6. autoOpenTimeout	Number	0	Set an amount of time in milliseconds for the popup to open automaticaly.
+7. headerColor	any css color string	'#128C7E'	Background color of the popup window title bar.
+8. headerTitle	string	'WhatsApp Chat'	Text to be displayed at the popup window title bar.
+9. buttonImage	jQuery object | css selector string	this one	Button background image. Must be an img or svg in order to be displayed properly.
+10.zIndex	Number | string	none	Overrides .floating-wpp div z-index. Use a z-index css property value.
+11.showOnIE	boolean	true	Whether to show or not the button on IE (recommended, since IE does not support WhatsApp Web).
+12.size	string (Any css option valid for width and height properties)	'72px'	The size of the button
+13.backgroundColor	Any css color string	'#25D366'	The button backgrund color.
+

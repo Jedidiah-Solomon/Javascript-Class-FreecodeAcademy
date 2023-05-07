@@ -1,0 +1,769 @@
+HTML DOM Element parentNode
+
+The parentNode property returns the parent node of an element or node.
+
+The parentNode property is read-only.
+Example
+Get the node name of the parent node of "myLI":
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The parentNode Property</h2>
+
+<ul>
+  <li id="myLI">Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>The node name of the parent node of "myLI" is:</p>
+<p id="demo"></p>
+
+<script>
+let name = document.getElementById("myLI").parentNode.nodeName;
+document.getElementById("demo").innerHTML = name;
+</script>
+
+</body>
+</html>
+ANS: ul
+
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  box-sizing: border-box;
+  padding: 16px;
+  width: 100%;
+  background-color: red;
+  color: #fff;
+  font-size: 30px;
+}
+.closebtn {
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
+}
+.closebtn:hover {
+  color: #000;
+}
+</style>
+
+<body>
+
+<div>
+<span onclick="this.parentNode.style.display='none';" class="closebtn">X</span>
+<p>click X to close.</p>
+<p>click X to close.</p>
+<p>click X to close.</p>
+</div>
+
+</body>
+</html>
+
+
+HTML DOM Element nodeName
+
+The nodeName property returns the name of a node:
+
+The tagname (in upper case) for element nodes
+The attribute name for attribute nodes
+#text for text nodes
+#comment for comment nodes
+#document for document nodes
+The nodeName property is read-only.
+
+Example
+Return the node name of a <p> element:
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The nodeName Property</h2>
+
+<p>The node name of the "demo" element is:</p>
+<p id="demo"></p>
+
+<script>
+let text = document.getElementById("demo").nodeName;
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+ANS: P
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The nodeName Property</h2>
+
+<p>The node name of the body element is:</p>
+<p id="demo"></p>
+
+<script>
+let text = document.body.nodeName;
+document.getElementById("demo").innerHTML = text;
+
+let text2 = document.head.nodeName;
+document.getElementById("demo").innerHTML = text + "<br>" +  text2;
+</script>
+</body>
+</html>
+ans:
+BODY
+HEAD
+
+HTML DOM parentElement Property
+
+The parentElement property returns the parent element of the specified element.
+
+The difference between parentElement and parentNode, is that parentElement returns null if the parent node is not an element node:
+
+document.body.parentNode; // Returns the <html> element
+document.body.parentElement; // Returns the <html> element
+
+document.documentElement.parentNode; // Returns the Document node
+document.documentElement.parentElement; // Returns null (<html> does not have a parent ELEMENT node)
+In most cases, it does not matter which property you use, however, parentNode is probably the most popular.
+
+This property is read-only.
+
+HTML Nodes vs Elements
+In the HTML DOM (Document Object Model), an HTML document is a collection of nodes with (or without) child nodes.
+
+Nodes are element nodes, text nodes, and comment nodes.
+
+Whitespace between elements are also text nodes.
+
+Elements are only element nodes.
+
+childNodes vs children
+childNodes returns child nodes (element nodes, text nodes, and comment nodes).
+
+children returns child elements (not text and comment nodes).
+
+Siblings vs Element Siblings
+Siblings are "brothers" and "sisters".
+
+Siblings are nodes with the same parent (in the same childNodes list).
+
+Element Siblings are elements with the same parent (in the same children list).
+
+ADVERTISEMENT
+Syntax
+node.parentElement
+Technical Details
+Return Value:	An Element object, representing the parent element node of a node, or null if the node has no parent
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Example list:</p>
+
+<ul>
+  <li id="myLI">Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>Click the button to get the node name of the parent element of the li element in the list.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let x = document.getElementById("myLI").parentElement.nodeName;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
+ANS: UL
+
+
+HTML DOM Element childNodes
+
+The childNodes property returns a collection (list) of an elements's child nodes.
+
+The childNodes property returns a NodeList object.
+
+The childNodes property is read-only.
+
+childNodes[0] is the same as firstChild.
+
+Important!
+childNodes returns nodes: Element nodes, text nodes, and comment nodes.
+
+Whitespace between elements are also text nodes.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- This is a comment node! -->
+
+<h1>The Element Object</h1>
+<h2>The childNodes Property</h2>
+<p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+
+<p>The body element's child nodes are:</p>
+<p id="demo"></p>
+
+<script>
+const nodeList = document.body.childNodes;
+
+let text = "";
+for (let i = 0; i < nodeList.length; i++) {
+  text += nodeList[i].nodeName + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+ANS:
+#text
+#comment
+#text
+H1
+#text
+H2
+#text
+P
+#text
+P
+#text
+P
+#text
+SCRIPT
+
+
+HTML DOM Element children
+The children property returns a collection of an element's child elements.
+
+The children property returns an HTMLCollection object.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The children Property</h2>
+
+<p>The tag names of the body's children are:</p>
+<p id="demo"></p>
+
+<script>
+const collection = document.body.children;
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+ANS:
+H1
+H2
+P
+P
+SCRIPT
+
+HTML DOM Element firstChild
+The firstChild property returns the first child node of a node.
+
+The firstChild property returns a node object.
+
+The firstChild property is read-only.
+
+The firstChild property is the same as childNodes[0].
+
+Important!
+firstChild returns the first child node: An element node, a text node, or a comment node.
+
+Whitespace between elements are also text nodes.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The firstChild Property</h2>
+
+<p>Example list:</p>
+<ul id="myList"><li>Coffee</li><li>Tea</li></ul>
+
+<p>The HTML content of the list's first child node is:</p>
+<p id="demo"></p>
+
+<p>Whitespace between elements is considered text nodes.
+If there is a whitespace before the first "li" element, the result will be "undefined".</p>
+
+<script>
+let text = document.getElementById("myList").firstChild.innerHTML;
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+ANS:
+Coffee
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The firstChild Property</h2>
+
+<p>Click the button to get the text of the first child node of the select element.</p>
+<p><button onclick="myFunction()">Try it</button></p>
+
+<select id="mySelect" size="4"><option>Audi</option><option>BMW</option><option>Saab</option><option>Volvo</option></select>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("mySelect").firstChild.text;
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
+ANS: Audi
+
+
+HTML DOM Element lastChild
+
+Example
+Return the HTML content of the last child node of an <ul> element:
+
+document.getElementById("myList").lastChild.innerHTML;
+Get the text of the last child node of a <select> element:
+
+let text = document.getElementById("mySelect").lastChild.text;
+
+
+Definition and Usage
+The lastChild property returns the last child node of a node.
+
+The lastChild property returns returns a node object.
+
+The lastChild property is read-only.
+
+Important!
+lastChild returns the list child node: An element node, a text node, or a comment node.
+
+Whitespace between elements are also text nodes.
+
+
+
+HTML DOM LASTELEMENTCHILD PROPERTY
+
+The lastElementChild property returns the last child element of an element.
+
+The lastElementChild property is read-only.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The lastElementChild Property</h2>
+
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>The HTML content of "myLIST"s last child element is:</p>
+<p id="demo"></p>
+
+<script>
+const element = document.getElementById("myList")
+document.getElementById("demo").innerHTML = element.lastElementChild.innerHTML;
+</script>
+
+</body>
+</html>
+ANS: Tea
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The lastElementChild Property</h2>
+
+<div id="myDIV">
+  <p>A P element - First child in "myDIV"</p>
+  <span>A Span element - Last child in in "myDIV"</span>
+</div>
+
+<p>The tag name of "myDIV"s last child element is:</p>
+<p id="demo"></p>
+
+<script>
+const element = document.getElementById("myDIV");
+document.getElementById("demo").innerHTML = element.lastElementChild.tagName; 
+</script>
+
+</body>
+</html>
+
+Ans: SPAN
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The lastElementChild Property</h2>
+
+<select id="mySelect" size="5">
+  <option>Audi</option>
+  <option>BMW</option>
+  <option>Saab</option>
+  <option>Volvo</option>
+  </select>
+<br><br>
+
+<p>The text of the last child of the select element is:</p>
+<p id="demo"></p>
+
+<script>
+const element = document.getElementById("mySelect");
+document.getElementById("demo").innerHTML = element.lastElementChild.text;
+</script>
+
+</body>
+</html>
+
+ANS: Volvo
+
+
+
+HTML DOM Element firstElementChild
+The firstElementChild property returns the first child element of the specified element.
+
+The firstElementChild property is read-only.
+
+The firstElementChild property returns the same as children[0].
+
+
+
+HTML DOM Element childElementCount
+
+The childElementCount property returns the number of child elements of an element.
+
+The childElementCount property returns the same as children.length.
+
+The childElementCount is read only.
+
+Note
+The returned value is the number of child elements, not the number of child nodes (like text and comment nodes).
+
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  background-color: coral;
+  padding: 16px;
+}
+</style>
+
+<body>
+<h1>The Element Object</h1>
+<h2>The childElementCount Property</h2>
+
+<div id="myDIV">
+  <p>First p element</p>
+  <p>Second p element</p>
+</div>
+
+<p>Number of children in the div element is:</p>
+<p id="demo"></p>
+
+<script>
+let numb = document.getElementById("myDIV").childElementCount;
+document.getElementById("demo").innerHTML = numb;
+</script>
+
+</body>
+</html>
+
+ans: 2
+
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  background-color: coral;
+  padding: 16px;
+}
+</style>
+
+<body>
+<h1>The Element Object</h1>
+<h2>The childElementCount Property</h2>
+
+<div id="myDIV">
+  <p>First p element</p>
+  <p>Second p element</p>
+   <p>Third p element</p>
+  <p>Fourth p element</p>
+</div>
+
+<p>Number of children in the div element is:</p>
+<p id="demo"></p>
+
+<script>
+let numb = document.getElementById("myDIV").children.length;
+document.getElementById("demo").innerHTML = numb;
+</script>
+
+</body>
+</html>
+
+ans: 4
+
+
+HTML DOM Element tagName
+
+Difference Between tagName and nodeName
+The nodeName property also returns the tag name of an element.
+
+The nodeName can also return the tag name of attribute nodes, text nodes, and comment nodes.
+
+<!DOCTYPE html>
+<html>
+<body onclick="myFunction(event)">
+<h1>The Element Object</h1>
+<h2>The tagName Property</h2>
+
+<p>Click on any elements in this document to see which element triggered the onclick event.</p>
+
+<button>This is a button</button>
+
+<p><span>This is span element.</span></p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(event) { 
+  const element = event.target;
+  document.getElementById("demo").innerHTML = "Triggered by " + element.tagName;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+HTML DOM Element nextSibling
+
+The nextSibling property returns the next node on the same tree level.
+
+The nextSibling returnes a node object.
+
+The nextSibling property is read-only.
+
+Important!
+nextSibling returns the next sibling node: An element node, a text node, or a comment node.
+
+Whitespace between elements are also text nodes.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The nextSibling Property</h2>
+
+<ul><li id="item1">Coffee (first item)</li><li id="item2">Tea (second item)</li></ul>
+
+<p>The HTML content of the next sibling of the first list item is:</p>
+<p id="demo"></p>
+
+<p><strong>Note:</strong> Whitespace between elements is considered text nodes.</p>
+<p>If you add whitespace between the two li elements, the result will be "undefined".</p>
+
+<script>
+let text = document.getElementById("item1").nextSibling.innerHTML; 
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+ANS: Tea (Second Item)
+
+
+HTML DOM Element nextElementSibling
+
+The nextElementSibling property returns the next element in the same tree level.
+
+The nextElementSibling property is read-only.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The nextElementSibling Property</h2>
+
+<ul>
+  <li id="item1">Coffee (first item)</li>
+  <li id="item2">Tea (second item)</li>
+</ul>
+
+<p>The HTML content of the next sibling of the first list item has the text:</p>
+<p id="demo"></p>
+
+<script>
+let text = document.getElementById("item1").nextElementSibling.innerHTML; 
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+
+HTML DOM Element previousSibling
+
+The previousSibling property returns the previous node on the same tree level.
+
+The previousSibling property returns a node object.
+
+The previousSibling property is read-only.
+
+Important!
+previousSibling returns the previous sibling node: An element node, a text node, or a comment node.
+
+Whitespace between elements are also text nodes.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The previousSibling Property</h2>
+
+<ul><li id="item1">Coffee (first item)</li><li id="item2">Tea (second item)</li></ul>
+
+<p>The HTML content of the previous sibling of the second list item is:</p>
+<p id="demo"></p>
+
+<p><strong>Note:</strong> Whitespace between elements is considered text nodes.</p>
+<p>If you add whitespace between the two li elements, the result will be "undefined".</p>
+
+<script>
+let text = document.getElementById("item2").previousSibling.innerHTML; 
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+ans: Coffee (first item)
+
+
+HTML DOM Element previousElementSibling
+
+The previousElementSibling property returns the previous element in the same tree level.
+
+The previousElementSibling property is read-only.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The previousElementSibling Property</h2>
+
+<ul>
+  <li id="item1">Coffee (first item)</li>
+  <li id="item2">Tea (second item)</li>
+</ul>
+
+<p>The previous sibling of the second list item has the text:</p>
+<p id="demo"></p>
+
+<script>
+let text = document.getElementById("item2").previousElementSibling.innerHTML; 
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+
+HTML DOM Element nodeType
+
+The nodeType property returns the node type, as a number, of the specified node.
+
+If the node is an element node, the nodeType property will return 1.
+
+If the node is an attribute node, the nodeType property will return 2.
+
+If the node is a text node, the nodeType property will return 3.
+
+If the node is a comment node, the nodeType property will return 8.
+
+This property is read-only.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The nodeType Property</h2>
+
+<p id="myP">Click the button to get the node type of this element.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myP").nodeType;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
+ans: 1
+
+HTML DOM nodeValue Property
+
+The nodeValue property sets or returns the value of a node.
+
+If the node is an element node, the nodeValue property will return null.
+
+Note: If you want to return the text of an element, remember that text is always inside a Text node, and you will have to return the Text node's node value (element.childNodes[0].nodeValue).
+
+For other node types, the nodeValue property will return different values for different node types.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The nodeValue Property</h2>
+
+<button>Try it</button>
+
+<p>The node value of the first button element is:</p>
+<p id="demo"></p>
+
+<script>
+const element = document.getElementsByTagName("BUTTON")[0];
+let value = element.childNodes[0].nodeValue;  
+document.getElementById("demo").innerHTML = value;
+</script>
+
+</body>
+</html>

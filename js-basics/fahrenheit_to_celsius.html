@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+
+
+<script>
+// program to convert celsius to fahrenheit
+// ask the celsius value to the user 
+const celsius = prompt("Enter a celsius value: ");
+
+// calculate fahrenheit
+const fahrenheit = (celsius * 1.8) + 32
+
+// display the result
+console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenheit.`);
+console.log(celsius + " degree celsius is equal to " +  fahrenheit + " degree fahrenheit.");
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+<p id="demo"></p>
+
+<script>
+// program to convert celsius to fahrenheit
+// ask the celsius value to the user 
+const celsius = prompt("Enter a celsius value: ");
+
+// calculate fahrenheit
+const fahrenheit = (celsius * 1.8) + 32
+
+// display the result
+document.getElementById("demo").innerHTML = fahrenheit + " F";
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<title>Fahrenheit to Celcius Temperature Converter</title>
+<body>
+
+<h2>Temperature Converter</h2>
+<p>Type a value in the Fahrenheit field to convert the value to Celsius:</p>
+
+<p>
+  <label>Fahrenheit</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<p>Celcius: <span id="outputCelcius"></span></p>
+
+<script>
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+}
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+<p id="demo"></p>
+
+<script>
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+document.getElementById("demo").innerHTML = toCelsius(77);
+//toCelsius refers to the function object, and toCelsius() refers to the function result
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+<p id="demo"></p>
+
+<script>
+var  valFahrenheit = prompt("Enter a Fahrenheit value: ");
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+document.getElementById("demo").innerHTML = toCelsius(valFahrenheit);
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+"The temperature is " + toCelsius(77) + " Celsius";
+
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+} 
+</script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<title>Fahrenheit to Kelvin Temperature Converter</title>
+<body>
+
+<h2>Temperature Converter</h2>
+<p>Type a value in the Fahrenheit field to convert the value to Kelvin:</p>
+
+<p>
+  <label>Fahrenheit</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<p>Kelvin: <span id="outputKelvin"></span></p>
+
+<script>
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputKelvin").innerHTML=((valNum-32)/1.8)+273.15;
+}
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<title>Celsius to Kelvin Temperature Converter</title>
+<body>
+
+<h2>Temperature Converter</h2>
+<p>Type a value in the Celsius field to convert the value to Kelvin:</p>
+
+<p>
+  <label>Celsius</label>
+  <input id="inputCelsius" type="number" placeholder="Celsius" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<p>Kelvin: <span id="outputKelvin"></span></p>
+
+<script>
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputKelvin").innerHTML=valNum+273.15;
+}
+</script>
+
+</body>
+</html>
+
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Temperature Converter</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700,300,400' rel='stylesheet' type='text/css'>
+    <style>
+      body, input, button {
+          font-family: 'Roboto Condensed', sans-serif;
+          font-size: 20px;
+          text-align: center;
+          background: url(http://wall.rimbuz.com/wp-content/uploads/4K-Wallpaper-High-Definition.jpg);
+          background-position: center;
+        }
+
+        button {
+          background: #CCC;
+          border: 1px solid rgba(0,0,0,.2);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 1px 2px rgba(0,0,0,.25);
+          border-radius: 5px;
+          padding: 10px 20px;
+          margin: 15px 0 15px 10px;
+        }
+
+        button:hover {
+          background: #DDD;
+          cursor: pointer;
+        }
+
+        button:active {
+          background: #BBB;
+          box-shadow: inset 0 1px 2px rgba(0,0,0,.25);
+        }
+
+        header{
+          font-size: 2em;
+          margin: 10px 0 10px 0;
+        }
+
+        input {
+          background: #F8F8F8;
+          width: 80px;
+          padding: 10px 20px;
+          border-radius: 6px;
+          border: 1px solid #C6C6C6;
+        }
+
+        .card{
+            background-color: white;
+            max-width: 60%;
+            min-width: 300px;
+            margin: auto;
+            padding: 25px;
+            margin-top: 25vh;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px black;
+
+            background: #A7CFDF;
+            background: -webkit-linear-gradient(top, #A7CFDF 0%, #23538A 100%);
+            background:    -moz-linear-gradient(top, #A7CFDF 0%, #23538A 100%); 
+            background:         linear-gradient(to bottom, #A7CFDF 0%, #23538A 100%);
+        }
+
+        .spacing{
+          margin: 15px;
+        }
+
+        .temp-fields{
+          display: inline-block;
+        }
+
+        .wrapper{
+          max-width: 960px;
+          margin: auto;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="card">
+        <header>Temperature Converter</header>
+        <div>
+          <div class="temp-fields">
+            <h3 class="spacing">Celsius</h3>
+            <input id="celsius" value="0"/>
+          </div>
+          <div class="temp-fields">
+            <h3 class="spacing">Fahrenheit</h3>
+            <input id="fahrenheit" value="0"/>
+          </div>
+          <div class="temp-fields">
+            <h3 class="spacing">Kelvin</h3>
+            <input id="kelvin" value="0"/>
+          </div>
+        </div>
+        <div>
+          <button id="submit" class="spacing" type="submit" value="submit">Convert</button>
+          <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+      var lastEdited = "celsius";  // initialize the lastEdited flag to any of the three input fields.
+
+//button listeners
+document.getElementById("submit").onclick = convert;
+document.getElementById("reset").onclick = reset;
+
+//picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
+document.getElementById("celsius").onchange = function() {
+  lastEdited = "celsius";
+};
+document.getElementById("fahrenheit").onchange = function() {
+  lastEdited = "fahrenheit";
+};
+document.getElementById("kelvin").onchange = function() {
+  lastEdited = "kelvin";
+};
+
+function convert(temp) {
+
+  //initialize local variables
+  var celsius = document.getElementById("celsius").value;
+  celsius = parseFloat(celsius);
+
+  var fahrenheit = document.getElementById("fahrenheit").value;
+  fahrenheit = parseFloat(fahrenheit);
+
+  var kelvin = document.getElementById("kelvin").value;
+  kelvin = parseFloat(kelvin);
+
+  //temp values
+  var conversionC;
+  var conversionF;
+  var conversionK;
+
+  //if the celsius field changes, convert the fahrenheit and kelvin values
+  if (lastEdited === "celsius") {
+    conversionF = celsius * 9 / 5 + 32;
+    conversionK = celsius + 273;
+    //round the converted fahrenheit and kelvin values
+    document.getElementById("fahrenheit").value = Math.round(conversionF);
+    document.getElementById("kelvin").value = Math.round(conversionK);
+  } 
+    //if the fahrenheit field changes, convert the celsius and kelvin values
+    else if (lastEdited === "fahrenheit") {
+    conversionC = (fahrenheit - 32) * 5 / 9;
+    conversionK = conversionC + 273;
+    //round the converted celsius and kelvin values
+    document.getElementById("celsius").value = Math.round(conversionC);
+    document.getElementById("kelvin").value = Math.round(conversionK);
+  } 
+    //if the kelvin field changes, convert the celsius and fahrenheit values
+    else if (lastEdited === "kelvin") {
+    conversionC = kelvin - 273;
+    conversionF = conversionC * 9 / 5 + 32;
+    //round the converted celsius and fahrenheit values
+    document.getElementById("celsius").value = Math.round(conversionC);
+    document.getElementById("fahrenheit").value = Math.round(conversionF);
+  }
+
+  //get the current conversion temp values and store them in the input fields
+  document.getElementById("celsius").innerHTML = conversionC;
+  document.getElementById("fahrenheit").innerHTML = conversionF;
+  document.getElementById("kelvin").innerHTML = conversionK;
+}
+
+//reset function for the reset button to reset all current values
+function reset() {
+  document.getElementById("celsius").value = 0;
+  document.getElementById("fahrenheit").value = 0;
+  document.getElementById("kelvin").value = 0;
+}
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

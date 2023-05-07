@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student age and biodatat</title>
+</head>
+<body>
+    <h3>Enter your details</h3>
+    <label for="intake_course">Choose a course:</label><br>
+    <select name = "course" id = "intake_course">
+    <option value="Science">Science</option>
+    <option value="Arts">Arts</option>
+    <option value="Commercial">Commercial</option>
+    <option value="Technical and Craftmanship">Technical and Craftmanship</option>
+    </select><br><br>
+    <button onclick="eligle_student()">Check Eligibility</button>
+    <p id="admin_status"></p>
+    
+    <script type="text/javascript">
+         alert('You are about checking your eligibility!');
+    </script>
+    <script>
+        function eligle_student() {
+            let admitted_student;
+            let Number(intake_age) = prompt(How old are you?, "");
+           let student_course = (document.getElementById('intake_course').value);
+            if (isNaN(intake_age) || (intake_age === null) ) {
+                admitted_student = "Input is not a number";
+              } 
+              else if (intake_age < 10)  {
+                admitted_student = "You are not eligible"; 
+              }
+              else {
+                    admitted_student = "Your cousre is " + student_course + " and you are eligible";
+              }
+            document.getElementById("admin_status").innerHTML = admitted_student + " to be admitted";
+        }
+    </script>
+</body>
+</html>
+
+
+

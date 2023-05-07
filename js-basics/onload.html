@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<body onload="myFunction()">
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<script>
+function myFunction() {
+  alert("Page is loaded");
+}
+</script>
+
+</body>
+</html>
+Definition and Usage
+The onload event occurs when an object has been loaded.
+
+onload is most often used within the <body> element to execute a script once a web page has completely loaded all content (including images, script files, CSS files, etc.).
+
+The onload event can be used to check the visitor's browser type and browser version, and load the proper version of the web page based on the information.
+
+The onload event can also be used to deal with cookies
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<p>Assign an "onload" event to an iframe element.</p>
+
+<iframe onload="myFunction()" src="https://www.facebook.com"></iframe>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Iframe is loaded.";
+}
+</script>
+
+</body>
+</html>
+
+OR
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<p>Assign an onload event to an iframe element.</p>
+
+<iframe id="myFrame" src="https://www.facebook.com"></iframe>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("myFrame").onload = function() {myFunction()};
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Iframe is loaded.";
+}
+</script>
+
+</body>
+</html>
+
+OR
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<p>Use the addEventListener() method to attach a "load" event to an iframe element.</p>
+
+<iframe id="myFrame" src="https://www.facebook.com"></iframe>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("myFrame").addEventListener("load", myFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Iframe is loaded.";
+}
+</script>
+
+</body>
+</html>
+
+
+ALSO
+<!DOCTYPE html>
+<html>
+<body onload="checkCookies()">
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<p id="demo"></p>
+
+<script>
+function checkCookies() {
+  var text = "";
+  if (navigator.cookieEnabled == true)
+  {
+    text = "Cookies are enabled.";
+  } 
+  else
+  {
+    text = "Cookies are not enabled.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 
+
+also
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<p id="demo"></p>
+
+<script>
+document.addEventListener("DOMContentLoaded", checkCookies);
+//DOMContentLoaded fires BEFORE body onload
+/*Window: load event
+The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets, scripts, iframes, and images. This is in contrast to DOMContentLoaded, which is fired as soon as the page DOM has been loaded, without waiting for resources to finish loading.*/
+
+function checkCookies() {
+  var text = "This page ";
+  if (navigator.cookieEnabled == true)
+  {
+    text+= "Cookies are enabled.";
+  } 
+  else
+  {
+    text+= "Cookies are not enabled.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 
+
+
+or
+
+<!DOCTYPE html>
+<html>
+<body id="myBody">
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("myBody").addEventListener("load", checkCookies());
+function checkCookies() {
+  var text = "This page's ";
+  if (navigator.cookieEnabled == true)
+  {
+    text+= "Cookies are enabled.";
+  } 
+  else
+  {
+    text+= "Cookies are not enabled.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 

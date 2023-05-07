@@ -1,0 +1,3 @@
+./main.sh
+
+ths is how to read a .sh file

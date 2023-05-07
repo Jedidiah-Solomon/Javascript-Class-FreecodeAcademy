@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript String Methods</title>
+</head>
+<body>
+	<h1>JavaScript String Methods</h1>
+
+
+	<p id="demo"></p>
+
+	<script>
+		let myName = "Jedidiah Solomon Onwubiko";
+		console.log(myName); //Jedidiah Solomon Onwubiko
+		console.log(myName.length);  //25
+		console.log(myName.charAt(0)); //J -----cut the character at 0 position
+		console.log(myName.charAt(8)); //""
+		console.log(myName.indexOf(" "));//8
+		console.log(myName.indexOf("O"));//17
+		console.log(myName.indexOf("o"));//10
+		console.log(myName.lastIndexOf("o"));//24
+		console.log(myName.toLowerCase());
+		console.log(myName.toUpperCase());
+
+
+// ------------------slicing------------------------
+		/*
+		let firstName = myName.slice(0,8); //Jedidiah
+		console.log(firstName);
+		let firstName = myName.slice(0,myName.indexOf(" "));
+		console.log(firstName);
+
+		let lastName = myName.slice(myName.lastIndexOf(" "));
+		console.log(lastName); // Onwubko -------but this will add indent space
+
+		let lastName = myName.slice(myName.lastIndexOf(" ") + 1);
+		console.log(lastName); //Onwubko 
+
+
+		*/
+
+		//--------------------Concatenation---------------------------
+
+		let myStreet = "12 Mandela Area";
+		let myCity = "Minna";
+
+		let myAddress = myStreet.concat(" ", myCity);
+		console.log(myAddress);
+
+
+		//--------------------------Replacing
+		
+		let myPhoneNumber = "+234-706-295-7194";
+		console.log(myPhoneNumber); //+234-706-295-7194
+
+		myPhoneNumber = myPhoneNumber.replace("-","");
+		console.log(myPhoneNumber); //+234706-295-7194
+
+		myPhoneNumber = myPhoneNumber.replaceAll("-","");
+		console.log(myPhoneNumber); //+2347062957194
+
+		
+
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

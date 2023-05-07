@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<body onclick="showCoords(event)" style="border:1px solid black;padding:4px">
+
+<h1>Mouse Events</h1>
+<h2>The clientX and clientY Properties</h2>
+
+<div>
+<p>Click anywhere in this document to get the x and y coordinates of the mouse pointer, relative to the window.</p>
+<p id="demo">Coordinates:</p>
+</div>
+
+<script>
+function showCoords(event) {
+  let x = event.clientX;
+  let y = event.clientY;
+  let text = "X coords: " + x + ", Y coords: " + y;
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body onclick="showCoords(event)" style="border:1px solid black;padding:4px">
+
+<h1>Mouse Events</h1>
+<h2>The screenX and screenY Properties</h2>
+
+<div>
+<p>Click different places in this document to view the x and y coordinates of the mouse pointer, relative to the screen.</p>
+<p id="demo"></p>
+</div>
+
+<script>
+function showCoords(event) {
+  let x = event.screenX;
+  let y = event.screenY;
+  let text = "X coords: " + x + ", Y coords: " + y;
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body onclick="showCoords(event)" style="border:1px solid black;padding:4px">
+
+<h1>Mouse Events</h1>
+<h2>The pageX and pageY Properties</h2>
+
+<p>Click anywhere in this document to see the x and y coordinates of the mouse pointer.</p>
+
+<p id="demo"></p>
+
+<script>
+function showCoords(event) {
+  let x = event.pageX;
+  let y = event.pageY;
+  let text = "X coords: " + x + ", Y coords: " + y;
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Mouse Events</h1>
+<h2>The offsetX Property</h2>
+
+<p>The offsetX property returns the x-coordinate the mouse cursor, relative to the target element.</p>
+
+<p>In this example, the red DIV is the target element.</p>
+
+<p>Click inside the red DIV element:</p>
+
+<div onclick="myFunction(event)" style="border:2px solid red;height:100px"></div>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(event) {
+  let x = event.offsetX;
+  document.getElementById("demo").innerHTML = "The x-coordinate is: " + x;
+}
+</script>
+
+</body>
+</html>
+pageX/Y gives the coordinates relative to the <html> element in CSS pixels.
+clientX/Y gives the coordinates relative to the viewport in CSS pixels.
+screenX/Y gives the coordinates relative to the screen in device pixels.

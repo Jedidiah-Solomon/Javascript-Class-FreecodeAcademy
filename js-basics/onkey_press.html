@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onkeypress Event</h2>
+
+<p>The onkeypress event occurs when the user presses a key on the keyboard. A function is triggered when the user is pressing a key in the input field.</p>
+
+<input type="text" onkeypress="myFunction()">
+
+<script>
+function myFunction() {
+  alert("You pressed a key inside the input field");
+}
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onkeypress Event</h2>
+
+<p>The onkeypress event occurs when the user presses a key on the keyboard. A function is triggered when the user is pressing a key in the input field.</p>
+
+<input type="text" id = 'meTyped' onkeypress="myFunction()">
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var myWord = document.getElementById('meTyped').value;
+  document.getElementById('demo').innerHTML = 'You typed ' + myWord;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onclick Event</h2>
+
+<p>The onclick event triggers a function when an HTML element is clicked on.</p>
+<p>Click to trigger a function that will output "Hello World":</p>
+
+<button onclick="myFunction()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="number" id="myNumber" value="2">
+
+<p>Click the button to change the number of the number field.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> input elements with type="number" are not supported in IE 9 and earlier versions.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("myNumber").value = "16";
+}
+</script>
+
+</body>
+</html>

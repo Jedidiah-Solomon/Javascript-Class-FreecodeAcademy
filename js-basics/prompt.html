@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Prompt</title>
+</head>
+
+<body>
+      <p id="fname"></p>
+      <p id="demo"></p>
+  
+      
+      <script>
+            let person = prompt("Please enter your first name",);
+            if (person != null) {
+                  document.getElementById("fname").innerHTML = "Hello " + person + "! How are you today?";
+                  document.getElementById("demo").innerHTML = (5 + 25) * 10/2;
+            }
+            else if (person == null || person == "")  {
+                  document.getElementById("fname").innerHTML = "<h2> Hi, No name was Entered! </h2>";
+                  document.getElementById("demo").innerHTML = (5 + 35) * 10/2;
+}
+      </script>
+  <p>This program just keeps popping up prompts.  It is both useless and annoying, but it shows you how to use prompt.</p>
+</body>
+</html>

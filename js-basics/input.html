@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+<input type="text" id="text-box" size="20" value="Hello world!">
+<button onclick="selectText()">Select text</button>
+
+<script>
+function selectText() {
+  const input = document.getElementById('text-box');
+  input.focus();
+  input.select();
+}
+</script>
+
+</body>
+</html>

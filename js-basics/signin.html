@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup js</title>
+</head>
+<body>
+    <div class="fname">
+        <label>First name</label><br>
+        <input type="text" class="fname" id="name" required>
+        
+    </div>
+    <br>
+    <div class="pass">
+        <label>Password</label><br>
+        <input type="password" class="password" id="pass1" required> 
+    </div>
+    <div class="remember">
+        <input type="checkbox" onclick="showMe();" id="remember1" name="remember" value="showme">
+        <label for="vehicle1"> Remeber me</label><br>
+    </div>
+    <script>
+        function showMe() {
+            var myPassword= document.getElementById('pass1');
+            if (myPassword.type==="password") {
+                myPassword.type="text";
+            }
+            else {
+                myPassword.type = "password";
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

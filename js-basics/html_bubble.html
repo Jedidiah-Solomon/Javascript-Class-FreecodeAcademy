@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+      body {
+        padding: 20px;
+        background-color: pink;
+      }
+
+      div {
+        padding: 20px;
+        background-color: green;
+        width: max-content;
+      }
+
+      span {
+        display: block;
+        padding: 20px;
+        background-color: blue;
+      }
+  </style>
+</head>
+<body>
+<h1>HTML DOM Events and Bubbling</h1>
+<h2>Bubbling</h2>
+<div>First Div: Noting happens to it (Width: max-content was used</div><br>
+
+ <div>
+    <span>
+      <button>Click Me!</button>
+    </span>
+  </div>
+
+
+<script>
+    const body = document.getElementsByTagName("body")[0]
+    const div = document.getElementsByTagName("div")[1]
+    const span = document.getElementsByTagName("span")[0]
+    const button = document.getElementsByTagName("button")[0]
+
+    body.addEventListener('click', () => {
+      console.log("body was clicked")
+    })
+
+    div.addEventListener('click', () => {
+      console.log("div was clicked")
+    })
+
+    span.addEventListener('click', () => {
+      console.log("span was clicked")
+    })
+
+    button.addEventListener('click', () => {         
+      console.log("button was clicked")
+    })
+
+      /* How to Stop Event Bubbling
+      Event Bubbling is a default behavior for events. But in some cases, you might want to prevent this.
+
+      Let's say, for example, from our HTML code, that you want the div to open a modal when it is clicked. For the button, on the other hand, you want it to make an API request when it is clicked.
+
+      In this case, you may not want the modal to open when you click the button. You might want the modal to only open when you actually click it (and not when you click any of its children). This is where preventing event propagation comes in.
+
+      To prevent event bubbling, you use the stopPropagation method of the event object.
+
+      When handling events, an event object is passed to the handling function:
+      The event object contains properties that have information about the event that was triggered and the element it was triggered on. This object also contains methods – one of which is stopPropagation().
+
+      The stopPropagation method of an event prevents the event from propagating to the parents and ancestors of the element the event was triggered on.
+
+      We can use this in the JavaScript code from below:
+
+
+
+          button.addEventListener('click', (event) => {
+        event.stopPropagation()
+        console.log("button was clicked")
+
+
+      stopPropagation and preventDefault are methods of the event object for stopping default behaviors.
+        */
+</script>
+
+</body>
+</html>

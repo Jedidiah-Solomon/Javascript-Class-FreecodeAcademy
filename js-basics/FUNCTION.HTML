@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Fuction</title>
+</head>
+<body>
+    
+    <script>
+        // How to create a function
+        //Method 1
+        function customerDetails () {
+            //body
+        }
+
+        //Method 2
+        var customerDetails = function () {
+             //body
+
+        }
+
+        function customerDetails (price, qty, name) {
+            //body
+            return price > qty;
+        }
+
+        //Call function
+        // Method 1
+        customerDetails(500, 6, "Amaka");
+
+        //Method 2
+        var newDetails =  customerDetails(500, 6, "Amaka");
+
+
+
+    </script>
+</body>
+</html>

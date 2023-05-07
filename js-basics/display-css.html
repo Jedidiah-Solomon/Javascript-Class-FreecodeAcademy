@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<h3>JavaScript can show hidden HTML elements.</h3>
+
+<p id="demo" style="display: none;">Hello JavaScript and Solomon!</p>
+<p id="demo2" style="display: inline;">ALX student 0123!</p>
+<a class="signupNow" href="facebook.com" title="Signup Now">Facebook Sign Up</a>
+<br/><hr/>
+
+<button type="button" onclick="document.getElementById('demo').style.display='inline'">Click Me!</button>
+<button onclick="displayFunction()">CHeck This</button>
+
+<script type="text/javascript">
+	function displayFunction() {
+    var sampleDiv = document.getElementById('demo2');
+    if (sampleDiv.style.display === "inline") {
+        sampleDiv.style.display = "block";
+    }
+    else if (sampleDiv.style.display === "block") {
+        sampleDiv.style.display = "none";
+    }
+    else  { 
+        sampleDiv.style.display = 'inline';  
+        }  
+}
+	
+</script>
+
+</body>
+</html> 
+

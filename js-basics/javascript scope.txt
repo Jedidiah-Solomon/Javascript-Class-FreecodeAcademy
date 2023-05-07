@@ -1,0 +1,146 @@
+JavaScript has 3 types of scope:
+
+Block scope
+Function scope
+Global scope
+
+Block Scope
+Before ES6 (2015), JavaScript had only Global Scope and Function Scope.
+
+ES6 introduced two important new JavaScript keywords: let and const.
+
+These two keywords provide Block Scope in JavaScript.
+
+Variables declared inside a { } block cannot be accessed from outside the block:
+
+Example
+{
+  let x = 2;
+}
+// x can NOT be used here
+Variables declared with the var keyword can NOT have block scope.
+
+Variables declared inside a { } block can be accessed from outside the block.
+
+Example
+{
+  var x = 2;
+}
+// x CAN be used here
+
+Local Scope
+Variables declared within a JavaScript function, become LOCAL to the function.
+
+Example
+// code here can NOT use carName
+
+function myFunction() {
+  let carName = "Volvo";
+  // code here CAN use carName
+}
+
+// code here can NOT use carName
+
+function myFunction() {
+  var carName = "Volvo";   // Function Scope
+}
+function myFunction() {
+  let carName = "Volvo";   // Function Scope
+}
+function myFunction() {
+  const carName = "Volvo";   // Function Scope
+
+  Global JavaScript Variables
+A variable declared outside a function, becomes GLOBAL.
+
+Example
+let carName = "Volvo";
+// code here can use carName
+
+function myFunction() {
+// code here can also use carName
+}
+
+Warning
+Do NOT create global variables unless you intend to.
+
+Your global variables (or functions) can overwrite window variables (or functions).
+Any function, including the window object, can overwrite your global variables and functions.
+
+The Lifetime of JavaScript Variables
+The lifetime of a JavaScript variable starts when it is declared.
+
+Function (local) variables are deleted when the function is completed.
+
+In a web browser, global variables are deleted when you close the browser window (or tab).
+
+Function Arguments
+Function arguments (parameters) work as local variables inside functions.
+
+
+Redeclaring
+Redeclaring a JavaScript var variable is allowed anywhere in a program:
+
+Example
+var x = 2;     // Allowed
+var x = 3;     // Allowed
+x = 4;         // Allowed
+Redeclaring an existing var or let variable to const, in the same scope, is not allowed:
+
+Example
+var x = 2;     // Allowed
+const x = 2;   // Not allowed
+
+{
+let x = 2;     // Allowed
+const x = 2;   // Not allowed
+}
+
+{
+const x = 2;   // Allowed
+const x = 2;   // Not allowed
+}
+Reassigning an existing const variable, in the same scope, is not allowed:
+
+Example
+const x = 2;     // Allowed
+x = 2;           // Not allowed
+var x = 2;       // Not allowed
+let x = 2;       // Not allowed
+const x = 2;     // Not allowed
+
+{
+  const x = 2;   // Allowed
+  x = 2;         // Not allowed
+  var x = 2;     // Not allowed
+  let x = 2;     // Not allowed
+  const x = 2;   // Not allowed
+}
+Redeclaring a variable with const, in another scope, or in another block, is allowed:
+
+Example
+const x = 2;       // Allowed
+
+{
+  const x = 3;   // Allowed
+}
+
+{
+  const x = 4;   // Allowed
+}
+
+What is a hoisting in JS?
+In JavaScript, hoisting allows you to use functions and variables before they're declared
+
+Variables defined with const are also hoisted to the top, but not initialized.
+Meaning: Using a const variable before it is declared will result in a ReferenceError:
+alert (carName);
+const carName = "Volvo";
+
+Variables defined with var are hoisted to the top and can be initialized at any time.
+Meaning: You can use the variable before it is declared:
+Example
+This is OK:
+
+carName = "Volvo";
+var carName;

@@ -1,0 +1,929 @@
+HTML Web Storage API
+
+HTML web storage; better than cookies.
+
+What is HTML Web Storage?
+With web storage, web applications can store data locally within the user's browser.
+
+Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.
+
+Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.
+
+Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
+
+HTML Web Storage Objects
+HTML web storage provides two objects for storing data on the client:
+
+window.localStorage - stores data with no expiration date
+window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+Before using web storage, check browser support for localStorage and sessionStorage:
+
+if (typeof(Storage) !== "undefined") {
+  // Code for localStorage/sessionStorage.
+} 
+else {
+  // Sorry! No Web Storage support..
+}
+
+e.g
+ <script>
+   if (typeof(Storage) !== "undefined") {
+  // Code for localStorage/sessionStorage.
+    document.getElementById('demo').innerText = 'Your browser supports web storage';
+   } 
+   else {
+      // Sorry! No Web Storage support..
+      document.getElementById('demo').innerText = 'Your browser does not supports web storage';
+
+   }
+  </script>
+
+HTML Web Storage, also known as Local Storage, is a way for web pages to store data locally in the user's browser. This data can be retrieved and used later, even if the user closes their browser or navigates away from the website.
+
+There are two types of storage objects in HTML Web Storage: localStorage and sessionStorage. 
+1. localStorage stores data permanently, while 
+2. sessionStorage stores data for the duration of the user's session, which means the data will be lost once the user closes their browser.
+
+Syntax
+
+window.sessionStorage
+Or just:
+sessionStorage
+
+Save Data to Session Storage
+sessionStorage.setItem("key", "value");
+
+Read Data from Session Storage
+let lastname = sessionStorage.getItem("key");
+
+Remove Data from Session Storage
+sessionStorage.removeItem("key");
+
+Remove All (Clear session Storage)
+sessionStorage.clear();
+
+Note:
+sessionStorage.removeItem("userCount") removes the userCount key and its corresponding value from the sessionStorage object. So if you only want to remove a specific item from sessionStorage, you should use removeItem().
+
+On the other hand, sessionStorage.clear() removes all key-value pairs from the sessionStorage object. So if you want to clear the entire sessionStorage, you should use clear().
+
+
+Here's an example of how to use localStorage to store and retrieve data:
+
+
+// Store data in local storage
+localStorage.setItem('name', 'John');
+
+// Retrieve data from local storage
+var name = localStorage.getItem('name');
+console.log(name); // Output: "John"
+
+
+In this example, we first use the setItem() method to store the value "John" under the key "name" in localStorage. We can then retrieve this value using the getItem() method and store it in a variable called name.
+
+Here's another example that shows how to use sessionStorage:
+
+
+// Store data in session storage
+sessionStorage.setItem('age', '25');
+
+// Retrieve data from session storage
+var age = sessionStorage.getItem('age');
+console.log(age); // Output: "25"
+
+
+In this example, we use the setItem() method to store the value "25" under the key "age" in sessionStorage. We then retrieve this value using the getItem() method and store it in a variable called age.
+
+It's important to note that data stored in HTML Web Storage is specific to the domain and protocol of the website that stored it. This means that data stored by one website cannot be accessed by another website, even if they are on the same domain.
+
+A domain is the name of a website, such as "google.com" or "facebook.com". Here are some examples of how HTML Web Storage works within the context of domains:
+
+Let's say you visit a website called "example.com" and that website stores some data in localStorage. The data will only be accessible by scripts running on pages within the "example.com" domain. If you visit another website, such as "google.com", scripts on that website will not be able to access the data stored by "example.com".
+
+If you visit a website called "subdomain.example.com", any data stored in localStorage by that website will also be accessible by scripts on pages within the "example.com" domain, but not by scripts on pages from other domains, such as "google.com".
+
+If you visit a website that is served over a different protocol, such as "https://" instead of "http://", that website will be considered a different domain for the purposes of HTML Web Storage. This means that data stored by a website served over "http://" will not be accessible by a website served over "https://", even if they have the same domain name.
+
+
+The localStorage Object
+The localStorage object stores the data with no expiration date. The data will not be deleted when the browser is closed, and will be available the next day, week, or year.
+
+Example
+// Store
+localStorage.setItem("lastname", "Smith");
+
+// Retrieve
+document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+
+e.g
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div>
+
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("lastname", "Smith");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} 
+else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+</body>
+</html>
+
+
+The example above could also be written like this:
+
+// Store
+localStorage.lastname = "Smith";
+// Retrieve
+document.getElementById("result").innerHTML = localStorage.lastname;
+
+
+The syntax for removing the "lastname" localStorage item is as follows:
+
+localStorage.removeItem("lastname");
+
+
+Note: Name/value pairs are always stored as strings. Remember to convert them to another format when needed!
+
+The following example counts the number of times a user has clicked a button. In this code the value string is converted to a number to be able to increase the counter:
+
+Example
+if (localStorage.clickcount) {
+  localStorage.clickcount = Number(localStorage.clickcount) + 1;
+} else {
+  localStorage.clickcount = 1;
+}
+document.getElementById("result").innerHTML = "You have clicked the button " +
+localStorage.clickcount + " time(s).";
+
+e.g
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } 
+    else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+  } 
+  else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>
+
+Note: if you click this button say 4 times and refresh this page, and come back, it will start from 4 because you used localStorage.
+
+unlike sessionStorage which will clean if you close the browser or tab:
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.clickcount) {
+      sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+    } 
+    else {
+      sessionStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s).";
+  } 
+  else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>
+
+
+Note: we can use the increment ++ or use +1 as used above. Also, clickCount can be any name of choice to represent the key.
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.userCount) {
+      sessionStorage.userCount++;
+    } 
+    else {
+      sessionStorage.userCount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.userCount + " time(s).";
+  } 
+  else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (!sessionStorage.userCount) {
+      sessionStorage.userCount = 1;
+    } 
+    else {
+      sessionStorage.userCount++;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.userCount + " time(s).";
+  } 
+  else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>
+
+
+The exclamation mark ! in the if statement if (!sessionStorage.userCount) is a logical NOT operator. It is used to negate the value of the sessionStorage.userCount variable.
+
+In JavaScript, an undefined variable evaluates to false in a boolean context. Therefore, the !sessionStorage.userCount expression evaluates to true when the sessionStorage.userCount variable is undefined. When the ! operator is used, it negates the boolean value of the expression. So, !true is false, and !false is true.
+
+In the modified code, the if statement checks if the sessionStorage.userCount variable is undefined by using the ! operator to negate its value. If it is undefined, the code sets the value of sessionStorage.userCount to 1. If it is not undefined, the code increments its value by 1.
+
+using removeItem
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (!sessionStorage.userCount) {
+      sessionStorage.userCount = 1;
+    } 
+    else {
+      sessionStorage.userCount++;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.userCount + " time(s).";
+    if (sessionStorage.userCount >= 10) {
+      sessionStorage.removeItem("userCount");
+      document.getElementById("result").innerHTML = "Counter removed from session storage.";
+    }
+  } 
+  else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>
+
+
+To remove the session storage when the button is clicked and prevent further storage on this page, you can modify the clickCounter() function to remove the userCount item from the session storage and then disable the button.
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (!sessionStorage.userCount) {
+      sessionStorage.userCount = 1;
+    } 
+    else {
+      sessionStorage.userCount++;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.userCount + " time(s).";
+    if (sessionStorage.userCount >= 10) {
+      sessionStorage.removeItem("userCount");
+      document.getElementById("result").innerHTML = "Counter removed from session storage.";
+      document.getElementsByTagName("button")[0].disabled = true;
+    }
+  } 
+  else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>
+
+You can view the data stored in local and session storage in the developer tools of your web browser.
+
+To view the data stored in local storage, follow these steps:
+
+Open your web page in a web browser.
+Open the developer tools by pressing F12 or right-clicking on the page and selecting "Inspect".
+Select the "Application" tab in the developer tools.
+In the left-hand panel, expand the "Local Storage" section to see the key-value pairs stored in local storage.
+To view the data stored in session storage, follow the same steps as above, but select the "Session Storage" section in the left-hand panel instead of the "Local Storage" section.
+
+In both cases, you should see a list of the key-value pairs stored in storage for your web page. You can click on a key-value pair to see the details, including the key name, value, and data type. You can also delete a key-value pair by selecting it and clicking the "Delete" button.
+
+
+
+
+You can use web storage in your website for various purposes such as:
+
+Storing user preferences: You can use local storage to store user preferences like theme, language, font-size, etc., so that the website can load the user's preferences next time they visit the website.
+
+Storing user inputs: You can use local storage to temporarily store user inputs like form data, search queries, etc., so that if the user accidentally navigates away from the page, their inputs are not lost.
+Note: Note that storing sensitive information such as passwords in localStorage or cookies is not recommended. You should use a secure server-side database to store user information instead.
+
+Storing shopping cart data: You can use local storage to store shopping cart data so that if the user leaves the website and comes back later, their shopping cart items are still there.
+
+Storing user session data: You can use session storage to store temporary session data like login information, user authentication tokens, etc., so that the user remains logged in across multiple pages on the website.
+
+Storing website performance data: You can use local storage to store website performance data like page load times, user interactions, etc., for website analytics purposes.
+
+
+
+E.g
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Storage for User Input Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+
+</head>
+<body>
+  <form action="config.php" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+
+  <label for="email">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+
+  <label for="message">Message:</label><br>
+  <textarea id="message" name="message"></textarea><br><br>
+
+  <button type="submit" onclick="storeInputs()">Submit</button>
+</form>
+
+
+
+
+<script>
+    function retrieveStoredInputs() {
+      if (localStorage.name) {
+        document.getElementById('name').value = localStorage.name;
+      }
+      if (localStorage.email) {
+        document.getElementById('email').value = localStorage.email;
+      }
+      if (localStorage.message) {
+        document.getElementById('message').value = localStorage.message;
+      }
+    }
+
+    function storeInputs() {
+      localStorage.name = document.getElementById('name').value;
+      localStorage.email = document.getElementById('email').value;
+      localStorage.message = document.getElementById('message').value;
+    }
+
+    window.onload = function() {
+      retrieveStoredInputs();
+    };
+
+    window.onbeforeunload = function() {
+      storeInputs();
+    };
+
+
+</script>
+</body>
+</html>
+
+
+
+    PROPERTY                 COOKIES                      LOCAL STORAGE                  SESSION STORAGE
+
+1. Capacity                   4kb                             10mb                            5mb
+
+2. Browsers                   HTML4/5                         HTML5                           HTML5
+
+3. Accessible From            Any window                      Any window                      Same tab
+
+4. Expires                    Manually set                    Everlasting                     on tab close
+
+5. Storage Location           Browser and Server              Browser only                    Browser only
+
+6. Sent with request          Yes                             No                              No
+
+
+They are browser specific, thus my cookies in Chrome cant be seen in Opera mini.
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookies-Local Storage-Session Storage</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+
+</head>
+<body>
+  
+  
+
+
+
+
+<script>
+  /*
+  //Create Local Storage
+  localStorage.setItem('Name:', 'JedyPSD');
+  console.log(localStorage.getItem('Name'));
+  localStorage.removeItem('Name');
+  localStorage.clear();
+
+
+  //Create sessionStorage
+  sessionStorage.setItem('Name:', 'JedyPSD');
+  sessionStorage.getItem('Name');
+  sessionStorage.removeItem('Name');
+  sessionStorage.clear();
+
+  */
+
+
+  //Create cookies
+  document.cookie = 'name=Peter';
+  /* My website is jedidiah-solomon.com/pages/index.html for instance
+  then my path for cookie is  and the expires/max age is session or a time in the past if you dont set it
+  jedidiah-solomon.com/pages/
+  */
+  document.cookie = 'name=Peter; expires=' + new Date(2023, 3, 31).toUTCString();
+
+/*This should set the expiry date of the cookie to April 30th, 2023. Note that the date and 
+time specified in the expires attribute is based on UTC time, so make sure to adjust 
+accordingly if your local time zone is different from UTC.
+
+Also, keep in mind that the expires attribute sets an absolute expiry time for the cookie, which means that the cookie will be deleted at the specified time regardless of whether the user closes their browser or not. If you want the cookie to expire when the user closes their browser, you can use the session value instead of specifying an expiry date, like this:
+*/
+
+document.cookie = 'name=Peter; expires=session';
+
+//View cookie
+console.log(document.cookie);
+
+
+
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookies-Local Storage-Session Storage</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+
+</head>
+<body>
+  
+  
+
+
+
+
+<script>
+ /*
+    Cookie is a small text file stored in a user's computer that is 
+    used to remember information about the user.
+ */
+
+  //Check if cookie is enabled
+  console.log(navigator.cookieEnabled); //true means it is and false it is not
+
+  //Set cookie with expiring date
+  document.cookie = 'Fname=Solomon; expires= Sun, 23 April 2023 12:00:00 UTC; path=/;' 
+  document.cookie = 'Lname=Onwubiko; expires= Sun, 23 April 2023 12:00:00 UTC; path=/;' 
+  console.log(document.cookie);
+
+
+
+   //See setCookie Function on the console
+   console.log(document.cookie);
+
+  //Invoke setCookie Function (set for 2 cookies)
+  setCookie("email", "onwubikojedybrown@gmail.com", 365);
+  setCookie("Job", "Engineer", 31);
+
+  //Use function to create a cookie
+  function setCookie(name, value, daysToLive) {
+    const date = new Date();
+    date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}= ${value}; ${expires}; path=/`;
+  
+  }
+//--------------------------------------
+
+  //Call the deleteCookie Function to delete the Job cookie
+  deleteCookie("Job");
+
+
+  //Create a function that deletes cookies
+  function deleteCookie(name) {
+    setCookie(name, null, null);
+  }
+
+ //OR USE
+
+ deleteCookie("Job");
+
+
+ function deleteCookie(name) {
+  setCookie(name, "", -1);
+}
+
+//----------------------------------------
+
+setCookie("Country", "USA", 365);
+setCookie("Job-School", "FUTO", 100);
+
+getCookie("Country");
+
+
+console.log(getCookie("Country"));
+console.log(getCookie("Job-School"));
+
+
+
+/* 
+  Craete a Function that gets a cookie name
+  ------This code has a getCookie function that takes in a -----------
+  cookie name as a parameter, and returns the value of 
+  that cookie.
+  1. First, the function decodes the document.cookie string using the decodeURIComponent() function,
+  in case the cookie contains any special characters or spaces.
+  2. Next, the function splits the decoded cookie string into an array of cookie name-value 
+  pairs using the split() method,
+  and trims any whitespace around each pair.
+  3. The function then loops through each element in the cArray array, and checks if the name of 
+  the current cookie matches the name that was passed in as a parameter. 
+  If it does, the function extracts the value of the cookie and assigns it to the result variable.
+  4. Finally, the function returns the result variable, which contains the value of the cookie with the specified name.
+
+  The two console.log() statements at the beginning of the code call the getCookie function with the names "Country" and "Job-School" respectively, and print the returned values to the console.
+
+  Overall, this function provides a convenient way to retrieve the value of a cookie in JavaScript, by parsing the document.cookie string and extracting the value of the cookie with the specified name.
+
+  The expression element.indexOf(name) == 0 in the getCookie function is used to check if the name of the current cookie matches the name that was passed in as a parameter.
+
+  The indexOf method is called on the element string, which represents a single cookie 
+  name-value pair from the document.cookie string. The indexOf method returns the index 
+  of the first occurrence of a specified string (in this case, the name parameter) within the 
+  string it is called on. If the specified string is not found in the string, indexOf returns -1.
+
+  In the expression element.indexOf(name) == 0, the == operator checks if the index of 
+  the name parameter in the element string is equal to 0. If it is, that means the name 
+  parameter matches the name of the current cookie, and the if block is executed to extract
+   the value of the cookie.
+
+  Since the name of a cookie is always at the beginning of the name-value pair string,
+   checking if the index of the name parameter is 0 is a reliable way to determine if the 
+   cookie name matches the specified name. If the name parameter was found elsewhere in the
+    string (i.e. its index was greater than 0), it would mean that it is a substring of the cookie value,
+     and not the cookie name.
+
+
+
+
+
+
+Expalin subString()
+The substring() method is a built-in function in JavaScript that is used to extract a portion 
+of a string and return it as a new string. It takes two parameters: start and end, which specify
+ the indices of the characters to be included in the substring. If the end parameter is omitted,
+  substring() will include all characters from the start parameter to the end of the string.
+
+In the getCookie function you provided, the substring() method is used to extract the value of the 
+cookie whose name matches the name parameter. Here is the relevant code:
+
+
+if (element.indexOf(name) == 0) {
+  result = element.substring(name.length + 1);
+}
+
+Here, name.length + 1 is used as the start parameter for substring(). This value is calculated by 
+adding the length of the name parameter to 1, to account for the equals sign (=) that separates the
+ cookie name and value in the element string.
+
+For example, if the name parameter is "Lname", and the element string is "Lname=Onwubiko", 
+then name.length + 1 would be 7, because "Lname".length + 1 is 6 + 1 = 7. 
+So the substring() method would be called with start parameter of 7, which would 
+extract the substring "Onwubiko" from the element string.
+
+The extracted substring is then assigned to the result variable, which is eventually
+ returned by the getCookie function. By using the substring() method in this way, 
+ the function is able to extract the value of the cookie whose name matches the name 
+ parameter, even if there are other cookies with similar names in the document.cookie string.
+
+ decodeURIComponent() is a built-in function in JavaScript that is used to decode a Uniform Resource Identifier (URI) component that has been encoded using the encodeURIComponent() function or similar methods. URI components include characters such as ?, &, /, and #, which have special meanings in a URI and must be encoded to be used in a query string or other parts of a URI.
+
+The decodeURIComponent() function takes a single parameter, which is the encoded string to be decoded, and returns the decoded string. If the string cannot be decoded, the function will throw a URIError.
+
+In the getCookie function you provided earlier, decodeURIComponent() is used to decode the document.cookie string, which contains URI-encoded cookie values. Here is the relevant code:
+
+
+const cDecoded = decodeURIComponent(document.cookie);
+
+The document.cookie string contains all the cookies for the current document, separated by semicolons. By using decodeURIComponent() to decode this string, the function is able to work with the original values of the cookies, which may contain special characters that were URI-encoded before being stored.
+
+After decoding the document.cookie string, the function splits it into an array of individual cookies using the split() method, and then iterates over the array to find the cookie with the name that matches the name parameter, using the indexOf() and substring() methods as explained in my previous message.
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+function getCookie(name) {
+  const cDecoded = decodeURIComponent(document.cookie);
+  const cArray = cDecoded.split("; ");
+  let result = null;
+
+  cArray.forEach(element => {
+    if(element.indexOf(name) == 0){
+      result = element.substring(name.length + 1);
+
+    }
+  })
+
+  return result;
+}
+
+
+</script>
+</body>
+</html>
+
+
+=========================================================
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookies-Local Storage-Session Storage-encodeURIComponent</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+</head>
+<body>
+  <h1 style="text-align: center;">AVEP PERUCULIAR SCHOOL</h1>
+
+  <form action="config.php" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message"></textarea><br><br>
+
+    <button type="submit" onclick="storeInputs()">Submit</button>
+</form>
+
+  
+  
+
+
+
+
+<script>
+    function retrieveStoredInputs() {
+        if (localStorage.name) {
+          document.getElementById('name').value = localStorage.name;
+        }
+        if (localStorage.email) {
+          document.getElementById('email').value = localStorage.email;
+        }
+        if (localStorage.password) {
+          document.getElementById('password').value = decodeURIComponent(localStorage.password);
+        }
+        if (localStorage.message) {
+          document.getElementById('message').value = localStorage.message;
+        }
+    }
+
+
+    function storeInputs() {
+      localStorage.name = document.getElementById('name').value;
+      localStorage.email = document.getElementById('email').value;
+      localStorage.password = encodeURIComponent(document.getElementById('password').value);
+      localStorage.message = document.getElementById('message').value;
+    }
+
+    window.onload = function() {
+      retrieveStoredInputs();
+    };
+
+    window.onbeforeunload = function() {
+      storeInputs();
+    };
+
+ 
+</script>
+</body>
+</html>
+
+
+
+
+========================================
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookies-Local Storage-Session Storage-encodeURIComponent</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+  <style type="text/css">
+    .myCookieDiv-box {
+      text-align: center;
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">AVEP PERUCULIAR SCHOOL</h1>
+
+  <form id="myForm" action="config.php" method="post" onsubmit="return submitForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="myCookieDiv" class="myCookieDiv-box">Sorry your browser does not support cookies</div>
+
+  <script>
+    const myCookieDiv = document.getElementById('myCookieDiv');
+    const myForm = document.getElementById('myForm');
+
+
+    function retrieveStoredInputs() {
+      if (localStorage.name) {
+        document.getElementById('name').value = localStorage.name;
+      }
+      if (localStorage.email) {
+        document.getElementById('email').value = localStorage.email;
+      }
+      if (localStorage.password) {
+        document.getElementById('password').value = decodeURIComponent(localStorage.password);
+      }
+      if (localStorage.message) {
+        document.getElementById('message').value = localStorage.message;
+      }
+    }
+
+
+
+    function storeInputs() {
+      localStorage.name = document.getElementById('name').value;
+      localStorage.email = document.getElementById('email').value;
+      localStorage.password = encodeURIComponent(document.getElementById('password').value);
+      localStorage.message = document.getElementById('message').value;
+    }
+
+
+
+    function isCookieEnabled() {
+      try {
+        localStorage.setItem('test', '1');
+        localStorage.removeItem('test');
+        return true;
+      } 
+      catch (e) {
+        return false;
+      }
+    }
+
+    function submitForm() {
+      if (!isCookieEnabled()) {
+        myCookieDiv.style.display = 'block';
+        return false;
+      } 
+      else {
+        storeInputs();
+        return true;
+      }
+    }
+
+
+
+
+    window.onload = function() {
+      retrieveStoredInputs();
+    };
+
+    window.onbeforeunload = function() {
+      storeInputs();
+    };
+  </script>
+</body>
+</html>

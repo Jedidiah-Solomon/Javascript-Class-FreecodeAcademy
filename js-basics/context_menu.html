@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The contextmenu Event</h2>
+<p>The oncontextmenu event occurs when the user right-clicks an HTML element to open the context menu.</p>
+
+<div style="border:1px solid black;text-align:center">
+<p>Right-click in this box!</p>
+<p>Context menu will show.</p>
+</div>
+<br>
+<div id="myDiv" style="border:1px solid black;text-align:center">
+<p>Right-click in this box!</p>
+<p>Context menu is disabled.</p>
+</div>
+
+<script>
+const jed = document.getElementById("myDiv");
+jed.addEventListener("contextmenu", (e) => {e.preventDefault()});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  background-color : yellow;
+}
+</style>
+
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onmousemove Event</h2>
+<p>The onmousemove event occurs when the pointer moves over an element.</p>
+
+<div onmousemove="myFunction(event)" onmouseout="clearCoor()"></div>
+<!--Note: if my code says <div onmousemove="myFunction(event)"></div   without onmouseout, then the cordinates will be static to the <p> element>
+ -->
+<p>Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
+
+<p>When the mouse is moved over the div, the p element will display the horizontal and vertical coordinates of your mouse pointer, whose values are returned from the clientX and clientY properties on the 
+MouseEvent object. Unlike onmouseover which is static while onmousemove is pics every new movement</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  let coor = "Your mouse Coordinates are: (" + x + "," + y + ")";
+  document.getElementById("demo").innerHTML = coor;
+}
+
+function clearCoor() {
+  document.getElementById("demo").innerHTML = "";
+}
+</script>
+
+</body>
+</html>

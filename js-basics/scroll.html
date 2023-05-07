@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  height: 5000px;
+}
+</style>
+
+<body>
+<h1>The Window Object</h1>
+<h2>The scrollTo() Method</h2>
+
+<p>Click to scroll the document.</p>
+
+<button onclick="scrollWin()" style="position:fixed">Scroll to 500 vertically!</button><br><br>
+
+<script>
+function scrollWin() {
+  window.scrollTo(0, 500);
+}
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  width: 5000px;
+}
+</style>
+
+<body>
+<h1>The Window Object</h1>
+<h2>The scrollTo() Method</h2>
+
+<p>Click to scroll the document.</p>
+
+<button onclick="scrollWin()" style="position:fixed">Scroll to 200 horizontally!</button><br><br>
+
+<script>
+function scrollWin() {
+  window.scrollTo(200, 0);
+}
+</script>
+
+</body>
+</html>
+Syntax
+window.scrollTo(x, y)
+or just:
+scrollTo(x, y)
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  background-color: lightblue;
+  height: 2000px;  width: 2000px;
+}
+</style>
+</head>
+<body>
+
+<h1>The Window Object</h1>
+<h2>The scrollX and scrollY Properties</h2>
+
+<p>Click the button to scroll the document window 100px horizontally and vertically.</p>
+
+<button onclick="myFunction()" style="position:fixed;">Click me to scroll</button><br><br>
+
+<div></div>
+
+<script>
+function myFunction() {
+  window.scrollBy(100, 100);
+  alert("pageXOffset: " + window.scrollX + ", scrollY: " + window.scrollY);
+}
+</script>
+
+</body>
+</html>
+Definition and Usage
+The scrollX property returns the pixels a document has scrolled from the upper left corner of the window.
+
+The scrollX property is read-only.
+
+Note
+The scrollX property is equal to the pageXOffset property.
+
+For cross-browser compatibility, use window.pageXOffset instead of window.scrollX.
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  background-color: lightblue;
+  height: 2000px;  width: 2000px;
+}
+</style>
+</head>
+<body>
+
+<h1>The Window Object</h1>
+<h2>The pageXOffset and pageYOffset Properties</h2>
+
+<p>Click the button to scroll the document window 100px horizontally and 500 vertically.</p>
+
+<button onclick="myFunction()" style="position:fixed;">Click me to scroll</button><br><br>
+
+<div></div>
+
+<script>
+function myFunction() {
+  window.scrollBy(100, 500);
+  alert("pageXOffset: " + window.pageXOffset + ", pageYOffset: " + window.pageYOffset);
+}
+</script>
+
+</body>
+</html>
+

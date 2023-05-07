@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p>Using new Date(7 numbers), creates a new date object with the specified date and time:</p>
+
+<p id="demo"></p>
+
+<script>
+const d = new Date(2023, 0, 19,10, 33, 30);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>JSON.stringify will convert dates into strings:</p>
+
+<p id="demo"></p>
+
+<script>
+var person = {
+  name: "John",
+  today: Date() // adding new to date e.g new Date().............. new Date() creates a date object with the current date and time:
+};
+
+document.getElementById("demo").innerHTML = JSON.stringify(person);
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Object.values() converts an object to an array.</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: " John ",
+  age:  30,
+  city: " New York "
+};
+
+document.getElementById("demo").innerHTML = Object.values(person);
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Object.values() converts an object to an array.</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: " John ",
+  age:  30,
+  city: " New York "
+};
+
+document.getElementById("demo").innerHTML = Object.keys(person);
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Object.values() converts an object to an array.</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+const jedArray = Object.values(person);
+document.getElementById("demo").innerHTML = jedArray;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display properties in JSON format:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = JSON.stringify(person);
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display properties in JSON format:
+Any JavaScript object can be stringified (converted to a string) with the JavaScript function JSON.stringify()</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+let myString = JSON.stringify(person);
+document.getElementById("demo").innerHTML = myString;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display object properties:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: " John",
+  age: 30,
+  city: " New York"
+};
+
+let txt = "I am ";
+for (let x in person) {
+  txt += person[x] + " ";
+};
+
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display object properties:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: " John",
+  age: 30,
+  city: " New York"
+};
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+};
+
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript const</h2>
+
+<p>Declaring a constant OBJECT does NOT make the objects properties unchangeable:</p>
+
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+
+<script>
+    const student = {
+    name: "Dave ",
+    grades: [80, 85, 90 ,95]
+    };
+    
+    for (index in student ) {
+    document.getElementById("demo").innerHTML += student[index];
+    }
+
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display object properties:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = person.name + " is " + person.age + " years old and he lives in, " + person.city + " in America ";
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript const</h2>
+
+<p>Declaring a constant object does NOT make the objects properties unchangeable:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// Change a property:
+car.color = "red";
+
+// Add a property:
+car.owner = "Johnson";
+
+// Display the property:
+document.getElementById("demo").innerHTML = "Car owner is " + car.owner; 
+</script>
+
+</body>
+</html>
+

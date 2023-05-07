@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>
+      function togglePassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="password" id="password" placeholder="Enter Password"><br>
+      <label class="switch">
+        <input type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">
+        <span class="slider round"></span>
+      </label>
+    </form>
+  </body>
+</html>

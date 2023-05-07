@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>pre & br tag</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style type="text/css">
+  	/* Descendant selector: select every p inside hi whther direct/indirect child*/
+  	h1 p {
+  		text-align: left;
+  	}
+
+  	/*Child selector: select on the direct p-child of h1*/
+  	h1 > p {
+  		text-align: right;
+  	}
+  	/*Select the p adjacent/next to h1, not as a child*/
+  	h1 + p {
+  		text-align: center;
+  	}
+
+  	/*Select every p adjacent/next to h1, not as a child*/
+  	h1 ~ p {
+  		text-align: center;
+  	}
+
+  	div[class="pre"] {
+  		text-align: center;
+  	}
+  		/* or*/
+  	div.pre {
+  		text-align: right;
+  	}
+
+  	.circle-1 {
+  		height: 400px;
+  		width: 400px;
+  		border: 5px solid black;
+  		border-radius: 5000px;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+  		background-color: yellow;
+  	}
+
+  	.circle-2 {
+  		height: 200px;
+  		width: 200px;
+  		border: 20px solid pink;
+  		border-radius: 5000px;
+  		background-color: blue;
+  	}
+
+  	.wrapper {
+	    max-width: 1134px;
+	    margin: 0 auto;
+	}
+
+	section {
+    	margin-top: 100px;
+	}
+
+	.courses-section {
+	    background: linear-gradient(180deg, #6f7dfb 0%, #26308c 100%);
+	    padding: 70px 0;
+	    padding-bottom: 120px;
+
+	}
+
+	.courses-section h2 {   
+		font-family: 'Raleway', sans-serif;
+		font-weight: 900;
+		font-size: 60px;
+		line-height: 120%;
+		color: darkblue;
+		margin: 0;
+		text-align: center;
+	}
+
+	.courses-section .card-box  {
+	    display: flex;
+	    /* gap: 70px; or use column-gap and row-gap;*/ 
+	    column-gap: 80px;
+	    row-gap: 60px;
+	    flex-wrap: wrap;
+
+
+	}
+
+	.courses-section .card-box .card-image {
+	    width: 200px;
+	    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));   
+	}
+
+	.courses-section .card-box img {
+		border-radius: 10%;
+	}
+
+	.myCard {
+		border: 2px solid black;
+		border-radius: 6px;
+		max-width: 350px;
+		text-align: center;
+		margin-top: 60px;
+	}
+
+	.myCard-img {
+		width: 120px;
+		height: 120px;
+		overflow: hidden;
+		border-radius: 100%;
+		margin: -60px auto 80px auto;
+	}
+
+	.myCard-img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.card-info {
+		padding-bottom: 20px;
+	}
+
+	.myCard a {
+		text-decoration: none;
+		color: red;
+		cursor: pointer;
+	}
+
+	.myCard a:hover {
+		color: black;
+	}
+
+	.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.grid-container .grid-item  a{
+	text-decoration: none;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+	<div class="pre">
+		<pre>
+			<h2>HOW TO USE <mark>pre</mark> </h2>
+			<p>I like:
+				1. Goat
+				2. Chicken
+				3. Fried rice
+			</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</pre>
+		
+	</div>
+
+	<div class="br">
+		<h2>HOW TO USE <mark> br</mark> </h2>
+		<p>I like:<br>1. Goat <br>2. Chicken <br>3. Fried rice</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		 <p>Read this book <cite>The Gods Are Not To Be Blamed</cite> by Jedynwa</p>
+
+		 <b>Description List</b>
+		<dl>
+		  <dt>Coffee</dt>
+		  <dd>Black hot drink</dd>
+		  <dt>Milk</dt>
+		  <dd>White cold drink</dd>
+		</dl>
+
+		<p>The CSS <code>background-color</code> property defines the background color of an element.</p>
+
+		<input type="text" name=""> <input type="password" name="">
+
+		<a href="mailto:jedybrown9821@gmail.com">Email Us</a>
+
+		<iframe src="https://google.com" frameborder="0" width="600" height="200" scrolling="no"></iframe>
+	<br><br>
+	<iframe src="https://google.com" frameborder="1" width="600" height="200" scrolling="yes"></iframe>
+		
+	</div>
+	<br>
+
+	<div class="material-icon-box">
+		<!--https://fonts.google.com/icons?icon.set=Material+Icons-->
+		<i class="material-icons">cloud</i>
+
+		<b>or</b>
+
+		<span class="material-icons">home</span>
+	</div>
+
+	<div id="anchor">
+		<a href="https://www.google.com">Go to Google</a>
+	</div>
+	<p>In JavaScript, anchor() is a string method that is used to create an HTML anchor tag. It returns an HTML anchor tag with the specified URL and text. The method takes a string argument that specifies the URL to be linked and returns an HTML anchor tag with the URL as its href attribute.</p>
+	<br><br>
+<hr>
+<p>HOW TO MAKE A CIRCLE INSIDE A CIRCLE</p><br>
+	<div class="circle-1">
+		<div class="circle-2"></div>
+	</div>
+
+	<hr>
+	<section class="courses-section">
+   			<div class="wrapper">
+   				<h2>Card Heading</h2>
+				<div class="card-box">
+					<div class="card">
+						<h3>My Card - 1</h3>
+						<p>Content of my card</p>
+						<span>4 Hrs</span>
+						<div class="card-image">
+							<img src="images/team1.jpg">
+						</div>
+					</div>
+
+					<div class="card">
+						<h3>My Card - 2</h3>
+						<p>Content of my card</p>
+						<span>8 Hrs</span>
+						<div class="card-image">
+							<img src="images/team2.jpg">
+						</div>
+					</div>
+
+					<div class="card">
+						<h3>My Card - 3</h3>
+						<p>Content of my card</p>
+						<span>15 Hrs</span>
+						<div class="card-image">
+							<img src="images/team3.jpg">
+						</div>
+					</div>
+
+					<div class="card">
+						<h3>My Card - 4</h3>
+						<p>Content of my card</p>
+						<span>10 Hrs</span>
+						<div class="card-image">
+							<img src="images/team1.jpg">
+						</div>
+					</div>
+				</div>
+				<a href="#" class="btn light">All Courses >></a>
+   			</div>
+ 	</section>
+
+ 	<hr>
+ 	<br><br>
+
+ 	<section>
+ 		<div class="myCard">
+ 			<div class="myCard-img">
+ 				<img src="images/dog.jpg" alt="user-image">
+ 			</div>
+ 			<div class="card-info">
+ 				<a href="#" class="btn dark">See More >></a>
+ 			</div>
+ 		</div>
+ 	</section>
+ 	<br>
+
+ <div class="grid-container">
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>  
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>  
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>
+  <div class="grid-item"><a href="#" target=""  title="">Demo</a></div>  
+</div>
+
+
+		
+
+	
+	<script type="text/javascript">
+	    let url = "https://www.facebook.com";
+	    let text = "Go to Facebook";
+	    let link = '<a href="' + url + '">' + text + '</a>' + '<br>';
+	    let anchorBox = document.getElementById('anchor');
+	    anchorBox.insertAdjacentHTML('beforeend', link);
+
+	    console.log(anchorBox.innerHTML); // Output: '<a href="https://www.google.com">Go to Google</a><a href="https://www.facebook.com">Go to Facebook</a>'
+
+	   let url1 = "https://www.github.com";
+	  let text1 = " Go to Github";
+	  let link1 = document.createElement("a");
+	  link1.href = url1;
+	  link1.textContent = text1;
+	  let anchorBox2 = document.getElementById("anchor");
+	  anchorBox2.appendChild(link1);
+	</script>
+
+
+
+
+
+	<script type="text/javascript">
+		//How to write Javascript more efficeient conditions
+		//
+
+		const validColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+		const vote = (color) => {
+			if(!validColors.includes(color)) {				// shows if a colour is not in the array
+				return 'invalid color';
+			}
+
+			return 'valid color';
+		}
+
+		//so
+		console.log(vote('red'));// valid color
+		console.log(vote('black'));// invalid color
+	</script>
+
+
+
+	<script type="text/javascript">
+		//How to write Javascript more efficeient conditions
+		//
+
+		const validColours = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+		const myVote = (name, color) => {
+			if(!validColours.includes(color)) {				// shows if a colour is not in the array
+				return 'invalid color';
+			}
+			else {
+				if(name.length > 15) {
+					return 'name is too long';
+				}
+			}
+
+			return 'valid name and color';
+		}
+
+		//so
+		console.log(myVote('Jedy', 'red'));//valid name and color
+		console.log(myVote('Man is a wolf in Nigeria of America','black'));// invalid color
+		console.log(myVote('Man is a wolf in Nigeria of America','violet'));// name is too long
+		console.log(myVote('Jedy', 'white'));//invalid color
+	</script>
+
+</body>
+</html>
