@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JavaScript Practice -202</title>
-  </head>
-  <body>
-    <h1>Javascript Practice</h1>
-    <p id="demo"></p>
-    
-    
+<body>
 
-    <script>
-      
+<p>Please input a number between 5 and 10:</p>
 
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="p01"></p>
+<p id="result"></p>
 
+<script>
+function myFunction() {
+  const message = document.getElementById("p01");
+  const result = document.getElementById("result");
+  message.innerHTML = "";
+  let x = document.getElementById("demo").value;
+  try {
+    if(x.trim() == "") throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x < 5) throw "too low";
+    if(x > 10) throw "too high";
+    result.innerHTML = `You typed in ${x}`;
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+    result.innerHTML = "";
+  }
+}
+</script>
 
-    </script>
-  </body>
+</body>
 </html>
+ 
