@@ -1,0 +1,180 @@
+
+
+
+
+
+
+<!---*******-->
+CSS flex Property
+The flex property is a shorthand property for:
+
+flex-grow
+flex-shrink
+flex-basis
+The flex property sets the flexible length on flexible items.
+
+Note: If the element is not a flexible item, the flex property has no effect.
+
+
+	0 1 auto
+
+flex-grow	A number specifying how much the item will grow relative to the rest of the flexible items	
+flex-shrink	A number specifying how much the item will shrink relative to the rest of the flexible items	
+flex-basis	The length of the item. Legal values: "auto", "inherit", or a number followed by "%", "px", "em" or any other length unit	
+auto	Same as 1 1 auto.
+
+the flex property is used to control the layout and behavior of flex items within a flex container.
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#main {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+}
+
+#main div {
+  -ms-flex: 1;  /* IE 10 */  
+  flex: 1;
+}
+</style>
+</head>
+<body>
+
+<h1>The flex Property</h1>
+<p>Let all the flexible items be the same length, regardless of its content</p>
+
+<div id="main">
+  <div style="background-color:coral;">RED</div>
+  <div style="background-color:lightblue;">BLUE</div>  
+  <div style="background-color:lightgreen;">Green div with more content.</div>
+</div>
+
+<p><b>Note:</b> IE11 and newer versions support the flex property. Internet Explorer 10 supports an alternative, the -ms-flex property.</p>
+
+</body>
+</html>
+
+we can have:
+
+flex: 0 1 150px;
+flex: 0 0 50px;
+flex: 3 0 auto;
+flex: 0 3 auto;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color:#E7E9EB;
+}
+#myDIV {
+  height:300px;
+  background-color:#FFFFFF;
+}
+#mymain {
+  width: 100%;
+  height: 100px;
+  display: flex;
+}
+
+#mymain div {
+  padding:5px;
+}
+
+#bluediv {
+flex: 3 0 auto;
+
+}
+</style>
+</head>
+<body>
+
+<h1>The flex property</h1>
+
+<div id="myDIV">
+<p>Set the flex property of the BLUE div:</p>
+<div id="mymain">
+  <div style="background-color:coral;">red div</div>
+  <div id="bluediv" style="background-color:lightblue;">blue div</div>
+  <div style="background-color:khaki;">yellow div</div>
+  <div style="background-color:pink;">pink div</div>
+</div>
+
+</div>
+
+The first value, 3, represents the flex-grow property. It determines how much the flex item can grow relative to other flex items within the same container. In this case, the blue div will occupy three times the space compared to other flex items.
+
+The second value, 0, represents the flex-shrink property. It determines how much the flex item can shrink relative to other flex items within the same container. In this case, the blue div will not shrink when there is limited space.
+
+The third value, auto, represents the flex-basis property. It specifies the initial size of the flex item before any remaining space is distributed. In this case, the blue div will have an initial size based on its content.
+
+
+
+</body>
+</html>
+
+
+
+.container {
+  display: flex;
+}
+In the above code snippet, the class .container is set as a flex container. Now, let's explore some key aspects and properties associated with the flex layout:
+
+Main Axis and Cross Axis:
+
+The flex container has two main axes: the main axis and the cross axis. The main axis runs in the direction specified by the flex-direction property, which can be either horizontal (row) or vertical (column).
+The cross axis is perpendicular to the main axis.
+Flex Direction:
+
+The flex-direction property determines the direction of the main axis. It can have one of the following values:
+row (default): Items are arranged horizontally in a row.
+row-reverse: Items are arranged horizontally in a reverse order.
+column: Items are arranged vertically in a column.
+column-reverse: Items are arranged vertically in a reverse order.
+Justify Content:
+
+The justify-content property defines how flex items are aligned along the main axis. It controls the spacing and distribution between items. Some possible values are:
+flex-start: Items are aligned at the start of the container.
+flex-end: Items are aligned at the end of the container.
+center: Items are centered within the container.
+space-between: Items are evenly distributed with equal spacing between them.
+space-around: Items are evenly distributed with equal spacing around them.
+Align Items:
+
+The align-items property specifies how flex items are aligned along the cross axis. It controls the vertical alignment of items within the container. Some possible values include:
+flex-start: Items are aligned at the top of the container.
+flex-end: Items are aligned at the bottom of the container.
+center: Items are centered vertically within the container.
+baseline: Items are aligned based on their baselines.
+stretch: Items are stretched to fill the container vertically.
+These are just a few of the many properties available in flexbox. Flexbox provides a powerful and intuitive way to create responsive layouts, align items, and handle different screen sizes and orientations.
+
+
+
+flex-wrap
+This specifies whether the flex items should wrap or not e.g wrap, nowrap, wrap-reverse
+
+
+flex-flow
+This is the shorthand for flex-direction and flex-wrap e.g flex-flow: row wrap
+
+align-content
+This is used to align the flex lines e.g space-between, space-around, stretch, center, flex-start, flex-end.
+Unlike flex-items that align flex items, flex-content aligns flex lines.
+
+gap
+This is used to add spacing around flex items in a container e.g
+
+.container
+display: flex;
+gap: 10px;
+
+
+
+<!---*******-->

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-rows: 100px 200px; /* Two rows with specified heights */
+      grid-template-columns: 1fr 2fr; /* Two columns with flexible widths */
+      grid-gap: 10px; /* Gap between grid cells */
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer"; /* Define grid template areas */
+    }
+
+    .header {
+      grid-area: header; /* Place the element in the "header" area */
+      background-color: lightblue;
+    }
+
+    .sidebar {
+      grid-area: sidebar; /* Place the element in the "sidebar" area */
+      background-color: lightgreen;
+    }
+
+    .main {
+      grid-area: main; /* Place the element in the "main" area */
+      background-color: lightyellow;
+    }
+
+    .footer {
+      grid-area: footer; /* Place the element in the "footer" area */
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Header</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="main">Main Content</div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>Grid Layout</h1>
+
+<p>This grid layout contains six columns and three rows:</p>
+
+<div class="grid-container">
+  <div class="item1">Header</div>
+  <div class="item2">Menu</div>
+  <div class="item3">Main</div>  
+  <div class="item4">Right</div>
+  <div class="item5">Footer</div>
+</div>
+
+</body>
+</html>
+
+
+column-gap.....for gap in the column or row-gap......for gap in the row or gapfor shorthand
+
+
+.grid-container {
+  display: grid;
+  gap: 50px 100px; //row-gapand column-gap
+
+
+  Place a grid item at column line 1, and let it end on column line 3:
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+Example
+Place a grid item at row line 1, and let it end on row line 3:
+
+.item1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+</style>
+</head>
+<body>
+
+<h1>Grid Lines</h1>
+
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+</div>
+
+<p>You can refer to line numbers when placing grid items.</p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 100px 300px;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>The grid-template-rows Property</h1>
+
+<p>Use the <em>grid-template-rows</em> property to define the size of the rows in a grid layout.</p>
+<p>The first row in this grid is 100px high, and the second row is 300px high:</p>
+
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>
+</div>
+
+</body>
+</html>
+
+
+ 1. grid-template-rows: specifies the number of rows and size of the heights
+ 2.  grid-template-columns: specifies the number of columns and size of widths
+
