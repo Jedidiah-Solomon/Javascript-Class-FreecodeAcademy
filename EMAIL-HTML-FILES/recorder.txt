@@ -1,0 +1,96 @@
+The use of HTML 4 is better and recommended because of older browsers e.g
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jedybrown Insight HTML Email Template</title>
+<style type="text/css"></style>
+</head>
+
+===========================================================================
+
+HTML email refers to an email message that is formatted using HTML (Hypertext Markup Language), the standard language for creating web pages. HTML allows for the inclusion of various elements, such as text formatting, images, links, tables, and styling, to enhance the visual appearance and interactivity of the email.
+
+Compared to plain text emails, HTML emails offer more flexibility in terms of design and content presentation. They can incorporate branding elements, company logos, and consistent styling to create visually appealing and professional-looking emails. HTML emails also enable the use of hyperlinks, allowing recipients to click on links to visit websites, view products, or perform actions.
+
+HTML emails can be created using various tools, email marketing platforms, or by manually coding the HTML markup. However, it's important to consider that different email clients and web-based email services may have varying levels of support for HTML and CSS (Cascading Style Sheets). Thus, it's crucial to test HTML emails across different email clients and devices to ensure they render correctly and are accessible to a wide range of recipients.
+
+It's worth noting that HTML emails can be more complex to create and may require additional considerations, such as optimizing for mobile devices, accommodating different screen sizes, and ensuring compatibility with various email clients' rendering engines. Tools like Litmus (as mentioned below) can be used to test and validate the rendering of HTML emails across multiple email clients and platforms.
+
+
+
+
+
+Litmus is a popular platform used to test HTML emails across various email clients. Litmus provides a comprehensive testing environment that allows you to preview how your HTML emails will render in different email clients, web browsers, and mobile devices.
+
+With Litmus, you can identify any rendering issues, inconsistencies, or compatibility problems that may occur in different email clients. It provides a visual representation of how your email will appear, allowing you to make necessary adjustments to ensure optimal rendering and user experience.
+
+Litmus also offers additional features like spam filter testing, link checking, and email analytics to help you analyze and optimize your email campaigns. It's widely used in the email marketing industry to ensure the quality and effectiveness of HTML emails across various platforms
+
+SAMPLE
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coding Webinar: Join us on June 1st!</title>
+  <style>
+    /* CSS styles for the email */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 600px; //THIS IS RECOMMENDED FOR EMAILS
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    h1 {
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #666666;
+      margin-bottom: 10px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff9900;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Join Our Coding Webinar!</h1>
+    <div class="image">
+      <img src="bootcamp-image.jpg" alt="Coding Bootcamp">
+    </div>
+    <p>Dear Coding Enthusiast,</p>
+    <p>We are thrilled to invite you to our upcoming coding webinar on June 1st, 2023. Whether you are a beginner or an experienced developer, this webinar is designed to provide valuable insights and tips.</p>
+    <p>Topics covered will include:</p>
+    <ul>
+      <li>Introduction to Web Development</li>
+      <li>JavaScript Fundamentals</li>
+      <li>Building Responsive Websites</li>
+    </ul>
+    <p>To reserve your spot, please click the button below:</p>
+    <a href="registration-link" class="button">Register Now</a>
+    <p>If you have any questions or need further information, feel free to call us at <a href="tel:+2347062957194">+2347062957194</a>.</p>
+    <p>We look forward to seeing you at the webinar!</p>
+    <p>Best regards,</p>
+    <p>The Coding Webinar Team</p>
+  </div>
+</body>
+</html>
+==============================
+1. Ensure to use inline css and internal css
