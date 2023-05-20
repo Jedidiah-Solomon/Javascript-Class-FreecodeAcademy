@@ -12584,10 +12584,53 @@ To avoid bugs, always declare all variables at the beginning of every scope.
 Since this is how JavaScript interprets the code, it is always a good rule.
 
 JavaScript in strict mode does not allow variables to be used if they are not declared.
+==============================================================================================
 
 
+HOWTO USE CHROME MOBILE SIMULATOR FOR MOBILE E.G https://www.webmobilefirst.com and/or go to goole extension store to install it. 
 
-                                                                                                                                    
+For instance: after testing with Iphone 12 pro, I can see the features in the simulaor.
+
+Characteristics of the Apple iPhone 12 Pro
+
+
+Viewport resolution (CSS rules)
+
+It is the resolution that interests designers and developers the most because it determines the breakpoints and the definition of media queries. In general we only talk about this resolution.
+For the Apple iPhone 12 Pro it is :
+
+390 pixels width
+844 pixels height ⚠️ the height is indicative because the Safari browser, Chrome, etc. reduce the visible area
+ℹ️ Some analytics tools only display the manufacturer resolution (below) and not the one presented above, so be careful when interpreting the results.
+
+Available in the simulator 
+Test your site now on this device Apple iPhone 12 Pro using the browser extension.
+It's free and can be activated in 2 clicks.
+
+Pixel density
+On the Apple iPhone 12 Pro it is 3
+
+If you want to target devices with at least this pixel density in CSS, you can use this media query.
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    /* CSS */
+}
+
+Also in javascript, it is possible to retrieve the value of the pixel density.
+
+window.devicePixelRatio
+// Which will return the figure 3
+
+
+NOTE:  
+
+What is device pixel ratio from PPI?
+devicePixelRatio defines the relationship between device pixels and CSS pixels for a particular device. A 192 ppi device has a devicePixelRatio of 2 (192 ppi/96 ppi = 2) because "2 of its display pixels are the size of 1 CSS pixel". These days most devices have a device-pixel-ratio between 1.0 and 4.0.
+
+PPI stands for Pixels Per Inch. This means that the PPI number tells us how many pixels will be “used” per inch of the display of a given device. Regardless of whether it is a smartphone, tablet, computer monitor or TV – each device with physical size and display will have a PPI value.
+
+The device pixel ratio is a measure of how many physical pixels there are in a virtual inch of space on that device. 
+                                                                                                                                
 
 
  
