@@ -1,0 +1,436 @@
+1. CSS BLEND MODES
+
+This is having background-image and gradient together.
+use:
+  background-blend-mode: darken; e.g darken, lighten, color-dodge, difference, screen etc
+
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS TRICKS</title>
+  <style type="text/css">
+    body {
+      background-image: url(./img/photo-2.jpg);
+      background-position: center;
+      background-size: cover;
+      background-color: #871ae0;//#00ce2d
+      background-blend-mode: screen;//darken
+      
+    }
+
+    
+  </style>
+</head>
+<body>
+
+
+
+</body>
+</html>
+
+
+
+CLIPPING
+This is done using css clip-path
+
+Go to https://bennettfeely.com/ and then https://bennettfeely.com/clippy/ for clippy images.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS TRICKS</title>
+  <style type="text/css">
+    body {
+      background: #fff;
+    }
+
+    body > #bg {
+      height: 100%;
+      width: 100%;
+      background-color: rgb(2, 211, 248);
+      clip-path: polygon(100% 0, 100% 52%, 39% 100%, 0 100%, 0 0);
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+
+    }
+
+  </style>
+</head>
+<body>
+  <div id="bg"></div>
+
+
+
+</body>
+</html>
+
+
+
+
+REPEATING RADIAL GRADIENT
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .background-element {
+      width: 100%;
+      height: 100vh; /* Adjust the height as needed */
+      background:
+        repeating-radial-gradient(
+          circle at 50% 25%,
+          limegreen,
+          limegreen 0.5em,
+          olivedrab 0.5em,
+          olivedrab 2em,
+          green 2em,
+          green 3em,
+          transparent 3em
+        );
+    }
+  </style>
+</head>
+<body>
+  <div class="background-element">
+    <!-- Your content here -->
+  </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .background-element {
+      width: 100%;
+      height: 100vh; /* Adjust the height as needed */
+      background:
+  repeating-radial-gradient(
+    circle at 50% 25%,
+    limegreen,
+    limegreen .5em,
+    transparent 3em,
+    transparent 4em
+  ),
+  repeating-radial-gradient(
+    circle at 25% 50%,
+    olivedrab,
+    olivedrab .5em,
+    transparent 2em,
+    transparent 4em
+  ),
+  repeating-radial-gradient(
+    circle at 75% 50%,
+    green,
+    green .5em,
+    transparent 2em,
+    transparent 4em
+  ), lightgreen;
+
+background-blend-mode: multiply;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-element">
+    <!-- Your content here -->
+  </div>
+</body>
+</html>
+
+
+Unfortunately, CSS gradients, including radial gradients, are not capable of rendering shapes other than circles or ellipses. The repeating-radial-gradient function can only create circular or elliptical gradients.
+
+However, if you want to create gradients in the shape of a triangle or square, you have a couple of options:
+
+SVG: You can use SVG (Scalable Vector Graphics) to create shapes like triangles or squares and apply gradients to those shapes. SVG allows for more flexible and precise control over shapes and gradients. Here's an example of using SVG to create a triangle shape with a gradient background:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 200px solid;
+      background:
+        repeating-radial-gradient(
+          circle at 50% 25%,
+          limegreen,
+          limegreen .5em,
+          olivedrab .5em,
+          olivedrab 2em,
+          green 2em,
+          green 3em,
+          transparent 3em
+        );
+    }
+  </style>
+</head>
+<body>
+  <svg class="triangle" viewBox="0 0 100 200"></svg>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .triangle {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <svg class="triangle" viewBox="0 0 200 200">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="25%">
+        <stop offset="0%" stop-color="limegreen" />
+        <stop offset="15%" stop-color="limegreen" />
+        <stop offset="15%" stop-color="olivedrab" />
+        <stop offset="40%" stop-color="olivedrab" />
+        <stop offset="40%" stop-color="green" />
+        <stop offset="60%" stop-color="green" />
+        <stop offset="60%" stop-color="transparent" />
+      </radialGradient>
+    </defs>
+    <path d="M0 200 L100 0 L200 200 Z" fill="url(#gradient)" />
+  </svg>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.square {
+			width: 200px;
+			height: 200px;
+			background:
+				repeating-radial-gradient(
+					circle at 50% 25%,
+					limegreen,
+					limegreen .5em,
+					olivedrab .5em,
+					olivedrab 2em,
+					green 2em,
+					green 3em,
+					transparent 3em
+				);
+			-webkit-mask-image: linear-gradient(45deg, transparent 50%, black 50%);
+			mask-image: linear-gradient(45deg, transparent 50%, black 50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="square"></div>
+</body>
+</html>
+
+
+
+RADIAL GRADIENT
+USE https://cssgradient.io/ to generate gradient
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS TRICKS</title>
+  <style type="text/css">
+    html {
+      height: 100%;
+    }
+
+   body {
+  height: 100vh;
+  background: rgb(70, 184, 167);
+  background: radial-gradient(
+    circle,
+    rgba(70, 184, 167, 1) 0%,
+    rgba(55, 80, 219, 1) 100%
+  );
+}
+
+
+  </style>
+</head>
+<body>
+  
+
+
+</body>
+</html>
+
+background: rgb(237,134,15);
+background: radial-gradient(circle, rgba(237,134,15,0.9976365546218487) 8%, rgba(170,168,67,1) 78%);
+
+or
+
+linear
+
+background: rgb(237,134,15);
+background: linear-gradient(176deg, rgba(237,134,15,0.9976365546218487) 8%, rgba(170,168,67,1) 78%);
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS TRICKS</title>
+  <style type="text/css">
+    html {
+      height: 100%;
+    }
+
+   body {
+  height: 100vh;
+  
+background: rgb(237,134,15);
+background: linear-gradient(176deg, rgba(237,134,15,0.9976365546218487) 8%, rgba(170,168,67,1) 78%);
+}
+
+
+  </style>
+</head>
+<body>
+  
+
+
+</body>
+</html>
+
+
+
+COLOR SHADES
+Color shades are lighter and darker variations of a particular color. While in color theory, a "shade" is created by adding black and a "tint" is made by adding white, "shade" generally refers to the the whole range of possible colors.
+
+GO TO https://cssgradient.io/color-shades/
+
+E.G FOR GREEN
+
+
+#7FFF00 
+Chartreuse
+
+#008B8B 
+Dark Cyan
+
+#006400 
+Dark Green
+
+#556B2F 
+Dark Olive Green
+
+#8FBC8B 
+Dark Sea Green
+
+#228B22 
+Forest Green
+
+#008000 
+Green
+
+#ADFF2F 
+Green Yellow
+
+#7CFC00 
+Lawn Green
+
+#90EE90 
+Light Green
+
+#20B2AA 
+Light Sea Green
+
+#00FF00 
+Lime
+
+#32CD32 
+Lime Green
+
+#66CDAA 
+Medium Aquamarine
+
+#3CB371 
+Medium Sea Green
+
+#00FA9A 
+Medium Spring Green
+
+#808000 
+Olive
+
+#6B8E23 
+Olive Drab
+
+#98FB98 
+Pale Green
+
+#2E8B57 
+Sea Green
+
+#008080 
+Teal
+
+#9ACD32 
+Yellow Green
+
+
+CSS GRADIENT BACKGROUNDS
+GO TO
+https://cssgradient.io/gradient-backgrounds/
+
+background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+ALSO, YOU CAN DO
+
+2 Color Combinations
+There are an endless amount of color combinations that can be used to create a visually appealing design. However, not all color combinations are created equal. Some color combinations can create a sense of harmony while others can create a sense of tension. When choosing colors for your design, it is important to consider the mood that you want to create.
+
+Below you can find hand picked combinations of 2 colors that look good together. Use them for your next web/desing project.
+
+E.G
+#0A174E  FOR BUTTONS TEXT AND BACKGROUND OF ELEMENTS
+#F5D042 BUTTON BACKGROUND AND ELEMENTS TEXT
+
+ALSO FOR GRADIENT BUTTONS
+
+E.G
+.btn-grad {
+            background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+
+
+ILLUSTRATIONS
+
+https://designstripe.com/
