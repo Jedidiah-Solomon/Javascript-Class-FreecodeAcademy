@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript - Upload an Image with Input field</title>
+	<style type="text/css">
+		img{
+		  width: 400px;
+		  height: auto;
+		}
+
+	</style>
+</head>
+<body>
+	<label for="image-1">Upload Your Passport:</label><br><br>
+	<input type="file" id="image-1" accept="image/jpeg, image/png, image/jpg">
+	<img id="image">
+
+    <hr>
+
+	<label for="image-2">Upload Your Passport:</label><br><br>
+	<input type="file" id="image-2" accept="image/jpeg, image/png, image/jpg image/*">
+	<img id="image2">
+
+
+    <hr>
+
+	<label for="myMusic">Upload Your Accapella Sound:</label><br><br>
+	<input type="file" id="myMusic" accept=".mp3, audio/mp3 .wav, .aac, .flac, .ogg, .m4a, .aiff, .wma">
+
+	<hr>
+
+	<label for="myMusic">Upload Your Business Pitch:</label><br><br>
+	<input type="file" id="myMusic" accept="video/*, .mp4, .avi, .mov">
+
+
+ 	<hr>
+
+	<label for="myDoc">Upload Your CV:</label><br><br>
+	<input type="file" id="myDoc" accept=".doc, .docx, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+
+
+
+	<script type="text/javascript">
+		const file = document.querySelector("#image-1");
+
+		file.addEventListener("change", seeFile);
+
+	    function seeFile() {
+	        const reader = new FileReader();
+	        reader.addEventListener("load", function() {
+	            document.querySelector("#image").src = reader.result;
+	        });
+	        reader.readAsDataURL(file.files[0]);
+	    }
+
+	</script>
+
+
+
+
+<!--COMMENTS-->
+
+<!--	
+
+JavaScript:
+
+The JavaScript code is enclosed within <script> tags and placed inside the <body> section of the HTML document.
+
+const file = document.querySelector("#image-1"); selects the file input element with the ID image-1 and assigns it to the file variable.
+
+file.addEventListener("change", seeFile); adds an event listener to the change event of the file element. When the user selects a file, the seeFile function will be called.
+
+function seeFile() is the function that will be executed when the file input's change event occurs.
+
+Inside the seeFile function:
+A new FileReader object is created and assigned to the reader variable.
+
+reader.addEventListener("load", function() { ... }) adds an event listener to the load event of the reader object. 
+
+When the file is successfully loaded, the event listener function will be executed.
+Inside the event listener function,
+
+document.querySelector("#image").src = reader.result; 
+
+selects the <img> tag with the ID image and sets its src attribute to the result property of the reader object. This assigns the data URL representing the uploaded image to the src attribute, which displays the image on the webpage.
+
+reader.readAsDataURL(file.files[0]); reads the contents of the selected file as a data URL. file.files[0] retrieves the first file selected by the user using the file element.
+
+Assuming the user uploads an image named "avatar.jpg" with the mentioned details, the JavaScript code will listen for the change event on the image-1 file input field. 
+
+Once the user selects the file, the seeFile function will be called. The function creates a FileReader, reads the uploaded image file, and assigns the data URL of the image to the src attribute of the image element, resulting in the displayed image being set to "avatar.jpg".
+
+
+The user selects the file "avatar.jpg" using the file input field associated with the ID image-1.
+The change event is triggered on the file input field.
+The event listener function seeFile() is called.
+
+
+Inside the seeFile() function:
+A new FileReader object is created and assigned to the reader variable.
+An event listener is added to the load event of the reader object.
+The event listener function is called when the file is successfully loaded.
+Inside the event listener function, the document.querySelector("#image").src line selects the image element with the ID image.
+
+
+The src attribute of the selected image element is set to the result property of the reader object.
+Since the user uploaded an image named "avatar.jpg", the data URL representing the uploaded image is assigned to the src attribute, resulting in the displayed image being set to "avatar.jpg".
+
+
+The reader.readAsDataURL(file.files[0]) line initiates the reading of the selected file as a data URL.
+The file details (such as size and creation date) mentioned in your question are not directly handled or used in the provided JavaScript code. However, if you need to access and utilize such details, you would need to extract them from the file object within the seeFile() function and process them accordingly.
+
+
+That's the explanation of the JavaScript code considering the provided HTML structure and assuming the user uploads an image named "avatar.jpg" with the mentioned details. The code allows displaying the uploaded image on the webpage.
+
+The line const reader = new FileReader() creates a new instance of the FileReader object and assigns it to the reader variable.
+
+The FileReader object is a built-in JavaScript object that provides methods and properties to read the contents of files asynchronously. It allows you to read files from the user's local system and handle the file data.
+
+The reader object has various methods and properties that you can use to interact with the file data. Some of the key properties and methods of the FileReader object include:
+
+readAsArrayBuffer(file): Reads the contents of the specified file as an array buffer.
+readAsBinaryString(file): Reads the contents of the specified file as a binary string.
+readAsDataURL(file): Reads the contents of the specified file as a data URL.
+readAsText(file, encoding): Reads the contents of the specified file as plain text, optionally specifying the encoding.
+In the provided code, new FileReader() creates a new instance of the FileReader object, which can then be used to read the contents of the selected file using the appropriate method.
+
+
+ The readAsDataURL(file) method of the FileReader object is used to read the contents of a specified file and generate a data URL representing the file data.
+
+A data URL, also known as a data URI, is a URI scheme that allows embedding the contents of a file directly into a web page using a base64-encoded string. It starts with the data: scheme, followed by the MIME type of the data, and then the base64-encoded data itself.
+
+When you call reader.readAsDataURL(file), the file parameter represents the file that you want to read. It could be an image, text file, audio file, or any other type of file.
+
+Here's how the process works:
+
+The readAsDataURL() method initiates the reading process of the specified file.
+The file is read asynchronously, meaning that the reading operation doesn't block the execution of other code.
+Once the file is successfully read, the load event of the FileReader object is triggered.
+You can add an event listener to the load event using reader.addEventListener("load", function() { ... }). 
+
+The provided function will be executed when the file is loaded.
+Inside the event listener function, you can access the result of the file reading operation using the reader.result property.
+In the provided code, the result is assigned to the src attribute of an image element using document.querySelector("#image").src = reader.result;. This sets the data URL as the source of the image, displaying the uploaded image on the webpage.
+
+By using the readAsDataURL(file) method, you can conveniently read the contents of a file and obtain a data URL representation of the file's data. This is useful when you want to display an uploaded image, embed file contents within a webpage, or perform other operations that involve manipulating file data.
+
+As a result, when you select an image file using the file input field, the seeFile function is called. The selected image is read using the FileReader, and its data URL is set as the src attribute of the <img> tag with the ID "image". This causes the uploaded image to be displayed within that <img> tag on the webpage.
+
+
+
+
+
+
+
+
+
+-->
+
+</body>
+</html>

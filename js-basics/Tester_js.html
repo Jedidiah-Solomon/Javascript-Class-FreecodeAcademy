@@ -3,35 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CSS TRICKS</title>
-  <style type="text/css">
-   .btn-grad {
-            background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
-            margin: 10px;
-            padding: 15px 45px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-            cursor: pointer;
-          }
-
-          .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-          }
-
-  </style>
+  <title>JAVASCRIPT PRACTICE</title>
 </head>
 <body>
-  <button class="btn-grad">pay now</button>
+  <p id="demo"></p>
 
+  <script>
+    // Create an object:
+    const person = {
+      firstName: "John",
+      lastName: "Obi",
+      id: 5566,
+      fullName: nameCaller
+    };
 
+    function nameCaller(obj) {
+      return obj.firstName + " " + obj.lastName;
+    }
+
+    // Display data from the object:
+    document.getElementById("demo").innerHTML = person.fullName(person) + '<br> Id: ' + person.id;
+  </script>
 </body>
 </html>
-
