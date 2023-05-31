@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JAVASCRIPT MODULES</title>
+</head>
+<body>
+	<h1>How to use JavaScript Modules for import and export.</h1>
+
+	<p>
+		<!--If you run modules locally in browsers, you will encounter errors in dev tools if you check.
+		The error message you're encountering is related to the CORS (Cross-Origin Resource Sharing) policy enforced by web browsers. You're trying to access a local file e.g (file:///C:/Users/JEDYBROWN/Desktop/GitHub/Javascript-Class-FreecodeAcademy/js-basics/scripts/app.js) directly in your browser without using a web server.
+
+		Web browsers typically restrict accessing local files directly from a webpage due to security reasons. To resolve this issue, you have a few options:
+
+		1. Set up a local web server: You can install a local web server like Apache or use tools like Node.js with Express to serve your files. By running a web server, you can access your JavaScript files using the http:// or https:// protocol, which bypasses the CORS restriction for local files.
+
+		2. Use a development server: If you're working on a JavaScript project, many development tools provide built-in development servers. For example, if you're using Node.js, you can utilize tools like http-server, live-server, or frameworks like Create React App or Vue CLI, which come with a development server by default. These servers handle the CORS issue and allow you to access your JavaScript files.
+
+		Adjust browser settings: Some browsers have security settings that can allow you to disable the CORS policy for local files. However, this is not recommended for regular browsing as it may expose your system to security risks. It's better to use a local web server or a development server for testing and development purposes.
+
+		By following one of these approaches, you should be able to resolve the CORS error and access your JavaScript files without issues.
+
+		TWO WAYS TO RUNN FILES USING TERMINAL TO AVOID ERRORS
+
+		Option 1: Use the .mjs extension for your module files
+
+		Rename your app.js file to app.mjs.
+		Update the import statement in your app.mjs file to use the .mjs extension: import nigeriaElectionWinner from './main.mjs';.
+		Run the module using the following command in your Git Bash terminal: node ./scripts/app.mjs.
+		By using the .mjs extension, you're explicitly indicating that the file is an ECMAScript module.
+
+		Option 2: Configure Node.js to handle ES modules with .js extension
+
+		Create a package.json file in your project directory if you don't have one already.
+		Inside the package.json file, add the following line: "type": "module".
+		Save the package.json file.
+		Update the import statement in your app.js file to use the .js extension: import nigeriaElectionWinner from './main.js';.
+		Run the module using the following command in your Git Bash terminal: node ./scripts/app.js.
+		By adding "type": "module" to your package.json file, you're telling Node.js to treat all .js files as ECMAScript modules.
+
+		Either of these options should resolve the warning and allow you to run the JavaScript module with Node.js.
+
+
+		so run:
+
+		node ./scripts/app.js
+
+		This is a default function.
+		Peter Obi is a good man
+		Hello, I am Jedidiah!
+		This is a named function.
+		2023,5,29
+		I saulte you my co-web developers! I am a Front-end Developer
+
+
+
+
+
+
+
+	-->
+	</p>
+
+
+	<script type="module" src="./scripts/app.js"></script>
+	
+
+</body>
+</html>

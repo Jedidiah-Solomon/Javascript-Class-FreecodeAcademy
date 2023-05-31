@@ -12877,6 +12877,25 @@ function myFunction() {
 
 myFunction(); // 'this' refers to the global object
 
+/* E.g of the global object:  blur()
+btoa
+ 
+ btoa()
+caches
+ 
+CacheStorage {}
+cancelAnimationrame
+ 
+ cancelAnimationrame()
+cancelIdleCallback
+ 
+ cancelIdleCallback()
+captureEvents
+
+*/
+
+
+
 When a function is invoked directly, without any object context, this also refers to the global object.
 
 3. Object Method: 
@@ -12902,6 +12921,45 @@ function Person(firstName, lastName) {
 }
 
 const john = new Person("John", "Doe"); // 'this' refers to the newly created object 'john'
+
+
+When a function is used as a constructor with the new keyword, this refers to the newly created object that the constructor is constructing. In the example above, this within the Person constructor refers to the object being created.
+
+5. Event Handlers:
+
+const button = document.querySelector("button");
+
+button.addEventListener("click", function() {
+  console.log(this); // 'this' refers to the element that triggered the event (the button)
+});
+
+so:
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JAVASCRIPT PRACTICE</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <button type="submit">BUY NOW</button>
+
+  <script>
+    const button = document.querySelector("button");
+
+    button.addEventListener("click", function() {
+      console.log(this); // 'this' refers to the element that triggered the event (the button) 
+       //and on click the console shows   <button type="submit">BUY NOW</button>
+
+    });
+
+  </script>
+</body>
+</html>
+
+
+
 
 
 
@@ -13007,6 +13065,1283 @@ Example
 <button onclick="this.style.display='none'">
   Click to Remove Me!
 </button>
+
+
+Object Method Binding
+In these examples, this is the person object:
+
+Example
+const person = {
+  firstName  : "John",
+  lastName   : "Doe",
+  id         : 5566,
+  myFunction : function() {
+    return this;
+  }
+};
+console.log(person.myFunction());
+
+ANS: {firstName: 'John', lastName: 'Doe', id: 5566, myFunction: ƒ}
+
+Since the myFunction method returns this, which refers to the person object itself, logging person will display the entire person object in the console, including all its properties and their values.
+
+In other words, console.log(person) will give you the same output as console.log(person.myFunction()) because myFunction() returns the person object itself.
+
+
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+i.e. this.firstName is the firstName property of this (the person object).
+
+Code Snippet 1: console.log(person.fullName);
+This will log the function definition of fullName to the console. It will not execute the function. So the output will be the function definition itself, rather than the result of invoking the function.
+
+ans:
+
+{firstName: 'John', lastName: 'Doe', id: 5566, fullName: ƒ}
+firstName
+: 
+"John"
+fullName
+: 
+ƒ ()
+id
+: 
+5566
+lastName
+: 
+"Doe"
+[[Prototype]]
+: 
+Object
+
+Code Snippet 2: console.log(person.fullName());
+This will invoke the fullName function and log its return value to the console. The fullName function concatenates the firstName and lastName properties of the person object using the this keyword. So the output will be the full name of the person, in this case, "John Doe".
+
+To summarize, if you want to display the function definition, use console.log(person.fullName). If you want to execute the function and display its return value, use console.log(person.fullName()).
+
+
+Explicit Function Binding
+The call() and apply() methods are predefined JavaScript methods.
+
+They can both be used to call an object method with another object as argument.
+
+The JavaScript call() Method
+The call() method is a predefined JavaScript method.
+
+It can be used to invoke (call) a method with an owner object as an argument (parameter).
+
+With call(), an object can use a method belonging to another object.
+
+This example calls the fullName method of person, using it on person1:
+
+Example
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+
+// This will return "John Doe":
+person.fullName.call(person1);
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+<p>This example calls the fullName method of person, using it on person1:
+</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+document.getElementById("demo").innerHTML = person.fullName.call(person1); 
+</script>
+
+</body>
+</html>
+
+
+ans: John Doe
+
+
+The call() Method with Arguments
+The call() method can accept arguments:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+<p>This example calls the fullName method of person, using it on person1:
+</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+
+document.getElementById("demo").innerHTML = person.fullName.call(person1, "Oslo", "Norway"); 
+</script>
+
+</body>
+</html>
+
+ans: John Doe,Oslo,Norway
+
+
+
+JavaScript Function apply()
+Method Reuse
+With the apply() method, you can write a method that can be used on different objects.
+
+The JavaScript apply() Method
+The apply() method is similar to the call() method (previous chapter).
+
+In this example the fullName method of person is applied on person1:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+<p>In this example the fulllName method of person is <b>applied</b> on person1:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+document.getElementById("demo").innerHTML = person.fullName.apply(person1); 
+</script>
+
+</body>
+</html>
+
+
+ans: John Doe
+
+
+
+The Difference Between call() and apply()
+The difference is:
+
+The call() method takes arguments separately.
+
+The apply() method takes arguments as an array.
+
+The apply() method is very handy if you want to use an array instead of an argument list.
+
+The apply() Method with Arguments
+The apply() method accepts arguments in an array:
+
+Example
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+person.fullName.apply(person1, ["Oslo", "Norway"]);
+
+Compared with the call() method:
+
+Example
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+person.fullName.call(person1, "Oslo", "Norway");
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Math.max()</h2>
+<p>This example returns the highest number in a list of number arguments:</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Math.max(1,2,3); 
+</script>
+
+</body>
+</html>
+
+Since JavaScript arrays do not have a max() method, you can apply the Math.max() method instead.
+
+Example
+Math.max.apply(null, [1,2,3]); // Will also return 3
+
+The first argument (null) does not matter. It is not used in this example.
+
+These examples will give the same result:
+
+Example
+Math.max.apply(Math, [1,2,3]); // Will also return 3
+
+Example
+Math.max.apply(" ", [1,2,3]); // Will also return 3
+
+Example
+Math.max.apply(0, [1,2,3]); // Will also return 3
+
+
+JavaScript Function bind()
+Function Borrowing
+With the bind() method, an object can borrow a method from another object.
+
+The example below creates 2 objects (person and member).
+
+The member object borrows the fullname method from the person object:
+
+Example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+
+let fullName = person.fullName.bind(member);
+
+
+
+JavaScript Function bind()
+Function Borrowing
+With the bind() method, an object can borrow a method from another object.
+
+The example below creates 2 objects (person and member).
+
+The member object borrows the fullname method from the person object:
+
+Example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+
+let fullName = person.fullName.bind(member);
+
+
+This example creates 2 objects (person and member).
+
+The member object borrows the fullname method from person:
+
+ans: Hege Nilsen
+
+
+Preserving this
+Sometimes the bind() method has to be used to prevent losing this.
+
+In the following example, the person object has a display method. In the display method, this refers to the person object:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Function bind()</h1>
+
+<p>In this example, the person object has a display method:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function() {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+person.display();
+</script>
+
+</body>
+</html>
+
+
+When a function is used as a callback, this is lost.
+
+This example will try to display the person name after 3 seconds, but it will display undefined instead:
+
+Example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+setTimeout(person.display, 3000);
+
+ans: undefined undefined
+
+
+he bind() method solves this problem.
+
+In the following example, the bind() method is used to bind person.display to person.
+
+This example will display the person name after 3 seconds:
+
+Example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+let display = person.display.bind(person);
+setTimeout(display, 3000);
+
+
+
+============================================================
+
+JavaScript Arrow Function
+Arrow functions were introduced in ES6.
+
+Arrow functions allow us to write shorter function syntax:
+
+let myFunction = (a, b) => a * b;
+
+
+
+USING regular function:
+
+function sumBox(x,y) {
+    return x + y;
+   }
+
+   document.getElementById('demo').innerHTML =  sumBox(3,5);// ANS: 8
+
+
+or
+
+let hello = function() {
+  return "Hello World!";
+}
+
+document.getElementById('demo').innerHTML =  hello();
+
+or
+
+let hello = "";
+
+hello = function() {
+  return "Hello World!";
+}
+
+document.getElementById("demo").innerHTML = hello();
+
+or
+
+let hello = "hi";
+
+let concatHello = function() {
+  return hello + " World!";
+}
+
+document.getElementById("demo").innerHTML = concatHello();//hi world
+
+
+using arrow function:
+
+let sumBox = (x,y) => x + y; 
+
+document.getElementById('demo').innerHTML =  sumBox(3,5);
+
+or
+
+
+let hello = "";
+
+hello = () => {
+  return "Hello World!";
+}
+
+document.getElementById("demo").innerHTML = hello();
+
+
+It gets shorter! If the function has only one statement, and the statement returns a value, you can remove the brackets and the return keyword:
+
+Arrow Functions Return Value by Default:
+
+let hello = "";
+hello = () => "Hello World!";
+
+Note: This works only if the function has only one statement.
+
+If you have parameters, you pass them inside the parentheses:
+
+Arrow Function With Parameters:
+
+let greeting = "";
+
+greeting = (val) => "Hello " + val;
+
+document.getElementById("demo").innerHTML = greeting("Universe!");
+
+In fact, if you have only one parameter, you can skip the parentheses as well:
+
+Arrow Function Without Parentheses:
+
+let greeting = "";
+
+greeting = val => "Hello " + val;
+
+document.getElementById("demo").innerHTML = greeting("Universe!");
+
+
+
+
+What About this?
+The handling of this is also different in arrow functions compared to regular functions.
+
+In short, with arrow functions there are no binding of this.
+
+In regular functions the this keyword represented the object that called the function, which could be the window, the document, a button or whatever.
+
+With arrow functions the this keyword always represents the object that defined the arrow function.
+
+Let us take a look at two examples to understand the difference.
+
+Both examples call a method twice, first when the page loads, and once again when the user clicks a button.
+
+The first example uses a regular function, and the second example uses an arrow function.
+
+The result shows that the first example returns two different objects (window and button), and the second example returns the window object twice, because the window object is the "owner" of the function.
+
+Example
+With a regular function this represents the object that calls the function:
+
+// Regular Function:
+hello = function() {
+  document.getElementById("demo").innerHTML += this;
+}
+
+// The window object calls the function:
+window.addEventListener("load", hello);
+
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript "this"</h1>
+
+<p>This example demonstrate that in a regular function, the "this" keyword represents different objects depending on how the function was called.</p>
+
+<p>Click the button to execute the "hello" function again, and you will see that this time "this" represents the button object.</p>
+
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<script>
+let hello = "";
+
+hello = function() {
+  document.getElementById("demo").innerHTML += this;
+}
+
+//The window object calls the function:
+window.addEventListener("load", hello);//ans: [object Window]
+
+//A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);//ans: [object HTMLButtonElement]
+</script>
+
+</body>
+</html>
+
+
+Example
+With an arrow function this represents the owner of the function:
+
+// Arrow Function:
+hello = () => {
+  document.getElementById("demo").innerHTML += this;
+}
+
+// The window object calls the function:
+window.addEventListener("load", hello);
+
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript "this"</h1>
+
+<p>This example demonstrate that in Arrow Functions, the "this" keyword represents the object that owns the function, no matter who calls the function.</p>
+
+<p>Click the button to execute the "hello" function again, and you will see that "this" still  represents the window object.</p>
+
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<script>
+let hello = "";
+
+hello = () => {
+  document.getElementById("demo").innerHTML += this;
+}
+
+//The window object calls the function:
+window.addEventListener("load", hello);//ANS: [object Window]
+
+//A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);//ANS: [object Window]
+</script>
+
+</body>
+</html>
+
+
+
+
+Remember these differences when you are working with functions. Sometimes the behavior of regular functions is what you want, if not, use arrow functions.
+
+================================================================================================
+
+JavaScript Classes
+
+
+ECMAScript 2015, also known as ES6, introduced JavaScript Classes.
+
+JavaScript Classes are templates for JavaScript Objects.
+
+JavaScript Class Syntax
+Use the keyword class to create a class.
+
+Always add a method named constructor():
+
+Syntax
+class ClassName {
+  constructor() { ... }
+}
+
+
+
+JavaScript classes provide a way to define reusable blueprints for creating objects with similar properties and behaviors. They follow the object-oriented programming (OOP) paradigm and are introduced in ECMAScript 2015 (ES6) as a syntactical sugar over JavaScript's existing prototype-based inheritance.
+
+To define a class in JavaScript, you use the class keyword followed by the class name. Here's a concise and precise explanation of the key concepts related to JavaScript classes:
+
+Class Declaration: To declare a class, use the following syntax:
+
+
+
+class ClassName {
+  // Class body
+}
+
+
+Constructor Method: The constructor method is a special method within a class that gets executed when an object is created from the class. It's used to initialize object properties. Here's an example:
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+
+Class Methods: Methods are functions defined within a class that can be called on objects created from the class. They can be added directly inside the class body. Here's an example:
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+
+The class Person has a constructor method that sets the name and age properties of an object created from the class. It also has a greet() method that logs a greeting message to the console, including the name property of the object.
+
+However, to see any output, you need to create an instance of the Person class and call the greet() method. Here's an example:
+
+
+const person = new Person('John', 25);
+person.greet();
+The output would be:
+
+Hello, my name is John.
+
+
+This is because the greet() method is called on the person object, which has the name property set to 'John'. The method retrieves the name property and logs the greeting message with the corresponding value.
+
+The constructor(name, age) is a special method within the Person class. The constructor method is automatically called when you create a new object from the class using the new keyword.
+
+Let's break down the code inside the constructor method:
+
+
+constructor(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Parameters: The constructor method takes in two parameters, name and age. These parameters represent the values that will be assigned to the name and age properties of the object.
+
+this Keyword: Inside the constructor, the this keyword refers to the current object being created from the Person class. It is used to set the name and age properties on that object.
+
+Property Assignment: The lines this.name = name; and this.age = age; assign the values of the name and age parameters to the respective properties of the object being created. This allows each object to have its own unique name and age values.
+
+In summary, when a new object is created from the Person class and the constructor method is executed, the name and age values provided as arguments during object creation are assigned to the name and age properties of that object. This allows you to initialize the object with specific values for its properties.
+
+
+
+
+Creating Objects: 
+
+To create an object from a class, use the new keyword followed by the class name and parentheses. Arguments can be passed to the constructor method, if defined. Here's an example:
+
+const person1 = new Person('John', 25);
+
+Inheritance: 
+
+Classes can inherit properties and methods from other classes. This is achieved using the extends keyword. The child class can override inherited methods or define new ones. Here's an example:
+
+class Student extends Person {
+  constructor(name, age, grade) {
+    super(name, age); // Calls the parent class constructor
+    this.grade = grade;
+  }
+
+  study() {
+    console.log(`${this.name} is studying.`);
+  }
+}
+
+
+so:
+
+  <script>
+
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+class Student extends Person {
+  constructor(name, age, grade) {
+    super(name, age); // Calls the parent class constructor
+    this.grade = grade;
+  }
+
+  study() {
+    console.log(`${this.name} , ${this.age} years is studying ${this.grade} in University.`);
+  }
+}
+
+const person = new Student('John', 25, "Soil Science");
+person.study();
+
+const person2 = new Person('John', 25);
+person2.greet();
+
+
+
+ans: 
+John , 25 years is studying Soil Science in University.
+Hello, my name is John.
+  </script>
+
+The class Student extends Person defines a class named Student that extends the Person class. This means that the Student class inherits properties and methods from the Person class.
+
+
+
+
+constructor(name, age, grade) {
+  super(name, age); // Calls the parent class constructor
+  this.grade = grade;
+}
+
+
+super(name, age) 
+
+The super keyword is used to call the constructor of the parent class (Person) and pass the name and age arguments to it. This ensures that the name and age properties are properly initialized by invoking the constructor of the Person class.
+
+this.grade = grade: After calling the parent class constructor, the grade property of the Student object is set to the value passed as the grade argument. This allows each Student object to have its own grade value.
+
+In summary, the constructor method of the Student class first calls the constructor of the parent class (Person) using super(name, age). This initializes the name and age properties inherited from the Person class. Then, it sets the grade property specific to the Student class using this.grade = grade.
+
+By using the extends keyword and super in the constructor, the Student class inherits the properties and methods from the Person class and can add its own properties and methods or override inherited ones.
+
+
+
+A JavaScript class is not an object.
+
+It is a template for JavaScript objects.
+
+
+
+To check the type of the Student class, you can use the typeof operator in JavaScript. However, note that typeof is used to check the type of a value, not a class or constructor function. In JavaScript, classes are essentially constructor functions, so you can check the type of the class by checking the type of its constructor function.
+
+Here's how you can check the type of the Student class using typeof and console.log:
+
+
+console.log(typeof Student);
+
+The output will be: function
+
+
+Since Student is a class defined using the class syntax, its type is function. In JavaScript, classes are syntactic sugar over constructor functions, so typeof Student will return 'function'.
+
+Note that typeof only returns basic type information. If you want to determine if an object is an instance of a specific class, you can use the instanceof operator. For example, to check if an object person is an instance of the Student class:
+
+
+console.log(person instanceof Student);
+
+This will return true if person is an instance of the Student class and false otherwise.
+
+
+Using a Class
+When you have a class, you can use the class to create objects:
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Classes</h1>
+<p>Creating two car objects from a car class:</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+const myCar1 = new Car("Ford", 2014);
+const myCar2 = new Car("Audi", 2019);
+
+document.getElementById("demo").innerHTML =
+myCar1.name + " " + myCar2.name;
+</script>
+
+</body>
+</html>
+
+
+The example above uses the Car class to create two Car objects.
+
+The constructor method is called automatically when a new object is created.
+
+The Constructor Method
+The constructor method is a special method:
+
+It has to have the exact name "constructor"
+It is executed automatically when a new object is created
+It is used to initialize object properties
+If you do not define a constructor method, JavaScript will add an empty constructor method.
+
+
+
+Class Methods
+Class methods are created with the same syntax as object methods.
+
+Use the keyword class to create a class.
+
+Always add a constructor() method.
+
+Then add any number of methods.
+
+Syntax
+class ClassName {
+  constructor() { ... }
+  method_1() { ... }
+  method_2() { ... }
+  method_3() { ... }
+}
+
+Create a Class method named "age", that returns the Car age:
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Methods</h1>
+<p>How to define and use a Class method.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+
+  }
+  age() {
+    const date = new Date();
+    return date.getFullYear() - this.year;
+  }
+}
+
+const myCar = new Car("Ford", 2003);
+document.getElementById("demo").innerHTML =
+"My car is " + myCar.age() + " years old.";
+</script>
+
+</body>
+</html>
+
+
+You can send parameters to Class methods:
+
+Example
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+const date = new Date();
+let currentYear = date.getFullYear();
+
+const myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(currentYear) + " years old.";
+
+
+
+<script>
+    class Car {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      currentAge() {
+        const date = new Date();
+        return date.getFullYear() - this.age;
+      }
+    }
+
+const carDetails = new Car("Venza", 2003);
+document.getElementById('demo').innerHTML = `My car is ${carDetails.name}. It is ${carDetails.currentAge()} old.`;
+</script>
+
+ans: My car is Venza. It is 20 old.
+
+
+=====================================================================================================
+JavaScript Modules
+
+JavaScript modules are a way to organize and encapsulate code in separate files, making it easier to manage and reuse. They provide a modular approach to JavaScript development. Here's a concise guide to working with JavaScript modules:
+
+Exporting from a module:
+
+Use the export keyword to export functions, variables, or objects from a module.
+You can export multiple items using named exports or a default export.
+Named export: 
+
+export const variableName = value;
+
+or 
+
+export function functionName() {}
+
+
+Default export: 
+
+export default variableName;
+
+or 
+
+export default function functionName() {}
+
+
+Importing a module:
+
+Use the import keyword to import items from a module.
+
+Import named exports: 
+
+import { variableName, functionName } from './module';
+
+
+Import a default export: 
+
+import variableName from './module';
+
+
+Import everything from a module: 
+
+import * as moduleName from './module';
+
+
+Using imported items:
+
+Once imported, you can use the exported items as if they were defined in the current module.
+For named exports: Use the imported variable or function directly, e.g., variableName or functionName().
+
+For default exports: Use the imported item with the name you specified, e.g., variableName.
+Module file extensions:
+
+Modules typically have the .js file extension.
+For modern JavaScript projects using ES modules, you may use .mjs extension.
+Some tools, like bundlers, may support other file extensions or module formats.
+
+Running modules in the browser:
+
+When using modules in a browser, include the type="module" attribute in the <script> tag that imports the module.
+
+Example: 
+
+<script type="module" src="main.js"></script>
+
+That's a brief overview of working with JavaScript modules. Modules are widely supported in modern JavaScript environments and can greatly enhance code organization and reusability.
+
+EXAMPLES:
+// main.js
+
+<script>
+
+// Variable for named export
+export const namedVariable = 'Hello, named variable!';
+
+// Variable for default export
+const defaultVariable = 'Hello, default variable!';
+export default defaultVariable;
+
+// Function for named export
+export function namedFunction() {
+  console.log('This is a named function.');
+}
+
+// Function for default export
+function defaultFunction() {
+  console.log('This is a default function.');
+}
+export default defaultFunction;
+
+</script>
+
+
+
+// App.js
+
+<script type="module">
+  import { namedVariable, namedFunction } from './main.js';
+
+  console.log(namedVariable); // Output: Hello, named variable!
+  namedFunction(); // Output: This is a named function.
+
+</script>
+
+
+
+
+// script.js
+
+<script type="module">
+  import defaultVariable, defaultFunction from './main.js';
+
+console.log(defaultVariable); // Output: Hello, default variable!
+defaultFunction(); // Output: This is a default function.
+
+</script>
+
+
+
+
+Modules
+JavaScript modules allow you to break up your code into separate files.
+
+This makes it easier to maintain a code-base.
+
+Modules are imported from external files with the import statement.
+
+Modules also rely on type="module" in the <script> tag.
+
+
+You can only have one default export in a file.
+
+Note:
+
+Modules only work with the HTTP(s) protocol.
+
+A web-page opened via the file:// protocol cannot use import / export.
+
+
+
+
+
+=======================================================================================
+
+JavaScript JSON#
+
+JSON is a format for storing and transporting data.
+
+JSON is often used when data is sent from a server to a web page.
+
+What is JSON?
+JSON stands for JavaScript Object Notation
+JSON is a lightweight data interchange format
+JSON is language independent *
+JSON is "self-describing" and easy to understand
+* The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text only. Code for reading and generating JSON data can be written in any programming language.
+
+
+
+JavaScript Object Notation (JSON) is a lightweight data interchange format commonly used for representing structured data. It provides a concise and precise way to transmit and store information between a server and a web application, or between different parts of a program.
+
+Here are some key points about JSON:
+
+Structure: JSON data is organized as key-value pairs, similar to objects in JavaScript or dictionaries in other programming languages. The key represents a string identifier, and the value can be of various types, including strings, numbers, booleans, arrays, or nested objects.
+
+Syntax: JSON syntax is derived from JavaScript, making it easy to work with in JavaScript code. It follows a strict format with specific rules:
+
+Data is enclosed in curly braces {} for objects or square brackets [] for arrays.
+Each key-value pair is separated by a colon :.
+Key names must be enclosed in double quotes " ".
+Values can be strings (enclosed in double quotes), numbers, booleans (true or false), null, arrays, or objects.
+Multiple key-value pairs are separated by commas ,.
+Example:
+
+
+{
+  "name": "John Doe",
+  "age": 30,
+  "isStudent": false,
+  "favoriteColors": ["blue", "green"],
+  "address": {
+    "street": "123 Main St",
+    "city": "Exampleville"
+  }
+}
+Data Interchange: JSON is widely used for exchanging data between a client and a server. It is often used in web APIs (Application Programming Interfaces) to send and receive structured data. The JSON format allows easy serialization (converting data into a string) and deserialization (converting a string back into data).
+
+Compatibility: JSON is language-independent, meaning it can be understood and parsed by many programming languages, not just JavaScript. This flexibility makes it a popular choice for data exchange between different systems.
+
+Readability: JSON's syntax is human-readable and easy to understand, which makes it useful for both machines and humans. It is often used in configuration files, data storage, and communication protocols.
+
+Overall, JSON provides a concise and precise way to represent structured data, making it a versatile format for data exchange and storage in various applications.
+
+
+
+JSON Example
+This JSON syntax defines an employees object: an array of 3 employee records (objects):
+
+JSON Example
+{
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+}
+
+
+Note: JSON names require double quotes. JavaScript names do not.
+
+
+Converting a JSON Text to a JavaScript Object
+A common use of JSON is to read data from a web server, and display the data in a web page.
+
+For simplicity, this can be demonstrated using a string as input.
+
+First, create a JavaScript string containing JSON syntax:
+
+let text = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+Then, use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:
+
+const obj = JSON.parse(text);
+
+Finally, use the new JavaScript object in your page:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+let text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+const obj = JSON.parse(text);
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+</script>
+
+</body>
+</html>
+//ANS: Anna Smith
+
+
+so console.log(text);
+ans: 
+{"employees":[{"firstName":"John","lastName":"Doe" },{"firstName":"Anna","lastName":"Smith" },{"firstName":"Peter","lastName":"Jones" }]}   and typeof is string
+
+and console.log(obj);  is Object and typeof is object
+
+
+let text = '{"employees":[' + ... }';: This line declares a JavaScript variable named text and assigns it a string value containing a JSON representation of employee data. The JSON string represents an object with a key "employees" whose value is an array of employee objects, each having "firstName" and "lastName" properties.
+
+const obj = JSON.parse(text);: The JSON.parse() function is used to convert the JSON string stored in the text variable into a JavaScript object. The resulting object is assigned to the obj variable.
+
+document.getElementById("demo").innerHTML = obj.employees[1].firstName + " " + obj.employees[1].lastName;: This line retrieves the element with the id "demo" using document.getElementById(). It then sets the innerHTML property of the element to display the first name and last name of the second employee in the employees array of the obj object. In this case, it will display "Anna Smith".
+
+The provided code demonstrates how to parse a JSON string using JSON.parse() and access its properties to retrieve and display specific information.
+
+Please note that the given code is an example, and in a real-world scenario, the JSON data might be retrieved from an API or other external sources.
+
+
+------
+
+Let's break down the code:
+
+fetch('employee.json'): The fetch() function is used to make an HTTP request to the specified URL, in this case, the employee.json file. It returns a Promise that represents the response to the request.
+
+.then(response => response.json()): The first .then() function is chained to the fetch Promise. It takes the response from the previous Promise and calls the json() method on it. This method parses the response body as JSON and returns another Promise with the parsed data.
+
+.then(data => { ... }): The second .then() function is chained to the previous Promise. It takes the parsed data from the previous Promise and performs further actions with it.
+
+const container = document.getElementById('employeeList');: This line retrieves the HTML element with the id "employeeList" and assigns it to the container variable. This element serves as the container where the employee names will be displayed.
+
+const employees = data.employees;: The employees variable is assigned the value of the "employees" property from the parsed JSON data. It represents an array of employee objects.
+
+let html = '';: The html variable is initialized as an empty string. This variable will store the HTML code for displaying the employee names.
+
+employees.forEach(employee => { ... });: This line iterates over each employee object in the employees array using the forEach() method.
+
+html += <p>${employee.firstName} ${employee.lastName}</p>;: Within the forEach() loop, this line appends HTML code to the html variable. It creates a paragraph element (<p>) that displays the first name and last name of each employee.
+
+container.innerHTML = html;: After iterating over all employees and generating the HTML code, this line sets the innerHTML property of the container element to the value of the html variable. As a result, the employee names will be rendered within the container element.
+
+.catch(error => console.log(error));: The .catch() function is used to handle any errors that may occur during the fetch operation. If an error occurs, it will be logged to the console.
+
+Overall, this JavaScript code fetches the employee.json file, parses the JSON data, iterates over the employee objects, generates HTML code to display their names, and inserts the generated HTML into the specified container element.
+
+
+
+
 
 
 

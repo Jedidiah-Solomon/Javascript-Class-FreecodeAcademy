@@ -7,22 +7,30 @@
 </head>
 <body>
   <p id="demo"></p>
+  <button type="submit">BUY NOW</button>
 
   <script>
-    // Create an object:
-    const person = {
-      firstName: "John",
-      lastName: "Obi",
-      id: 5566,
-      fullName: nameCaller
-    };
+   const person = {
+  name: "John Doe",
+  age: 25,
+  city: "New York"
+};
 
-    function nameCaller(obj) {
-      return obj.firstName + " " + obj.lastName;
-    }
+console.log(typeof person);  // object
 
-    // Display data from the object:
-    document.getElementById("demo").innerHTML = person.fullName(person) + '<br> Id: ' + person.id;
+const personJSON = JSON.stringify(person);
+console.log(personJSON);// {"name":"John Doe","age":25,"city":"New York"}
+console.log(typeof personJSON); // string
+
+
+const personObject = JSON.parse(personJSON);
+console.log(personObject);//
+console.log(typeof personObject); // 
+
+
+
   </script>
 </body>
 </html>
+
+
