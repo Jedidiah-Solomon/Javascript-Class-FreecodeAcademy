@@ -15437,7 +15437,8 @@ Inside the onload event handler, the response text received from the server is p
 
 The name property of the parsed object is then displayed within the <p> element with the id "demo", using document.getElementById("demo").innerHTML.
 
-The next lines of code set up the request. xmlhttp.open("GET", "json_demo.txt") specifies the HTTP method as GET and the URL of the JSON file to fetch.
+The next lines of code set up the request. 
+xmlhttp.open("GET", "json_demo.txt") specifies the HTTP method as GET and the URL of the JSON file to fetch.
 
 Finally, xmlhttp.send() sends the request to the server to fetch the JSON file.
 
@@ -15446,6 +15447,38 @@ Note that in this example, the JSON file to be fetched is specified as "json_dem
 When you open this index.html page in a web browser, the JavaScript code will be executed. It sends a GET request to fetch the JSON file specified in xmlhttp.open("GET", "json_demo.txt"). Once the response is received, the onload event handler is triggered. The response text is parsed into a JavaScript object using JSON.parse(), and the name property of the object is displayed within the <p> element with the id "demo".
 
 
+--------------
+
+Array as JSON
+When using the JSON.parse() on JSON derived from an array, the method will return a JavaScript array, instead of a JavaScript object.
+
+Example
+JSON returned from a server as an array:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Fetch a JSON file with XMLHttpRequest</h2>
+<p>Content written as an JSON array will be converted into a JavaScript array.</p>
+<p id="demo"></p>
+
+<script>
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myArr = JSON.parse(this.responseText);
+  document.getElementById("demo").innerHTML = myArr[0];
+}
+xmlhttp.open("GET", "json_demo_array.txt", true);
+xmlhttp.send();
+</script>
+
+</body>
+</html>
+
+The third parameter of the xmlhttp.open() method is set to true. This parameter represents whether the request should be asynchronous or not.
+
+When true is passed as the third parameter, it means that the request is asynchronous. Asynchronous requests allow the browser to continue executing other code and processing user interactions while waiting for the response from the server. This prevents the browser from freezing or becoming unresponsive during the request.
 
 
 

@@ -2,16 +2,17 @@
 <html>
 <body>
 
-<h2>Fetch a JSON file with XMLHttpRequest</h2>
+<h2>Fetch a JSON file with XMLHttpRequest from a server</h2>
 <p id="demo"></p>
 
 <script>
 const xmlhttp = new XMLHttpRequest();
 xmlhttp.onload = function() {
   const myObj = JSON.parse(this.responseText);
-  document.getElementById("demo").innerHTML = myObj.name;
+  const petsText = myObj.pets.map(pet => pet.animal + ": " + pet.name).join(", ");
+  document.getElementById("demo").innerHTML = myObj.name + " has many pets like: " + petsText;
 }
-xmlhttp.open("GET", "https://raw.githubusercontent.com/your-username/repo-name/main/json_demo.txt");
+xmlhttp.open("GET", "https://raw.githubusercontent.com/Jedidiah-Solomon/Javascript-Class-FreecodeAcademy/main/js-basics/JSON/Server/json_demo.txt");//John has many pets like: dog: Fido, cat: Felix, hamster: Lightning
 xmlhttp.send();
 </script>
 
@@ -23,6 +24,11 @@ xmlhttp.send();
       When you open the HTML file in a web browser, it will fetch the "json_demo.txt" file from the specified GitHub URL using XMLHttpRequest and display the value of the name property within the <p> element with the id "demo".
 
       Please note that if your GitHub repository is private, you might need to authenticate or adjust the repository settings to allow public access to the raw file content.
+
+      the petsText variable is created using the map() function to iterate over each pet object in the myObj.pets array. It combines the animal type and the name of each pet using the format "animal: name". The join(", ") method is then used to join these pet strings with a comma and space.
+
+      Finally, the document.getElementById("demo").innerHTML is set to display the name of the person (myObj.name) followed by " has many pets like: " and the formatted petsText.
+
 
 
 
