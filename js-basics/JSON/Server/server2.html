@@ -11,9 +11,24 @@ xmlhttp.onload = function() {
   const myObj = JSON.parse(this.responseText);
   document.getElementById("demo").innerHTML = myObj.name;
 }
-xmlhttp.open("GET", "json_demo.txt");
+xmlhttp.open("GET", "https://raw.githubusercontent.com/your-username/repo-name/main/json_demo.txt");
 xmlhttp.send();
 </script>
+
+<!--
+      In this code, you need to replace "your-username" with your GitHub username and "repo-name" with the name of your GitHub repository where you have hosted the "json_demo.txt" file.
+
+      The URL specified in xmlhttp.open() is set to the raw content URL of the "json_demo.txt" file on GitHub. This URL provides direct access to the raw content of the file. Make sure the file is publicly accessible, or you have appropriate permissions to access it.
+
+      When you open the HTML file in a web browser, it will fetch the "json_demo.txt" file from the specified GitHub URL using XMLHttpRequest and display the value of the name property within the <p> element with the id "demo".
+
+      Please note that if your GitHub repository is private, you might need to authenticate or adjust the repository settings to allow public access to the raw file content.
+
+
+
+
+
+-->
 
 </body>
 </html>
