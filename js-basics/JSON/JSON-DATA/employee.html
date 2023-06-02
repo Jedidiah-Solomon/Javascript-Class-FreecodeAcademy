@@ -100,7 +100,7 @@ fetch('./scripts/employee.json'): This initiates a network request to fetch the 
 
 .then(response => response.json()): This is the first .then block chained to the fetch promise. It takes the response object from the previous promise and calls the json() method on it. This method parses the response body as JSON and returns another promise that resolves to the parsed JSON data.
 
-.then(data => { ... }): This is the second .then block chained to the previous promise. It takes the parsed JSON data (in this case, an object) and executes the callback function. Inside the callback function, we can access the data and perform operations on it.
+.then(data => { ... }): This is the second .then block chained to the previous promise. It takes the parsed JSON data (in this case, an object) and executes the callback function. Inside the callback function, we can access the data and perform operations on it.  the code extracts the employees array from the JSON data using data.employees and assigns it to the employees variable.
 
 const container = document.getElementById('employeeList');: This line retrieves the HTML element with the id "employeeList" and assigns it to the container variable. This element is where the employee details will be displayed.
 
@@ -120,6 +120,15 @@ Overall, this JavaScript code fetches the JSON data from the specified file, ext
 
 
 
+the parsing process refers to converting the JSON data retrieved from the employee.json file into a JavaScript object.
+
+When the response.json() method is called on the response object in the first .then() method, it reads the response stream and asynchronously parses the JSON data. This process involves interpreting the JSON string and converting it into a JavaScript object or value.
+
+
+
+After the parsing process, the resulting JavaScript object can be accessed and manipulated in the subsequent .then() method. In your code, the parsed data is assigned to the data variable:
+
+const data = /* parsed JSON data */;
 
 NOTE:
 

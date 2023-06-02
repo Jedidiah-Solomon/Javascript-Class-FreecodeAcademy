@@ -17,3 +17,7 @@
 2. unsplash.com
 3. undraw.co
 4. pixlr.com/e   ---------------- for shaping pictures with beautiful shapes
+5. Favicons for web and mobile https://redketchup.io/favicon-generator
+
+
+

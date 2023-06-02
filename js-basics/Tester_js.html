@@ -7,27 +7,27 @@
 </head>
 <body>
   <p id="demo"></p>
-  <button type="submit">BUY NOW</button>
+
 
   <script>
-   const person = {
-  name: "John Doe",
-  age: 25,
-  city: "New York"
-};
+    const obj = { name: "John", today: new Date(), city: "New York" };
 
-console.log(typeof person);  // object
+    // Format the date to UTC+1 time without "T" and "Z"
+    const formattedDate = obj.today.toLocaleString("en-US", {
+      timeZone: "UTC",
+      hour12: false,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
 
-const personJSON = JSON.stringify(person);
-console.log(personJSON);// {"name":"John Doe","age":25,"city":"New York"}
-console.log(typeof personJSON); // string
+    obj.today = formattedDate;
 
-
-const personObject = JSON.parse(personJSON);
-console.log(personObject);//
-console.log(typeof personObject); // 
-
-
+    const myJSON = JSON.stringify(obj);
+    document.getElementById("demo").innerHTML = myJSON;
 
   </script>
 </body>

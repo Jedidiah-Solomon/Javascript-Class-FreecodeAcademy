@@ -1,0 +1,20 @@
+{
+  "name": "eventis-pure-tech-school",
+  "version": "1.0.0",
+  "description": "School App For Eventis-Pure-Tech-School",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Eventis-App"
+  },
+  "keywords": [
+    "School",
+    "Nigeria",
+    "Pure-Tech"
+  ],
+  "author": "Jedidiah Solomon Onwubiko",
+  "license": "ISC"
+}
