@@ -12,7 +12,7 @@ xmlhttp.onload = function() {
   const myObj = JSON.parse(this.responseText);
   document.getElementById("demo").innerHTML = myObj.name;
 }
-xmlhttp.open("GET", "./demo_file.php");
+xmlhttp.open("GET", "https://raw.githubusercontent.com/Jedidiah-Solomon/Javascript-Class-FreecodeAcademy/main/js-basics/JSON/Server/demo_file.php");
 xmlhttp.send();
 </script>
 
