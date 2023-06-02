@@ -12,7 +12,7 @@ xmlhttp.onload = function() {
   const myArr = JSON.parse(this.responseText);
   document.getElementById("demo").innerHTML = myArr[0];//ford
 }
-xmlhttp.open("GET", "./json_demo_array.txt", true);
+xmlhttp.open("GET", "./json_demo_array.txt", true);//or use https://raw.githubusercontent.com/Jedidiah-Solomon/Javascript-Class-FreecodeAcademy/main/js-basics/JSON/Server/json_demo_array.txt
 xmlhttp.send();
 </script>
 

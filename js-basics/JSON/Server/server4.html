@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Fetch a JSON file with fetch API (ARRAY)</h2>
+<p>Content written as a JSON array will be converted into a JavaScript array.</p>
+<p id="demo"></p>
+
+<script>
+fetch("./json_demo_array.txt")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("demo").innerHTML = data[0]; // ford
+  })
+  .catch(error => {
+    console.error('Error Message:', error);
+  });
+</script>
+
+
+<!--
+
+      The response.json() method in the fetch API converts the JSON response into a JavaScript object. It parses the JSON data and returns a Promise that resolves to the parsed JavaScript object.
+
+      If the JSON data represents an array, like in this case, the response.json() method will parse it into a JavaScript array.
+
+
+-->
+</body>
+</html>
